@@ -17,9 +17,9 @@ export default function Navbar(props) {
 
         <div class="pt-56 pb-20 flex item-center justify-center relative">
 
-          <p variant="small" color="white" className="font-medium mr-5">
+          <div variant="small" color="white" className="font-medium mr-5">
             <p className="text-3xl">KLiM</p>
-          </p>
+          </div>
 
           <h2 class="box-decoration-slice bg-yellow-700 text-white px-2 rounded-2xl text-3xl">
             PUS
