@@ -58,7 +58,7 @@ export default function HeaderStats() {
                   statPercentColor="text-emerald-500"
                   statDescripiron="Since last month"
                   statIconName="fas fa-percent"
-                  statIconColor="bg-lightBlue-500"
+                  statIconColor="bg-sky-500"
                 />
               </div>
             </div>
