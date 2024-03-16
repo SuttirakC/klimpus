@@ -8,12 +8,12 @@ export default function FooterAdmin() {
           <hr className="mb-4 border-b-1 border-slate-200" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4">
-              <div className="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left">
+              <div className="text-sm text-slate-500 font-semibold py-1 text-center md:text-left">
               KMUTT Library Monitoring Public Utility Service
               </div>
             </div>
             <div className="w-full md:w-6/12 px-4">
-            <div className="text-sm text-blueGray-500 font-semibold text-center">
+            <div className="text-sm text-slate-500 font-semibold text-center">
                 © {new Date().getFullYear()}{" "}
                 <a>
                   klimpus.kmutt.ac.th  is a subsidiary website of KMUTT. All rights reserved.
