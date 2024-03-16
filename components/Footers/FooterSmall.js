@@ -14,7 +14,10 @@ export default function FooterSmall(props) {
           {/* <hr className="mb-6 border-b-1 " /> //line footer*/}
 
           <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-4/12 px-4">
+            <div className="w-full  px-4">
+              <div className="text-sm text-white font-semibold py-1 text-center md:text-left">
+                KMUTT Library Monitoring Public Utility Service
+              </div>
               <div className="text-sm text-white font-semibold py-1 text-center md:text-left">
                 © {new Date().getFullYear()}{" "}
                 <a>
