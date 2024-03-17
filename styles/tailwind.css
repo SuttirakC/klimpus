@@ -1509,6 +1509,10 @@ select {
   border-radius: 0.25rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1592,13 +1596,13 @@ select {
   border-color: rgb(100 116 139 / var(--tw-border-opacity));
 }
 
-.border-slate-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(71 85 105 / var(--tw-border-opacity));
-}
-
 .border-transparent {
   border-color: transparent;
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .bg-amber-500 {
@@ -1629,6 +1633,16 @@ select {
 .bg-indigo-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
+.bg-kmutt_orange-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 77 34 / var(--tw-bg-opacity));
+}
+
+.bg-kmutt_yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 199 43 / var(--tw-bg-opacity));
 }
 
 .bg-orange-200 {
@@ -1759,12 +1773,13 @@ select {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-cover {
-  background-size: cover;
+.box-decoration-slice {
+  -webkit-box-decoration-break: slice;
+          box-decoration-break: slice;
 }
 
-.bg-full {
-  background-size: 100%;
+.bg-cover {
+  background-size: cover;
 }
 
 .bg-center {
@@ -2257,6 +2272,10 @@ select {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-all {
