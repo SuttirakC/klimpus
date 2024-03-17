@@ -20,11 +20,11 @@ export default function Login() {
           />
         </div>
 
-        <div class="flex item-center justify-center relative mt-12 mb-12">
+        <div className="flex item-center justify-center relative mt-12 mb-12">
           <div variant="small" color="white" className="font-medium mr-2">
             <p className="text-3xl font-semibold text-white">KLiM</p>
           </div>
-          <h2 class="box-decoration-slice bg-kmutt_yellow-100 text-white px-2 rounded-2xl text-3xl font-semibold">
+          <h2 className="box-decoration-slice bg-kmutt_yellow-100 text-white px-2 rounded-2xl text-3xl font-semibold">
             PUS
           </h2>
         </div>
