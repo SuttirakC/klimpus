@@ -31,7 +31,7 @@ export default function Login() {
 
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-4/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-3xl bg-white border-0">
 
               <div className="flex-auto px-12 lg:px-10 py-10 pt-6">
                 <div className="text-slate-400 text-center mb-3 font-bold">
