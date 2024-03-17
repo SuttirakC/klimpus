@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Chart from 'chart.js/auto';
 
 export default function CardLineChart() {
-  React.useEffect(() => {
-    var config = {
+  useEffect(() => {
+    const config = {
       type: "line",
       data: {
         labels: [
@@ -25,87 +25,91 @@ export default function CardLineChart() {
           },
           {
             label: new Date().getFullYear() - 1,
-            fill: false,
             backgroundColor: "#fff",
             borderColor: "#fff",
             data: [40, 68, 86, 74, 56, 60, 87],
+            fill: false,
           },
         ],
       },
       options: {
         maintainAspectRatio: false,
         responsive: true,
-        title: {
-          display: false,
-          text: "Sales Charts",
-          fontColor: "white",
-        },
-        legend: {
-          labels: {
-            fontColor: "white",
+        plugins: {
+          title: {
+            display: false,
+            text: "Sales Charts",
+            font: {
+              weight: 'bold',
+              size: 18,
+            },
+            color: "white",
           },
-          align: "end",
-          position: "bottom",
-        },
-        tooltips: {
-          mode: "index",
-          intersect: false,
-        },
-        hover: {
-          mode: "nearest",
-          intersect: true,
+          legend: {
+            display: true,
+            labels: {
+              color: "white",
+            },
+            align: "end",
+            position: "bottom",
+          },
+          tooltip: {
+            mode: "index",
+            intersect: false,
+          },
+          hover: {
+            mode: "nearest",
+            intersect: true,
+          },
         },
         scales: {
-          xAxes: [
-            {
-              ticks: {
-                fontColor: "rgba(255,255,255,.7)",
-              },
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: "Month",
-                fontColor: "white",
-              },
-              gridLines: {
-                display: false,
-                borderDash: [2],
-                borderDashOffset: [2],
-                color: "rgba(33, 37, 41, 0.3)",
-                zeroLineColor: "rgba(0, 0, 0, 0)",
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
+          x: {
+            ticks: {
+              color: "rgba(255,255,255,.7)",
             },
-          ],
-          yAxes: [
-            {
-              ticks: {
-                fontColor: "rgba(255,255,255,.7)",
-              },
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: "Value",
-                fontColor: "white",
-              },
-              gridLines: {
-                borderDash: [3],
-                borderDashOffset: [3],
-                drawBorder: false,
-                color: "rgba(255, 255, 255, 0.15)",
-                zeroLineColor: "rgba(33, 37, 41, 0)",
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
+            display: true,
+            title: {
+              display: false,
+              text: "Month",
+              color: "white",
             },
-          ],
+            grid: {
+              display: false,
+              borderDash: [2],
+              borderDashOffset: [2],
+              color: "rgba(33, 37, 41, 0.3)",
+              zeroLineColor: "rgba(0, 0, 0, 0)",
+              zeroLineBorderDash: [2],
+              zeroLineBorderDashOffset: [2],
+            },
+          },
+          y: {
+            ticks: {
+              color: "rgba(255,255,255,.7)",
+            },
+            display: true,
+            title: {
+              display: false,
+              text: "Value",
+              color: "white",
+            },
+            grid: {
+              borderDash: [3],
+              borderDashOffset: [3],
+              drawBorder: false,
+              color: "rgba(255, 255, 255, 0.15)",
+              zeroLineColor: "rgba(33, 37, 41, 0)",
+              zeroLineBorderDash: [2],
+              zeroLineBorderDashOffset: [2],
+            },
+          },
         },
       },
     };
-    var ctx = document.getElementById("line-chart").getContext("2d");
-    window.myLine = new Chart(ctx, config);
+    const ctx = document.getElementById("line-chart").getContext("2d");
+    new Chart(ctx, config);
   }, []);
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-slate-700">
