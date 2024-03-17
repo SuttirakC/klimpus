@@ -22,11 +22,11 @@ const NotificationDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
   return (
     <>
-      <a
-        className="text-slate-500 block py-1 px-3"
-        href="#pablo"
+      <span
+        className="text-slate-500 block py-1 px-3 cursor-pointer"
         ref={btnDropdownRef}
         onClick={(e) => {
           e.preventDefault();
@@ -34,7 +34,7 @@ const NotificationDropdown = () => {
         }}
       >
         <i className="fas fa-bell"></i>
-      </a>
+      </span>
       <div
         ref={popoverDropdownRef}
         className={
@@ -42,43 +42,39 @@ const NotificationDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
-        <a
-          href="#pablo"
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
           onClick={(e) => e.preventDefault()}
         >
           Action
-        </a>
-        <a
-          href="#pablo"
+        </span>
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
           onClick={(e) => e.preventDefault()}
         >
           Another action
-        </a>
-        <a
-          href="#pablo"
+        </span>
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
           onClick={(e) => e.preventDefault()}
         >
           Something else here
-        </a>
+        </span>
         <div className="h-0 my-2 border border-solid border-slate-100" />
-        <a
-          href="#pablo"
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
           onClick={(e) => e.preventDefault()}
         >
-          Seprated link
-        </a>
+          Separated link
+        </span>
       </div>
     </>
   );

@@ -8,8 +8,39 @@ export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between navbar-expand-lg">
+        <div className="bg-kmutt_orange-100 h-10 w-full text-white items-center">
+          {/* <div className="container mx-auto px-4 flex flex-warp items-center justify-between">
+            <p className="text-sm ">King Mongkut's University of Technology Thonburi</p>
+          </div>
+          <div className=" flex flex-warp justify-">
+            <p className="text-sm ">King Mongkut's University of Technology Thonburi</p>
+          </div>
+          <div className="container mx-auto px-4 flex flex-warp">
+            <p className="text-sm ">King Mongkut's University of Technology Thonburi</p>
+          </div> */}
+          <div className="container px-4 mx-auto flex flex-wrap items-center justify-end">
+            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+              <Link href="/">
+                <span
+                  className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap cursor-pointer"
+                >
+                  King Mongkut's University of Technology Thonburi
+                </span>
+              </Link>
+              <button
+                className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                type="button"
+                onClick={() => setNavbarOpen(!navbarOpen)}
+              >
+                <i className="text-white fas fa-bars"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        {/* <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
               <a
@@ -92,7 +123,7 @@ export default function Navbar(props) {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </nav>
     </>
   );

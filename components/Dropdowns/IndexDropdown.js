@@ -26,8 +26,8 @@ const IndexDropdown = () => {
   
   return (
     <>
-      <a
-        className="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+      <span
+        className="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold cursor-pointer"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -36,7 +36,7 @@ const IndexDropdown = () => {
         }}
       >
         Demo Pages
-      </a>
+      </span>
       <div
         ref={popoverDropdownRef}
         className={
@@ -52,44 +52,44 @@ const IndexDropdown = () => {
           Admin Layout
         </span>
         <Link href="/admin/dashboard">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Dashboard
-          </a>
+          </span>
         </Link>
         <Link href="/admin/settings">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Settings
-          </a>
+          </span>
         </Link>
         <Link href="/admin/tables">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Tables
-          </a>
+          </span>
         </Link>
         <Link href="/admin/maps">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Maps
-          </a>
+          </span>
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-slate-100" />
         <span
@@ -100,24 +100,24 @@ const IndexDropdown = () => {
           Auth Layout
         </span>
         <Link href="/auth/login">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Login
-          </a>
+          </span>
         </Link>
         <Link href="/auth/register">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Register
-          </a>
+          </span>
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-slate-100" />
         <span
@@ -128,24 +128,24 @@ const IndexDropdown = () => {
           No Layout
         </span>
         <Link href="/landing">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Landing
-          </a>
+          </span>
         </Link>
         <Link href="/profile">
-          <a
-            href="#pablo"
+          <span
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
             }
+            onClick={closeDropdownPopover}
           >
             Profile
-          </a>
+          </span>
         </Link>
       </div>
     </>

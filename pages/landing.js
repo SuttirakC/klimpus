@@ -130,9 +130,9 @@ export default function Landing() {
                   JavaScript.
                 </p>
                 <Link href="/">
-                  <a href="#pablo" className="font-bold text-slate-700 mt-8">
+                  <span href="#pablo" className="font-bold text-slate-700 mt-8 cursor-pointer">
                     Check Notus NextJS!
-                  </a>
+                  </span>
                 </Link>
               </div>
 

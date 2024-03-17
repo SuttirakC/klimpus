@@ -9,9 +9,6 @@
     "@fortawesome/fontawesome-free": "5.15.3",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
-    "next": "12.2.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -44,7 +41,11 @@
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.18",
     "chart.js": "^4.4.2",
+    "eslint-config-next": "^14.1.3",
+    "next": "^14.1.3",
     "postcss": "^8.4.35",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.1"
   }
 }

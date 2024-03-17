@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
@@ -65,36 +66,40 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=nnjs-footer"
-                      >
-                        About Us
-                      </a>
+                      <Link href="https://www.creative-tim.com/presentation?ref=nnjs-footer">
+                        <span
+                          className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
+                        >
+                          About Us
+                        </span>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com?ref=nnjs-footer"
+                      <Link href="https://blog.creative-tim.com?ref=nnjs-footer">
+                      <span
+                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"                      
                       >
                         Blog
-                      </a>
+                      </span>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial?ref=nnjs-footer"
-                      >
-                        Github
-                      </a>
+                      <Link href="https://www.github.com/creativetimofficial?ref=nnjs-footer">
+                        <span
+                          className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
+                        >
+                          Github
+                        </span>
+                      </Link>                      
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=nnjs-footer"
-                      >
-                        Free Products
-                      </a>
+                      <Link href="https://www.creative-tim.com/bootstrap-themes/free?ref=nnjs-footer">
+                        <span
+                          className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
+                        >
+                          Free Products
+                        </span>
+                      </Link>                      
                     </li>
                   </ul>
                 </div>
@@ -104,36 +109,40 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/notus-nextjs/blob/main/LICENSE.md?ref=nnjs-footer"
+                      <Link href="https://github.com/creativetimofficial/notus-nextjs/blob/main/LICENSE.md?ref=nnjs-footer">
+                      <span
+                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
                       >
                         MIT License
-                      </a>
+                      </span>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms?ref=nnjs-footer"
+                      <Link href="https://creative-tim.com/terms?ref=nnjs-footer">
+                      <span
+                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
                       >
                         Terms & Conditions
-                      </a>
+                      </span>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/privacy?ref=nnjs-footer"
+                      <Link href="https://creative-tim.com/privacy?ref=nnjs-footer">
+                      <span
+                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
                       >
                         Privacy Policy
-                      </a>
+                      </span>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/contact-us?ref=nnjs-footer"
+                      <Link href="https://creative-tim.com/contact-us?ref=nnjs-footer">
+                      <span
+                        className="text-slate-600 hover:text-slate-800 font-semibold block pb-2 text-sm cursor-pointer"
                       >
                         Contact Us
-                      </a>
+                      </span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -145,12 +154,13 @@ export default function Footer() {
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-slate-500 font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Notus NextJS by{" "}
-                <a
-                  href="https://www.creative-tim.com?ref=nnjs-footer"
-                  className="text-slate-500 hover:text-slate-800"
+                <Link href="https://www.creative-tim.com?ref=nnjs-footer">
+                <span
+                  className="text-slate-500 hover:text-slate-800 cursor-pointer"
                 >
                   Creative Tim
-                </a>
+                </span>
+                </Link>
                 .
               </div>
             </div>
