@@ -4,11 +4,11 @@ export default function FooterAdmin() {
   return (
     <>
       <footer className="block py-4">
-        <div className="container mx-auto px-4">
-          <hr className="mb-4 border-b-1 border-slate-200" />
+        <div className=" mx-auto">
+          {/* <hr className="mb-4 border-b-1 border-slate-200" /> */}
           <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-4/12 px-4">
-              <div className="text-sm text-slate-500 font-semibold py-1 text-center md:text-left">
+            <div className="w-full md:w-12/12 px-4">
+              {/* <div className="text-sm text-slate-500 font-semibold py-1 text-center md:text-left">
                 Copyright © {new Date().getFullYear()}{" "}
                 <a
                   href="https://www.creative-tim.com?ref=nnjs-footer-admin"
@@ -16,9 +16,16 @@ export default function FooterAdmin() {
                 >
                   Creative Tim
                 </a>
+              </div> */}
+              <div className="flex-col text-sm text-slate-500 font-semibold py-1 text-center md:text-left">
+                KMUTT Library Monitoring Public Utility Service
+              </div>
+              <div className="flex-col text-sm text-slate-500 font-semibold py-1 text-center md:text-left">
+                © 2023 klimpus.kmutt.ac.th  is a subsidiary website of KMUTT. All rights reserved.
               </div>
             </div>
-            <div className="w-full md:w-8/12 px-4">
+
+            {/* <div className="w-full md:w-8/12 px-4">
               <ul className="flex flex-wrap list-none md:justify-end  justify-center">
                 <li>
                   <a
@@ -53,7 +60,7 @@ export default function FooterAdmin() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
