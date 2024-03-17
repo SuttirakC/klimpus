@@ -22,12 +22,12 @@ export default function Sidebar() {
           </button>
           {/* Brand */}
           <Link href="/">
-            <a
-              href="#pablo"
-              className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+            <span
+              className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 cursor-pointer"
+              onClick={() => setCollapseShow("hidden")}
             >
               Notus NextJS
-            </a>
+            </span>
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -50,12 +50,12 @@ export default function Sidebar() {
               <div className="flex flex-wrap">
                 <div className="w-6/12">
                   <Link href="/">
-                    <a
-                      href="#pablo"
-                      className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                    <span
+                      className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 cursor-pointer"
+                      onClick={() => setCollapseShow("hidden")}
                     >
                       Notus NextJS
-                    </a>
+                    </span>
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -91,14 +91,14 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link href="/admin/dashboard">
-                  <a
-                    href="#pablo"
+                  <span
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/dashboard") !== -1
                         ? "text-sky-500 hover:text-sky-600"
                         : "text-slate-700 hover:text-slate-500")
                     }
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
@@ -109,20 +109,20 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Dashboard
-                  </a>
+                  </span>
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link href="/admin/settings">
-                  <a
-                    href="#pablo"
+                  <span
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/settings") !== -1
                         ? "text-sky-500 hover:text-sky-600"
                         : "text-slate-700 hover:text-slate-500")
                     }
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
@@ -133,20 +133,20 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Settings
-                  </a>
+                  </span>
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link href="/admin/tables">
-                  <a
-                    href="#pablo"
+                  <span
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/tables") !== -1
                         ? "text-sky-500 hover:text-sky-600"
                         : "text-slate-700 hover:text-slate-500")
                     }
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
@@ -157,20 +157,20 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Tables
-                  </a>
+                  </span>
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link href="/admin/maps">
-                  <a
-                    href="#pablo"
+                  <span
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/maps") !== -1
                         ? "text-sky-500 hover:text-sky-600"
                         : "text-slate-700 hover:text-slate-500")
                     }
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
@@ -181,7 +181,7 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Maps
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -197,25 +197,25 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link href="/auth/login">
-                  <a
-                    href="#pablo"
-                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block"
+                  <span
+                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i className="fas fa-fingerprint text-slate-400 mr-2 text-sm"></i>{" "}
                     Login
-                  </a>
+                  </span>
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link href="/auth/register">
-                  <a
-                    href="#pablo"
-                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block"
+                  <span
+                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i className="fas fa-clipboard-list text-slate-300 mr-2 text-sm"></i>{" "}
                     Register
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -231,25 +231,25 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link href="/landing">
-                  <a
-                    href="#pablo"
-                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block"
+                  <span
+                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i className="fas fa-newspaper text-slate-400 mr-2 text-sm"></i>{" "}
                     Landing Page
-                  </a>
+                  </span>
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link href="/profile">
-                  <a
-                    href="#pablo"
-                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block"
+                  <span
+                    className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
+                    onClick={() => setCollapseShow("hidden")}
                   >
                     <i className="fas fa-user-circle text-slate-400 mr-2 text-sm"></i>{" "}
                     Profile Page
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -263,91 +263,83 @@ export default function Sidebar() {
             {/* Navigation */}
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/colors/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fas fa-paint-brush mr-2 text-slate-300 text-base"></i>
                   Styles
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-css3-alt mr-2 text-slate-300 text-base"></i>
                   CSS Components
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-angular mr-2 text-slate-300 text-base"></i>
                   Angular
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-js-square mr-2 text-slate-300 text-base"></i>
                   Javascript
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-react mr-2 text-slate-300 text-base"></i>
                   NextJS
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-react mr-2 text-slate-300 text-base"></i>
                   React
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fas fa-link mr-2 text-slate-300 text-base"></i>
                   Svelte
-                </a>
+                </span>
               </li>
 
               <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
-                  target="_blank"
-                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold"
+                <span
+                  className="text-slate-700 hover:text-slate-500 text-sm block mb-4 no-underline font-semibold cursor-pointer"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fab fa-vuejs mr-2 text-slate-300 text-base"></i>
                   VueJS
-                </a>
+                </span>
               </li>
             </ul> */}
           </div>

@@ -8,7 +8,7 @@ import Auth from "layouts/Auth.js";
 
 export default function Login() {
   return (
-    <>    
+    <>
       <div className="container mx-auto h-full">
         <div className="relative flex justify-start ">
           <Image
@@ -80,14 +80,14 @@ export default function Login() {
 
                   <div className="text-center mt-6">
                     <Link href="/admin/dashboard">
-                      <a href="#pablo" className="text-slate-200">
+                      <span href="#pablo" className="text-slate-200 cursor-pointer">
                         <button
                           className="bg-kmutt_orange-100 text-white active:bg-slate-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                           type="button"
                         >
                           Login
                         </button>
-                      </a>
+                      </span>
                     </Link>
                   </div>
                 </form>
@@ -95,19 +95,21 @@ export default function Login() {
             </div>
             <div className="flex flex-wrap mt-6 relative">
               <div className="w-1/2">
-                <a
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  className="text-slate-200"
-                >
-                  <small>Forgot password?</small>
-                </a>
+                <Link href="#pablo">
+                  <span
+                    href="#pablo"
+                    onClick={(e) => e.preventDefault()}
+                    className="text-slate-200 cursor-pointer"
+                  >
+                    <small>Forgot password?</small>
+                  </span>
+                </Link>
               </div>
               <div className="w-1/2 text-right">
                 <Link href="/auth/register">
-                  <a href="#pablo" className="text-slate-200">
+                  <span href="#pablo" className="text-slate-200 cursor-pointer">
                     <small>Create new account</small>
-                  </a>
+                  </span>
                 </Link>
               </div>
             </div>
