@@ -1339,20 +1339,12 @@ select {
   width: 4rem;
 }
 
-.w-32 {
-  width: 8rem;
-}
-
 .w-5 {
   width: 1.25rem;
 }
 
 .w-6\/12 {
   width: 50%;
-}
-
-.w-64 {
-  width: 16rem;
 }
 
 .w-8 {
@@ -2142,6 +2134,11 @@ select {
   color: rgb(16 185 129 / var(--tw-text-opacity));
 }
 
+.text-kmutt_orange-200 {
+  --tw-text-opacity: 1;
+  color: rgb(252 99 56 / var(--tw-text-opacity));
+}
+
 .text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
@@ -2315,9 +2312,14 @@ select {
   margin-top: -1rem;
 }
 
-.hover\:text-sky-600:hover {
+.hover\:text-kmutt_orange-100:hover {
   --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity));
+  color: rgb(240 77 34 / var(--tw-text-opacity));
+}
+
+.hover\:text-kmutt_orange-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 164 140 / var(--tw-text-opacity));
 }
 
 .hover\:text-slate-300:hover {
@@ -2338,6 +2340,11 @@ select {
 .hover\:text-slate-800:hover {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+
+.hover\:text-yellow-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 
 .hover\:shadow-lg:hover {
@@ -2558,6 +2565,10 @@ select {
 
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:opacity-100 {

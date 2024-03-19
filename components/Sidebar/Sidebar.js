@@ -26,7 +26,14 @@ export default function Sidebar() {
               className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 cursor-pointer"
               onClick={() => setCollapseShow("hidden")}
             >
-              Notus NextJS
+              <div className="flex item-center justify-center relative mt-1">
+                <div variant="small" color="white" className="font-medium mr-2">
+                  <p className="text-3xl font-semibold text-black">KLiM</p>
+                </div>
+                <h2 className="box-decoration-slice bg-kmutt_orange-100 text-white px-2 rounded-2xl text-3xl font-semibold">
+                  PUS
+                </h2>
+              </div>
             </span>
           </Link>
           {/* User */}
@@ -54,7 +61,7 @@ export default function Sidebar() {
                       className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 cursor-pointer"
                       onClick={() => setCollapseShow("hidden")}
                     >
-                      Notus NextJS
+                      KLiMPUS
                     </span>
                   </Link>
                 </div>
@@ -84,7 +91,7 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Admin Layout Pages
+              Dashboard
             </h6>
             {/* Navigation */}
 
@@ -95,8 +102,8 @@ export default function Sidebar() {
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/dashboard") !== -1
-                        ? "text-sky-500 hover:text-sky-600"
-                        : "text-slate-700 hover:text-slate-500")
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
                     }
                     onClick={() => setCollapseShow("hidden")}
                   >
@@ -108,7 +115,7 @@ export default function Sidebar() {
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Dashboard
+                    Overall
                   </span>
                 </Link>
               </li>
@@ -119,20 +126,20 @@ export default function Sidebar() {
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/settings") !== -1
-                        ? "text-sky-500 hover:text-sky-600"
-                        : "text-slate-700 hover:text-slate-500")
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
                     }
                     onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
-                        "fas fa-tools mr-2 text-sm " +
+                        "fas fa-bolt mr-2 text-sm " +
                         (router.pathname.indexOf("/admin/settings") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Settings
+                    Electrical
                   </span>
                 </Link>
               </li>
@@ -143,20 +150,20 @@ export default function Sidebar() {
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/tables") !== -1
-                        ? "text-sky-500 hover:text-sky-600"
-                        : "text-slate-700 hover:text-slate-500")
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
                     }
                     onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
-                        "fas fa-table mr-2 text-sm " +
+                        "fas fa-droplet mr-2 text-sm " +
                         (router.pathname.indexOf("/admin/tables") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Tables
+                    Tap Water
                   </span>
                 </Link>
               </li>
@@ -167,20 +174,44 @@ export default function Sidebar() {
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
                       (router.pathname.indexOf("/admin/maps") !== -1
-                        ? "text-sky-500 hover:text-sky-600"
-                        : "text-slate-700 hover:text-slate-500")
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
                     }
                     onClick={() => setCollapseShow("hidden")}
                   >
                     <i
                       className={
-                        "fas fa-map-marked mr-2 text-sm " +
+                        "fas fa-snowflake mr-2 text-sm " +
                         (router.pathname.indexOf("/admin/maps") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Maps
+                    Chiller
+                  </span>
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link href="/admin/maps">
+                  <span
+                    className={
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      (router.pathname.indexOf("/admin/maps") !== -1
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
+                    }
+                    onClick={() => setCollapseShow("hidden")}
+                  >
+                    <i
+                      className={
+                        "fas fa-wind mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/maps") !== -1
+                          ? "opacity-75"
+                          : "text-slate-300")
+                      }
+                    ></i>{" "}
+                    Air Handling Unit
                   </span>
                 </Link>
               </li>
@@ -190,24 +221,72 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Auth Layout Pages
+              Utility
             </h6>
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+
               <li className="items-center">
+                <Link href="/admin/maps">
+                  <span
+                    className={
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      (router.pathname.indexOf("/admin/maps") !== -1
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
+                    }
+                    onClick={() => setCollapseShow("hidden")}
+                  >
+                    <i
+                      className={
+                        "fas fa-bell mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/maps") !== -1
+                          ? "opacity-75"
+                          : "text-slate-300")
+                      }
+                    ></i>{" "}
+                    Notification
+                  </span>
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link href="/admin/maps">
+                  <span
+                    className={
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      (router.pathname.indexOf("/admin/maps") !== -1
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
+                    }
+                    onClick={() => setCollapseShow("hidden")}
+                  >
+                    <i
+                      className={
+                        "fas fa-power-off mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/maps") !== -1
+                          ? "opacity-75"
+                          : "text-slate-300")
+                      }
+                    ></i>{" "}
+                    Devices
+                  </span>
+                </Link>
+              </li>
+              {/* <li className="items-center">
                 <Link href="/auth/login">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
                     onClick={() => setCollapseShow("hidden")}
                   >
                     <i className="fas fa-fingerprint text-slate-400 mr-2 text-sm"></i>{" "}
-                    Login
+                    Notification 
                   </span>
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="items-center">
+              {/* <li className="items-center">
                 <Link href="/auth/register">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
@@ -217,19 +296,45 @@ export default function Sidebar() {
                     Register
                   </span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              No Layout Pages
+              Admin Panel
             </h6>
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+
               <li className="items-center">
+                <Link href="/admin/maps">
+                  <span
+                    className={
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      (router.pathname.indexOf("/admin/maps") !== -1
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-kmutt_orange-300")
+                    }
+                    onClick={() => setCollapseShow("hidden")}
+                  >
+                    <i
+                      className={
+                        "fas fa-users mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/maps") !== -1
+                          ? "opacity-75"
+                          : "text-slate-300")
+                      }
+                    ></i>{" "}
+                    Account Control
+                  </span>
+                </Link>
+              </li>
+
+
+              {/* <li className="items-center">
                 <Link href="/landing">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
@@ -239,9 +344,9 @@ export default function Sidebar() {
                     Landing Page
                   </span>
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="items-center">
+              {/* <li className="items-center">
                 <Link href="/profile">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
@@ -249,6 +354,34 @@ export default function Sidebar() {
                   >
                     <i className="fas fa-user-circle text-slate-400 mr-2 text-sm"></i>{" "}
                     Profile Page
+                  </span>
+                </Link>
+              </li> */}
+            </ul>
+
+            <hr className="my-4 md:min-w-full" />
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+
+              <li className="items-center">
+                <Link href="/auth/login">
+                  <span
+                    className={
+                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      (router.pathname.indexOf("/auth/login") !== -1
+                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                        : "text-slate-700 hover:text-yellow-500")
+                    }
+                    onClick={() => setCollapseShow("hidden")}
+                  >
+                    <i
+                      className={
+                        "fas fa-person-walking-arrow-right mr-2 text-sm " +
+                        (router.pathname.indexOf("/auth/login") !== -1
+                          ? "opacity-75"
+                          : "text-slate-300")
+                      }
+                    ></i>{" "}
+                    Sign out
                   </span>
                 </Link>
               </li>

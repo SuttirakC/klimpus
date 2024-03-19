@@ -62,7 +62,9 @@ module.exports = {
           900: '#43302b',
         },
         kmutt_orange: {
-          100: '#F04D22'
+          100: '#F04D22',
+          200: '#FC6338',
+          300: '#FFA48C',
         },
         kmutt_yellow: {
           100: '#ffc72b'
