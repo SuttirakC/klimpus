@@ -18,7 +18,7 @@ export default function FooterSmall(props) {
                 KMUTT Library Monitoring Public Utility Service
               </div>
               <div className="flex-col text-sm text-white font-semibold py-1 text-center md:text-left">
-                © 2023 klimpus.kmutt.ac.th  is a subsidiary website of KMUTT. All rights reserved.
+              © {new Date().getFullYear()}{" "} klimpus.kmutt.ac.th  is a subsidiary website of KMUTT. All rights reserved.
               </div>
             </div>
 

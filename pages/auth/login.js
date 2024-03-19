@@ -65,7 +65,7 @@ export default function Login() {
                       placeholder="Password"
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
                         id="customCheckLogin"
@@ -76,7 +76,7 @@ export default function Login() {
                         Remember me
                       </span>
                     </label>
-                  </div>
+                  </div> */}
 
                   <div className="text-center mt-6">
                     <Link href="/admin/dashboard">
@@ -93,7 +93,7 @@ export default function Login() {
                 </form>
               </div>
             </div>
-            <div className="flex flex-wrap mt-6 relative">
+            {/* <div className="flex flex-wrap mt-6 relative">
               <div className="w-1/2">
                 <Link href="#pablo">
                   <span
@@ -112,7 +112,7 @@ export default function Login() {
                   </span>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
