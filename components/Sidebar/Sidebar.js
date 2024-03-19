@@ -23,7 +23,7 @@ export default function Sidebar() {
           {/* Brand */}
           <Link href="/">
             <span
-              className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 cursor-pointer"
+              className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm font-bold p-4 px-0 cursor-pointer"
               onClick={() => setCollapseShow("hidden")}
             >
               <div className="flex item-center justify-center relative mt-1">
