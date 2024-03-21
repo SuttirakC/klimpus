@@ -13,14 +13,14 @@ export default function CardStats({
 }) {
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+      <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
         <div className="flex-auto p-4">
           <div className="flex flex-wrap">
             <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-              <h5 className="text-slate-400 uppercase font-bold text-xs">
+              <h5 className="text-slate-400 uppercase font-bold text-md">
                 {statSubtitle}
               </h5>
-              <span className="font-semibold text-xl text-slate-700">
+              <span className="font-semibold text-2xl text-kmutt_orange-100 ">
                 {statTitle}
               </span>
             </div>
@@ -35,7 +35,7 @@ export default function CardStats({
               </div>
             </div>
           </div>
-          <p className="text-sm text-slate-400 mt-4">
+          {/* <p className="text-sm text-slate-400 mt-4">
             <span className={statPercentColor + " mr-2"}>
               <i
                 className={
@@ -49,7 +49,7 @@ export default function CardStats({
               {statPercent}%
             </span>
             <span className="whitespace-nowrap">{statDescripiron}</span>
-          </p>
+          </p> */}
         </div>
       </div>
     </>
@@ -59,10 +59,10 @@ export default function CardStats({
 CardStats.defaultProps = {
   statSubtitle: "Traffic",
   statTitle: "350,897",
-  statArrow: "up",
-  statPercent: "3.48",
-  statPercentColor: "text-emerald-500",
-  statDescripiron: "Since last month",
+  // statArrow: "up",
+  // statPercent: "3.48",
+  // statPercentColor: "text-emerald-500",
+  // statDescripiron: "Since last month",
   statIconName: "far fa-chart-bar",
   statIconColor: "bg-red-500",
 };
