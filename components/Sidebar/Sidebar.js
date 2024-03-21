@@ -26,7 +26,7 @@ export default function Sidebar() {
               className="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm font-bold p-4 px-0 cursor-pointer"
               onClick={() => setCollapseShow("hidden")}
             >
-              <div className="flex item-center justify-center relative mt-1">
+              <div className="flex item-center justify-center relative mt-2">
                 <div variant="small" color="white" className="font-medium mr-2">
                   <p className="text-3xl font-semibold text-black">KLiM</p>
                 </div>
@@ -310,11 +310,11 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
 
               <li className="items-center">
-                <Link href="/admin/maps">
+                <Link href="/admin/account">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/maps") !== -1
+                      (router.pathname.indexOf("/admin/account") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }

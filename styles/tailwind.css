@@ -1642,6 +1642,11 @@ select {
   background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
 
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+}
+
 .bg-indigo-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
@@ -1660,11 +1665,6 @@ select {
 .bg-orange-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 215 170 / var(--tw-bg-opacity));
-}
-
-.bg-orange-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
 .bg-pink-500 {
@@ -1790,8 +1790,16 @@ select {
           box-decoration-break: slice;
 }
 
+.bg-contain {
+  background-size: contain;
+}
+
 .bg-cover {
   background-size: cover;
+}
+
+.bg-scroll {
+  background-attachment: scroll;
 }
 
 .bg-center {
@@ -2132,6 +2140,16 @@ select {
 .text-emerald-500 {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity));
+}
+
+.text-kmutt_blue-100 {
+  --tw-text-opacity: 1;
+  color: rgb(0 98 255 / var(--tw-text-opacity));
+}
+
+.text-kmutt_orange-100 {
+  --tw-text-opacity: 1;
+  color: rgb(240 77 34 / var(--tw-text-opacity));
 }
 
 .text-kmutt_orange-200 {
