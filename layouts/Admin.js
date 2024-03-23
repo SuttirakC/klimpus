@@ -11,26 +11,32 @@ export default function Admin({ children }) {
   return (
     <>
 
-      <Sidebar />
-      <div className="relative md:ml-64 ">
-        <AdminNavbar />
-        <Navbar transparent />
-        <div
-          className="absolute top-0 w-full h-screen bg-contain bg-center bg-cover bg-scroll"
+      <div
+          className="z-0 fixed  top-0 left-0 size-full bottom-0 w-full h-full  bg-center bg-cover bg-no-repeat bg-fixed bg-clip-padding"
           style={{
             backgroundImage: "url('/img/bg-lib.jpg')",
             filter: "brightness(50%)"
           }}
         />
+      <Sidebar />
+      <div className="relative md:ml-64 ">
+        <AdminNavbar />
+        <Navbar transparent />
+        
 
         {/* Header */}
-        <HeaderStats />
+        {/* <HeaderStats /> */}
+        
+        <div className="relative md:pt-32 pb-32 pt-12">
+          
+        </div>
 
-        <div className="px-4 md:px-10 mx-auto w-full -m-24">
+        <div className="relative px-4 md:px-10 min-h-full mx-auto w-full -m-36">
 
           {children}
           <FooterAdmin/>
         </div>
+       
 
 
       </div>
