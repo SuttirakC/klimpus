@@ -72,6 +72,9 @@ module.exports = {
         kmutt_blue: {
           100: '#0062FF'
         },
+        kmutt_green: {
+          100: '#0DB459'
+        },
       },
       minHeight: {
         "screen-75": "75vh",
