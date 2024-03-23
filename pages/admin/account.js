@@ -30,6 +30,7 @@ export default function Account() {
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Total Account"
+            statTitleColor="text-kmutt_orange-100"
             statTitle="003"
             statIconName="fas fa-users"
             statIconColor="bg-gray-300"
@@ -39,6 +40,7 @@ export default function Account() {
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Admin Role"
+            statTitleColor="text-kmutt_orange-100"
             statTitle="002"
             statIconName="fas fa-user-lock"
             statIconColor="bg-gray-300"
@@ -48,6 +50,7 @@ export default function Account() {
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Technical Role"
+            statTitleColor="text-kmutt_orange-100"
             statTitle="001"
             statIconName="fas fa-user-gear"
             statIconColor="bg-gray-300"

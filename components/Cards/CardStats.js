@@ -10,6 +10,7 @@ export default function CardStats({
   statDescripiron,
   statIconName,
   statIconColor,
+  statTitleColor,
 }) {
   return (
     <>
@@ -20,7 +21,7 @@ export default function CardStats({
               <h5 className="text-slate-400 uppercase font-bold text-md">
                 {statSubtitle}
               </h5>
-              <span className="font-semibold text-2xl text-kmutt_orange-100 ">
+              <span className={"font-semibold text-2xl " + statTitleColor }>
                 {statTitle}
               </span>
             </div>

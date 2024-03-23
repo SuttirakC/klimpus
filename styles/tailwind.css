@@ -2169,6 +2169,11 @@ select {
   color: rgb(0 98 255 / var(--tw-text-opacity));
 }
 
+.text-kmutt_green-100 {
+  --tw-text-opacity: 1;
+  color: rgb(13 180 89 / var(--tw-text-opacity));
+}
+
 .text-kmutt_orange-100 {
   --tw-text-opacity: 1;
   color: rgb(240 77 34 / var(--tw-text-opacity));
