@@ -228,11 +228,11 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
 
               <li className="items-center">
-                <Link href="/admin/maps">
+                <Link href="/admin/notification">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/maps") !== -1
+                      (router.pathname.indexOf("/admin/notification") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -241,7 +241,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-bell mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/maps") !== -1
+                        (router.pathname.indexOf("/admin/notification") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
