@@ -4,11 +4,6 @@ import { useRouter } from "next/router";
 
 // components
 
-import CardSettings from "components/Cards/CardSettings.js";
-import CardProfile from "components/Cards/CardProfile.js";
-import CardTable from "components/Cards/CardTable.js";
-import CardStats from "components/Cards/CardStats.js";
-
 // layout for page
 
 import Admin from "layouts/Admin.js";
