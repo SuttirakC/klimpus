@@ -75,6 +75,10 @@ module.exports = {
         kmutt_green: {
           100: '#0DB459'
         },
+        kmutt_red: {
+          100: '#D4451F'
+        },
+        
       },
       minHeight: {
         "screen-75": "75vh",
@@ -138,6 +142,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("daisyui"),
     require("@tailwindcss/forms"),
     plugin(function ({ addComponents, theme }) {
       const screens = theme("screens", {});
