@@ -1,11 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
+
 // components
 
 import CardLineChart from "components/Cards/CardLineChart.js";
-import CardBarChart from "components/Cards/CardBarChart.js";
-import CardDashboard from "components/Cards/CardDashboard";
 
 // layout for page
 
@@ -20,15 +19,15 @@ export default function ElectricalMain() {
                 // href="#pablo"
                 // onClick={(e) => e.preventDefault()}
                 >
-                    Electrical Usage
+                    Electrical
                 </a>
             </div>
 
             <div className="flex flex-wrap mt-2 justify-end">
                 <div className="text-center flex">
-                    <Link href="/admin/account">
+                    <Link href="/admin/ElectricalSub">
                         <button
-                            className="bg-white active:bg-kmutt_orange-200 text-kmutt_orange-100 font-bold text-md px-6 py-2 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                            className="bg-white active:bg-kmutt_orange-200 text-kmutt_orange-400 font-bold text-md px-8 py-3 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                             type="button"
                         >
                             Devices
@@ -43,36 +42,35 @@ export default function ElectricalMain() {
                     <h6 className="text-2xl font-semibold text-slate-700 text-center mt-6">Kilowatt-hour</h6>
                 </div>
                 <div className="box-border h-20 w-full lg:w-1/12 xl:w-1/12 px-4 ">
-                    
+
                 </div>
                 <div className="box-border h-20 w-full lg:w-4/12 xl:w-4/12 px-4 bg-kmutt_blue-100 rounded-3xl">
                     <h6 className="text-3xl font-semibold text-white text-center mt-6">20 kWh</h6>
                 </div>
             </div>
 
-            <div className="flex flex-wrap mt-4">
-                <div className="w-full px-4 mt-8">
+            <div className="flex flex-wrap mt-6 justify-end mr-2">
+
+                <div class="inline-flex rounded shadow-sm" role="group">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
+                        Day
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                        Month
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                        Year
+                    </button>
+                </div>
+
+            </div>
+
+            <div className="flex flex-wrap">
+                <div className="w-full px-4 mt-4">
                     <CardLineChart />
                 </div>
 
-                {/* <div className="w-full xl:w-4/12 px-4 mt-8">
-                    <CardBarChart />
-                </div> */}
-                {/* <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <CardBarChart />
-        </div> */}
-                {/* <div className="w-full xl:w-4/12 px-4">
-          <CardSocialTraffic />
-        </div> */}
             </div>
-
-            {/* <div className="flex flex-wrap mt-4">
-        <div className="w-full px-4 px-4 mt-8">
-          <CardBarChart />
-        </div>
-
-
-      </div> */}
         </>
     );
 }
