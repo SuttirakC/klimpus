@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Chart from 'chart.js/auto';
 
-export default function CardLineChart() {
+export default function CardLineChartAHU() {
   useEffect(() => {
     const config = {
       type: "line",
@@ -111,7 +111,7 @@ export default function CardLineChart() {
         },
       },
     };
-    const ctx = document.getElementById("line-chart").getContext("2d");
+    const ctx = document.getElementById("line-chart-AHU").getContext("2d");
     new Chart(ctx, config);
   }, []);
 
@@ -122,7 +122,7 @@ export default function CardLineChart() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-slate-400 mb-1 text-xs font-semibold">
-                Electrical Power Usage @ 1 Fl.
+                Total Electrical Power Usage @ 1 Fl.
               </h6>
               <h2 className="text-xl font-semibold text-slate-700">Total Power (kW)</h2>
             </div>
@@ -131,7 +131,7 @@ export default function CardLineChart() {
         <div className="p-4 flex-auto">
           {/* Chart */}
           <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
+            <canvas id="line-chart-AHU"></canvas>
           </div>
         </div>
       </div>
