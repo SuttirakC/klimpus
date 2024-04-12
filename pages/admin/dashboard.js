@@ -27,12 +27,12 @@ export default function Dashboard() {
         </a>
       </div>
 
-      <div className="flex flex-wrap mt-8  ">
+      <div className="flex flex-wrap mt-8 justify-center ">
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
             statSubtitle="Electric"
-            statTitleColor="text-kmutt_orange-100"
+            statTitleColor="text-kmutt_orange-400"
             statTitle="Error"
             statIconName="fas fa-bolt"
             statIconColor="bg-gray-300"
@@ -44,7 +44,7 @@ export default function Dashboard() {
         <div className="w-full max-w-60 px-4">
           <CardDashboard
             statSubtitle="Tap Water"
-            statTitleColor="text-kmutt_orange-100"
+            statTitleColor="text-kmutt_orange-400"
             statTitle="Error"
             statIconName="fas fa-droplet"
             statIconColor="bg-gray-300"
@@ -89,7 +89,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="w-full max-w-96 px-4">
+        <div className=" w-95 px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
             <div className="flex-auto p-4">
               <div className="flex flex-wrap">
