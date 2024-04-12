@@ -121,11 +121,11 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/settings">
+                <Link href="/admin/ElectricalMain">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/settings") !== -1
+                      (router.pathname.indexOf("/admin/ElectricalMain") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -134,7 +134,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-bolt mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/settings") !== -1
+                        (router.pathname.indexOf("/admin/ElectricalMain") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }

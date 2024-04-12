@@ -2545,6 +2545,10 @@ select {
   margin-top: 2rem;
 }
 
+.box-border {
+  box-sizing: border-box;
+}
+
 .block {
   display: block;
 }
@@ -4074,6 +4078,10 @@ select {
     display: none;
   }
 
+  .lg\:w-1\/12 {
+    width: 8.333333%;
+  }
+
   .lg\:w-3\/12 {
     width: 25%;
   }
@@ -4088,6 +4096,10 @@ select {
 
   .lg\:w-6\/12 {
     width: 50%;
+  }
+
+  .lg\:w-7\/12 {
+    width: 58.333333%;
   }
 
   .lg\:w-8\/12 {
@@ -4187,6 +4199,10 @@ select {
     margin-bottom: 0px;
   }
 
+  .xl\:w-1\/12 {
+    width: 8.333333%;
+  }
+
   .xl\:w-2\/12 {
     width: 16.666667%;
   }
@@ -4205,6 +4221,10 @@ select {
 
   .xl\:w-6\/12 {
     width: 50%;
+  }
+
+  .xl\:w-7\/12 {
+    width: 58.333333%;
   }
 
   .xl\:w-8\/12 {
