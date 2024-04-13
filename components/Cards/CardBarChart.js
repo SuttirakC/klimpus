@@ -14,24 +14,29 @@ export default function CardBarChart() {
           "May",
           "June",
           "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
         ],
         datasets: [
           {
             label: new Date().getFullYear(),
-            backgroundColor: "#ed64a6",
-            borderColor: "#ed64a6",
-            data: [30, 78, 56, 34, 100, 45, 13],
+            backgroundColor: "#FC6338",
+            borderColor: "#FC6338",
+            data: [100245, 95637, 89643, 118642, 124972, 50753, 43751, 60237, 80453, 100234, 139284, 90437],
             fill: false,
             barThickness: 8,
           },
-          {
-            label: new Date().getFullYear() - 1,
-            fill: false,
-            backgroundColor: "#4c51bf",
-            borderColor: "#4c51bf",
-            data: [27, 68, 86, 74, 10, 4, 87],
-            barThickness: 8,
-          },
+          // {
+          //   label: new Date().getFullYear() - 1,
+          //   fill: false,
+          //   backgroundColor: "#4c51bf",
+          //   borderColor: "#4c51bf",
+          //   data: [27, 68, 86, 74, 10, 4, 87],
+          //   barThickness: 8,
+          // },
         ],
       },
       options: {
@@ -52,7 +57,7 @@ export default function CardBarChart() {
         },
         scales: {
           x: {
-            display: false,
+            display: true,
             title: {
               display: true,
               text: "Month",
@@ -97,7 +102,7 @@ export default function CardBarChart() {
               Tap Water Usage
             </h6>
             <h2 className="text-slate-700 text-xl font-semibold">
-              Total Liter
+              Total Liters
             </h2>
           </div>
         </div>

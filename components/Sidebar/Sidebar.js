@@ -145,11 +145,11 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="/admin/WaterMain">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("/admin/WaterMain") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -158,7 +158,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-droplet mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("/admin/WaterMain") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
