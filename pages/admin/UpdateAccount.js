@@ -31,7 +31,7 @@ export default function UpdateAccount() {
             </div>
             <div className="flex flex-wrap">
 
-                <div className="w-full mt-8 px-4">
+                <div className="w-full mt-8 px-4 mb-2">
                     <CardUpdate/>
                     <CardResetPass/>
                 </div>

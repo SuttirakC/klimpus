@@ -30,7 +30,7 @@ export default function CreateAccount() {
             </div>
             <div className="flex flex-wrap">
 
-                <div className="w-full mt-8 px-4">
+                <div className="w-full mt-8 px-4 mb-24">
                     <CardSettings />
                 </div>
             </div>

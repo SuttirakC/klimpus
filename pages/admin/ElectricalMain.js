@@ -66,7 +66,7 @@ export default function ElectricalMain() {
             </div>
 
             <div className="flex flex-wrap">
-                <div className="w-full px-4 mt-4">
+                <div className="w-full px-4 mt-4 mb-10">
                     <CardLineChart />
                 </div>
 

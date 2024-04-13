@@ -145,7 +145,7 @@ export default function ElectricalSub() {
                     </div>
                 </div>
 
-                <div className="w-full lg:w-8/12 xl:w-8/12 px-4">
+                <div className="w-full lg:w-8/12 xl:w-8/12 px-4 mb-4">
                     <h6 className="text-xl font-semibold text-slate-200">Voltage Detail</h6>
 
                     <div className="flex flex-row flex-wrap mt-4">
