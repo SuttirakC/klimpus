@@ -19,7 +19,7 @@ export default function Account() {
     <>
       <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
         <a
-        className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
+          className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
         // href="#pablo"
         // onClick={(e) => e.preventDefault()}
         >
@@ -29,6 +29,7 @@ export default function Account() {
       <div className="flex flex-wrap mt-8">
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
+            bgcolor="bg-gradient-to-b from-white from-90% to-kmutt_gray-100 to-10%"
             statSubtitle="Total Account"
             statTitleColor="text-kmutt_orange-100"
             statTitle="003"
@@ -39,6 +40,7 @@ export default function Account() {
 
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
+            bgcolor="bg-gradient-to-b from-white from-90% to-kmutt_gray-200 to-10%"
             statSubtitle="Admin Role"
             statTitleColor="text-kmutt_orange-100"
             statTitle="002"
@@ -49,6 +51,7 @@ export default function Account() {
 
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
+            bgcolor="bg-gradient-to-b from-white from-90% to-black to-10%"
             statSubtitle="Technical Role"
             statTitleColor="text-kmutt_orange-100"
             statTitle="001"
@@ -58,7 +61,7 @@ export default function Account() {
         </div>
 
         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-          <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
+          <div className="relative flex flex-col min-w-0 break-words bg-gradient-to-b from-white from-90% to-kmutt_blue-100 to-10% rounded-3xl mb-6 xl:mb-0 shadow-lg">
             <div className="flex-auto p-4">
               <div className="flex flex-wrap">
                 <div className="relative w-full pr-4 py-1 max-w-full flex-grow flex-1">
@@ -66,14 +69,14 @@ export default function Account() {
                     Create Account
                   </h5>
 
-                  
-                <Link href="/admin/CreateAccount">
-                  <span
-                    className={"font-semibold text-md text-kmutt_blue-100 cursor-pointer " }
-                  >
-                    Create New Account
-                  </span>
-                </Link>
+
+                  <Link href="/admin/CreateAccount">
+                    <span
+                      className={"font-semibold text-md text-kmutt_blue-100 cursor-pointer "}
+                    >
+                      Create New Account
+                    </span>
+                  </Link>
 
                   {/* <span className="font-semibold text-md text-kmutt_blue-100 " 
                   >

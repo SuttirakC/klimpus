@@ -85,6 +85,11 @@ module.exports = {
           200: '#FF3D3D',
           300: '#FFE1E1',
         },
+        kmutt_gray: {
+          100: '#7A828A',
+          200: '#CCCCCC',
+          300: '#FFE1E1',
+        },
         
       },
       minHeight: {
