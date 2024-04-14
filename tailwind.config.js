@@ -72,7 +72,8 @@ module.exports = {
           200: '#FFEEBD',
         },
         kmutt_blue: {
-          100: '#0062FF'
+          100: '#0062FF',
+          200: '#1B59F8',
         },
         kmutt_green: {
           100: '#0DB459',
