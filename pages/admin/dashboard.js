@@ -31,61 +31,56 @@ export default function Dashboard() {
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
+          bgcolor="bg-gradient-to-b from-white from-50% to-kmutt_red-100 to-50%"
             statSubtitle="Electric"
-            statTitleColor="text-kmutt_orange-400"
             statTitle="Error"
             statIconName="fas fa-bolt"
             statIconColor="bg-gray-300"
             statStatus="fas fa-face-sad-tear"
-          // statStatusColor="text-kmutt_red-100"
           />
         </div>
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
+          bgcolor="bg-gradient-to-b from-white from-50% to-kmutt_red-100 to-50%"
             statSubtitle="Tap Water"
-            statTitleColor="text-kmutt_orange-400"
             statTitle="Error"
             statIconName="fas fa-droplet"
             statIconColor="bg-gray-300"
             statStatus="fas fa-face-sad-tear"
-          // statStatusColor="text-kmutt_red-100"
           />
         </div>
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
+          bgcolor="bg-gradient-to-b from-white from-50% to-kmutt_green-100 to-50%"
             statSubtitle="Chiller"
-            statTitleColor="text-kmutt_green-100"
             statTitle="Normal"
             statIconName="fas fa-snowflake"
             statIconColor="bg-gray-300"
             statStatus="fas fa-face-smile"
-          // statStatusColor="text-kmutt_red-100"
           />
         </div>
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
+          bgcolor="bg-gradient-to-b from-white from-50% to-kmutt_yellow-100 to-50%"
             statSubtitle="AHU"
-            statTitleColor="text-kmutt_yellow-100"
             statTitle="Warning"
             statIconName="fas fa-wind"
             statIconColor="bg-gray-300"
             statStatus="fas fa-face-surprise"
-          // statStatusColor="text-kmutt_red-100"
           />
         </div>
 
         <div className="w-full max-w-60 px-4">
           <CardDashboard
+          bgcolor="bg-gradient-to-b from-white from-50% to-kmutt_green-100 to-50%"
             statSubtitle="Other"
-            statTitleColor="text-kmutt_green-100"
             statTitle="Normal"
             statIconName="fas fa-gear"
             statIconColor="bg-gray-300"
             statStatus="fas fa-face-smile"
-          // statStatusColor="text-kmutt_red-100"
           />
         </div>
 
