@@ -18,6 +18,7 @@ export default function CardDeviceChiller() {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Chiller_1"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"
@@ -27,7 +28,8 @@ export default function CardDeviceChiller() {
                         </div>
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                        <CardStats
+                            <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Chiller_2"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"
@@ -37,7 +39,8 @@ export default function CardDeviceChiller() {
                         </div>
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                        <CardStats
+                            <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Chiller_3"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Offline"
@@ -47,7 +50,8 @@ export default function CardDeviceChiller() {
                         </div>
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                        <CardStats
+                            <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Chiller_4"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Offline"
@@ -57,7 +61,8 @@ export default function CardDeviceChiller() {
                         </div>
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4 mt-8">
-                        <CardStats
+                            <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Chiller_5"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"

@@ -18,6 +18,7 @@ export default function CardDeviceInverter() {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Inverter_AHU111"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Online"

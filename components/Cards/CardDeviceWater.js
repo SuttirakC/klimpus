@@ -18,6 +18,7 @@ export default function CardDeviceWater() {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Flow Meter_1fl"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Offline"
@@ -28,6 +29,7 @@ export default function CardDeviceWater() {
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Flow Meter_6fl"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"

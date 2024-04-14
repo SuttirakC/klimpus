@@ -18,6 +18,7 @@ export default function CardDeviceElec() {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Power Meter_LP11"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"
@@ -28,6 +29,7 @@ export default function CardDeviceElec() {
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Power Meter_LP12"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Offline"
@@ -38,6 +40,7 @@ export default function CardDeviceElec() {
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Power Meter_LP13"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"
@@ -48,6 +51,7 @@ export default function CardDeviceElec() {
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Power Meter_LP14"
                                 statTitleColor="text-kmutt_green-100"
                                 statTitle="Online"
@@ -58,6 +62,7 @@ export default function CardDeviceElec() {
 
                         <div className="w-full lg:w-6/12 xl:w-3/12 px-4 mt-8">
                             <CardStats
+                                bgcolor="bg-white"
                                 statSubtitle="Power Meter_LP15"
                                 statTitleColor="text-kmutt_orange-100"
                                 statTitle="Offline"
