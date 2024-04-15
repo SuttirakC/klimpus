@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createPopper } from "@popperjs/core";
+import Link from "next/link";
 
 const TableDropdown = () => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
@@ -33,15 +34,26 @@ const TableDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <i className="fas fa-ellipsis-v"></i>
+        <i className="fas fa-pen-to-square"></i>
       </a>
       <div
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+          "bg-white text-base z-50 float-left py-2 list-none text-left rounded-2xl shadow-2xl min-w-48"
         }
       >
+        <Link href="/admin/UpdateAccount">
+        <span
+          // href="#pablo"
+          className={
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
+          }
+          // onClick={(e) => e.preventDefault()}
+        >
+          Update Account
+        </span>
+        </Link>
         <a
           href="#pablo"
           className={
@@ -49,18 +61,9 @@ const TableDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Action
+          Delete Account
         </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Another action
-        </a>
-        <a
+        {/* <a
           href="#pablo"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
@@ -68,7 +71,7 @@ const TableDropdown = () => {
           onClick={(e) => e.preventDefault()}
         >
           Something else here
-        </a>
+        </a> */}
       </div>
     </>
   );

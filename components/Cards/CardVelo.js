@@ -1,31 +1,26 @@
 import React, { useEffect } from "react";
 import Chart from 'chart.js/auto';
 
-export default function CardLineChart() {
+export default function CardVelo() {
   useEffect(() => {
     const config = {
       type: "line",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
         ],
         datasets: [
           {
             label: new Date().getFullYear(),
             backgroundColor: "#FC6338",
             borderColor: "#FC6338",
-            data: [1910, 2453, 1532, 3152, 2311, 2456, 3544, 2931, 1836, 1384, 1538, 1183],
+            data: [1.65, 1.76, 1.54, 1.63, 1.49, 1.59, 1.68],
             fill: false,
           },
           // {
@@ -111,7 +106,7 @@ export default function CardLineChart() {
         },
       },
     };
-    const ctx = document.getElementById("line-chart").getContext("2d");
+    const ctx = document.getElementById("line-chart-velo").getContext("2d");
     new Chart(ctx, config);
   }, []);
 
@@ -122,16 +117,16 @@ export default function CardLineChart() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-slate-400 mb-1 text-xs font-semibold">
-                Electrical Power Usage @ 1 Fl.
+                Tap Water Usage @ the underground water tank inlet
               </h6>
-              <h2 className="text-xl font-semibold text-slate-700">Total Power (kW)</h2>
+              <h2 className="text-xl font-semibold text-slate-700">Velocity (m/s)</h2>
             </div>
           </div>
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
-          <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
+          <div className="relative h-64-px">
+            <canvas id="line-chart-velo"></canvas>
           </div>
         </div>
       </div>
