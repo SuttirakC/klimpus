@@ -7,7 +7,6 @@
   "license": "MIT",
   "dependencies": {
     "@influxdata/influxdb-client": "^1.33.2",
-    "axios": "^1.6.8",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "mariadb": "^3.3.0",
