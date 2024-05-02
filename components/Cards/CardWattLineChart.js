@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Chart from 'chart.js/auto';
 
-export default function CardWattLineChart({deviceName}) {
+export default function CardWattLineChart({deviceName,iframeKey}) {
     var src="";
     if(deviceName == "PowerMeter_LP11"){
         src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=4";
@@ -19,7 +19,7 @@ export default function CardWattLineChart({deviceName}) {
         src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=8";
     }
     else{
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=1";
+        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=11";
     }
   return (
     <>
@@ -36,7 +36,7 @@ export default function CardWattLineChart({deviceName}) {
         </div>
         <div className="p-4 flex-auto">
         <div className="relative h-350-px">
-        <iframe src={src} width="100%" height="100%" frameborder="0"></iframe>
+        <iframe key={iframeKey} src={src} width="100%" height="100%" frameborder="0"></iframe>
         </div>
           {/* Chart */}
           {/* <div className="relative h-350-px">

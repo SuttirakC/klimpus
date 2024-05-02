@@ -11,11 +11,9 @@ import CardElecInfo from "../Cards/CardElecInfo";
 
 import Admin from "layouts/Admin.js";
 
-export default function BlockElectrical({ deviceName }) {
+export default function BlockElectricalMain() {
     const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [iframeKey, setIframeKey] = useState(0);
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -30,7 +28,6 @@ export default function BlockElectrical({ deviceName }) {
                 // console.log("----->", newData);
                 setData(newData);
                 setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setData(null);
@@ -56,7 +53,7 @@ export default function BlockElectrical({ deviceName }) {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-9/12 xl:w-9/12 px-4">
 
-                            <CardWattLineChart deviceName={deviceName} key={obj.times}/>
+                            <CardWattLineChart deviceName={deviceName}/>
                         </div>
                         <div className="w-full lg:w-3/12 xl:w-3/12 px-4">
                         <div className="mt-0">
@@ -69,7 +66,7 @@ export default function BlockElectrical({ deviceName }) {
                             <div className="mt-8">
                                 <CardElecInfo
                                     statSubtitle="kWh"
-                                    statTitle={obj.energy}
+                                    statTitle="20"
                                     elecinfo="Energy Unit / Kilowatt-hour"
                                 />
                             </div>
