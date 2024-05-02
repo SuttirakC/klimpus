@@ -93,24 +93,17 @@ export default function CardUpdate() {
             <h6 className="text-slate-400 text-sm mt-3 mb-6 font-bold uppercase">
               Type
             </h6>
-            <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4">
-                <button
-                  className="bg-slate-700 active:bg-slate-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  Technical
-                </button>
-              </div>
-              <div className="w-full lg:w-6/12 px-4">
-                <button
-                  className="bg-slate-700 active:bg-slate-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  Admin
-                </button>
-              </div>
-            </div>
+            <form class="w-full lg:w-6/12 px-4">
+                        {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
+                        <select id="devices" className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                            <option selected>Choose the role</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Technical</option>
+                            {/* <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option> */}
+                        </select>
+                    </form>
 
           </form>
         </div>
