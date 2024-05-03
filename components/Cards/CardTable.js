@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 // components
@@ -22,7 +23,7 @@ export default function CardTable({ color }) {
 
     const response = await res.json();
     setUserData(response.response.data);
-    console.log(response.response.data);
+    // console.log(response.response.data);
   }
 
   useEffect(() => {
@@ -47,6 +48,14 @@ export default function CardTable({ color }) {
     }
   };
 
+
+  const router = useRouter();
+
+  const handleEdit = (itemId) => {
+    // Logic to handle editing the selected row with itemId
+    // You can open a modal or navigate to the edit page based on itemId
+    router.push(`/admin/UpdateAccount?id=${itemId}`);
+  };
 
   return (
     <>
@@ -157,7 +166,7 @@ export default function CardTable({ color }) {
             </thead>
             <tbody>
               {userData.map((item) => (
-                <tr key={item.id}>
+                <tr key={item.user_id}>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {item.user_id}
                   </td>
@@ -176,12 +185,15 @@ export default function CardTable({ color }) {
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {formatDate(item.created_at)}
                   </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <td className={"border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  }>
+                    <span className={(getRoleName(item.role_id) === "Admin" ? "text-kmutt_orange-200 font-bold" : "text-black font-bold")}>
                     {getRoleName(item.role_id)}
+                    </span>
                   </td>
-                  
+
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                    <TableDropdown />
+                    <TableDropdown onEdit={() => handleEdit(item.user_id)} />
                   </td>
                 </tr>
               ))}

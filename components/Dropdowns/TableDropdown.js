@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { createPopper } from "@popperjs/core";
 import Link from "next/link";
 
-const TableDropdown = () => {
+const TableDropdown = ({ onEdit }) => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
   const btnDropdownRef = useRef(null);
   const popoverDropdownRef = useRef(null);
@@ -21,6 +21,11 @@ const TableDropdown = () => {
 
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
+  };
+
+  const handleEdit = () => {
+    onEdit(); // Call the onEdit callback when the Edit option is clicked
+    closeDropdownPopover(); // Close the dropdown after clicking Edit
   };
 
   return (
@@ -43,17 +48,15 @@ const TableDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded-2xl shadow-2xl min-w-48"
         }
       >
-        <Link href="/admin/UpdateAccount">
-        <span
-          // href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
-          }
-          // onClick={(e) => e.preventDefault()}
-        >
-          Update Account
-        </span>
-        </Link>
+          <span
+            className={
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
+            }
+            onClick={handleEdit}
+          >
+            Update Account
+          </span>
+          
         <a
           href="#pablo"
           className={
@@ -63,15 +66,6 @@ const TableDropdown = () => {
         >
           Delete Account
         </a>
-        {/* <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a> */}
       </div>
     </>
   );
