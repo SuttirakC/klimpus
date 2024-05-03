@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { createPopper } from "@popperjs/core";
 import Link from "next/link";
 
-const TableDropdown = ({ onEdit }) => {
+const TableDropdown = ({ onEdit, onDelete }) => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
   const btnDropdownRef = useRef(null);
   const popoverDropdownRef = useRef(null);
@@ -27,6 +27,11 @@ const TableDropdown = ({ onEdit }) => {
     onEdit(); // Call the onEdit callback when the Edit option is clicked
     closeDropdownPopover(); // Close the dropdown after clicking Edit
   };
+
+  const handleDelete = () => {
+    onDelete(); // Call the onDelete callback when the Delete option is clicked
+    closeDropdownPopover(); // Close the dropdown after clicking Delete
+};
 
   return (
     <>
@@ -57,15 +62,14 @@ const TableDropdown = ({ onEdit }) => {
             Update Account
           </span>
           
-        <a
-          href="#pablo"
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={handleDelete}
         >
           Delete Account
-        </a>
+        </span>
       </div>
     </>
   );

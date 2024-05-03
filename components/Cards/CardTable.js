@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
 
 export default function CardTable({ color }) {
+  const router = useRouter();
   const [userData, setUserData] = useState([]);
 
   async function getUsers() {
@@ -25,6 +26,24 @@ export default function CardTable({ color }) {
     setUserData(response.response.data);
     // console.log(response.response.data);
   }
+
+  async function deleteUser(userId) {
+    try {
+      const response = await fetch(`/api/userDelete?id=${userId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        // If delete successful, fetch users again to update the table
+        getUsers();
+      } else {
+        // Handle delete error
+        console.error("Failed to delete user");
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  }
+  
 
   useEffect(() => {
     getUsers();
@@ -48,13 +67,8 @@ export default function CardTable({ color }) {
     }
   };
 
-
-  const router = useRouter();
-
-  const handleEdit = (itemId) => {
-    // Logic to handle editing the selected row with itemId
-    // You can open a modal or navigate to the edit page based on itemId
-    router.push(`/admin/UpdateAccount?id=${itemId}`);
+  const handleEdit = (userId) => {
+    router.push(`/admin/UpdateAccount?id=${userId}`);
   };
 
   return (
@@ -188,12 +202,14 @@ export default function CardTable({ color }) {
                   <td className={"border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                   }>
                     <span className={(getRoleName(item.role_id) === "Admin" ? "text-kmutt_orange-200 font-bold" : "text-black font-bold")}>
-                    {getRoleName(item.role_id)}
+                      {getRoleName(item.role_id)}
                     </span>
                   </td>
 
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                    <TableDropdown onEdit={() => handleEdit(item.user_id)} />
+                    <TableDropdown
+                      onEdit={() => handleEdit(item.user_id)}
+                      onDelete={() => deleteUser(item.user_id)} />
                   </td>
                 </tr>
               ))}
