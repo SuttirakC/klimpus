@@ -10,14 +10,118 @@ export default function CardSettings() {
         <div className="rounded-3xl bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
             <h6 className="text-slate-700 text-xl font-bold">New Account</h6>
-            <Link href="/admin/account">
-              <button
-                className="bg-kmutt_orange-200 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                type="button"
-              >
-                Create Account
-              </button>
-            </Link>
+
+            {/* -> pop up for create account success*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button className="btn bg-kmutt_orange-200 text-white font-bold uppercase text-xs" onClick={() => document.getElementById('create_success').showModal()}>Create Account</button>
+            <dialog id="create_success" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-check text-3xl text-kmutt_green-100 mr-2"></div>
+                  <p className="py-2">New account has been created successfully.</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <Link href="/admin/account">
+                      <button className="btn">Close</button>
+                    </Link>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            {/* -> pop up for create account fail*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="create_fail" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-xmark text-3xl text-kmutt_red-100 mr-2"></div>
+                  <p className="py-2">New account has been not created!</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Try again</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            {/* -> pop up for username already exist*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="username_already" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
+                  <p className="py-2">Username already exist.</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Try again</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            {/* -> pop up for email already exist*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="email_already" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
+                  <p className="py-2">Email already exist.</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Try again</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            {/* -> pop up for password not match*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="pass_notmatch" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
+                  <p className="py-2">Password do not match.</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Try again</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            {/* -> pop up for fill in all*/}
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="fillinall" className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
+                <div className="flex flex-row justify-center text-center pt-2">
+                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
+                  <p className="py-2">Please fill in all required fields.</p>
+                </div>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Try again</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
