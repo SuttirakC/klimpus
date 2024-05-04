@@ -138,7 +138,7 @@ export default function WaterSub() {
                                         300
                                     </span>
                                     <h5 className="text-slate-400 font-bold text-md flex-shrink-0">
-                                        L/hr
+                                        m3/h
                                     </h5>
                                 </div>
                             </div>

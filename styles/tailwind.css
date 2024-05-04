@@ -1376,6 +1376,7 @@ select {
   align-items: center;
 }
 
+
 .modal-box {
   max-height: calc(100vh - 5em);
   grid-column-start: 1;
@@ -1403,6 +1404,7 @@ select {
   overscroll-behavior: contain;
 }
 
+
 .modal-open,
 .modal:target,
 .modal-toggle:checked + .modal,
@@ -1412,11 +1414,13 @@ select {
   opacity: 1;
 }
 
+
 .modal-action {
   display: flex;
   margin-top: 1.5rem;
   justify-content: flex-end;
 }
+
 
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
   overflow: hidden;
@@ -1873,11 +1877,13 @@ select {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+
 .modal-action > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+
 
 @keyframes modal-pop {
   0% {
@@ -2618,10 +2624,6 @@ select {
   margin-left: -5rem;
 }
 
-.-ml-4 {
-  margin-left: -1rem;
-}
-
 .-mt-20 {
   margin-top: -5rem;
 }
@@ -3217,10 +3219,6 @@ select {
   border-width: 0px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
@@ -3262,11 +3260,6 @@ select {
 .border-slate-300 {
   --tw-border-opacity: 1;
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
-}
-
-.border-slate-50 {
-  --tw-border-opacity: 1;
-  border-color: rgb(248 250 252 / var(--tw-border-opacity));
 }
 
 .border-slate-500 {
@@ -3455,16 +3448,6 @@ select {
 .bg-slate-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
-}
-
-.bg-teal-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 246 228 / var(--tw-bg-opacity));
-}
-
-.bg-teal-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {
@@ -4060,11 +4043,6 @@ select {
 .text-slate-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
-}
-
-.text-teal-500 {
-  --tw-text-opacity: 1;
-  color: rgb(20 184 166 / var(--tw-text-opacity));
 }
 
 .text-white {

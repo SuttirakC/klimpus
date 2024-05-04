@@ -1,12 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from 'next/image'
+import { useState } from "react";
 
 // layout for page
 
 import Auth from "layouts/Auth.js";
 
 export default function Login() {
+  const [loginUsername, setLoginUsername] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
   return (
     <>
       <div className="container mx-auto h-full">
@@ -48,7 +51,9 @@ export default function Login() {
                     <input
                       type="email"
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
+                      placeholder="Username"
+                      name="loginUsername"
+                      onChange={(e) => setLoginUsername(e.target.value)}
                     />
                   </div>
 
@@ -63,6 +68,8 @@ export default function Login() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      name="loginPassword"
+                      onChange={(e) => setLoginPassword(e.target.value)}
                     />
                   </div>
                   {/* <div>
