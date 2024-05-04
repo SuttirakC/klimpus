@@ -44,6 +44,13 @@ export default function CardUpdate({ userId }) {
       return;
     }
 
+    // Check email format
+    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailFormat.test(emailRef.current.value)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     const postData = {
       method: "PUT",
       headers: {
@@ -51,11 +58,11 @@ export default function CardUpdate({ userId }) {
       },
       body: JSON.stringify({
         user_id: userId,
-        username: usernameRef.current.value,
-        email: emailRef.current.value,
+        username: usernameRef.current.value.trim(),
+        email: emailRef.current.value.trim(),
         role_id: roleRef.current.value,
-        firstname: firstnameRef.current.value,
-        lastname: lastnameRef.current.value,
+        firstname: firstnameRef.current.value.trim(),
+        lastname: lastnameRef.current.value.trim(),
       }),
     };
 

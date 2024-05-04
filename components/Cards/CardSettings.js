@@ -57,18 +57,25 @@ export default function CardSettings() {
       return;
     }
 
+    // Check email format
+    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailFormat.test(emailRef.current.value)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     const postData = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: usernameRef.current.value,
-        password: passwordRef.current.value,
-        email: emailRef.current.value,
+        username: usernameRef.current.value.trim(),
+        password: passwordRef.current.value.trim(),
+        email: emailRef.current.value.trim(),
         role_id: roleRef.current.value,
-        firstname: firstnameRef.current.value,
-        lastname: lastnameRef.current.value,
+        firstname: firstnameRef.current.value.trim(),
+        lastname: lastnameRef.current.value.trim(),
       }),
     };
 
@@ -81,7 +88,7 @@ export default function CardSettings() {
       alert(response.response.message);
       // alert(response.response.data.username);
       setCreated(true);
-      router.push('/admin/account'); 
+      router.push('/admin/account');
     } else {
       alert(response.response.message);
       setCreated(false);
