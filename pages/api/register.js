@@ -22,6 +22,10 @@ export default async function handler(req, res) {
             // const firstname = req.body.firstname;
             // const lastname = req.body.lastname;
 
+            const bcrypt = require('bcrypt');
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+
             // Check if username exists
             const existingUsername = await query({
                 query: 'SELECT * FROM users WHERE username = ?',
@@ -35,18 +39,18 @@ export default async function handler(req, res) {
             });
 
             if (existingUsername.length > 0) {
-                res.status(400).json({response: {message: 'Username already exists' }});
+                res.status(400).json({ response: { message: 'Username already exists' } });
                 return;
             }
 
             if (existingEmail.length > 0) {
-                res.status(400).json({response:{ message: 'Email already exists' }});
+                res.status(400).json({ response: { message: 'Email already exists' } });
                 return;
             }
 
             const addUser = await query({
                 query: 'INSERT INTO users (username, password, email, role_id, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)',
-                values: [username, password, email, role_id, firstname, lastname],
+                values: [username, hashedPassword, email, role_id, firstname, lastname],
             });
 
             if (addUser.affectedRows) {
@@ -68,6 +72,6 @@ export default async function handler(req, res) {
             res.status(200).json({ response: { message: message, data: userData } });
         }
     } catch (error) {
-        res.status(400).json({ response: { message: error.message }});
+        res.status(400).json({ response: { message: error.message } });
     }
 }

@@ -29,8 +29,12 @@ const TableDropdown = ({ onEdit, onDelete }) => {
   };
 
   const handleDelete = () => {
-    onDelete(); // Call the onDelete callback when the Delete option is clicked
-    closeDropdownPopover(); // Close the dropdown after clicking Delete
+    if (confirm("Are you sure you want to delete this account?")) {
+      onDelete(); // Call the onDelete callback when the Delete option is clicked
+      closeDropdownPopover(); // Close the dropdown after clicking Delete
+    }
+    // onDelete(); // Call the onDelete callback when the Delete option is clicked
+    // closeDropdownPopover(); // Close the dropdown after clicking Delete
 };
 
   return (

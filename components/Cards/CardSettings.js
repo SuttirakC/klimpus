@@ -29,6 +29,12 @@ export default function CardSettings() {
 
   const [created, setCreated] = useState(false);
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addUser();
+    }
+  };
 
   async function addUser() {
     // Check if any required fields are blank
@@ -120,6 +126,7 @@ export default function CardSettings() {
                   // defaultValue="63070501005"
                   name="username"
                   placeholder="Username"
+                  onKeyDown={handleKeyPress}
                   ref={usernameRef}
                 // onChange={(e) => setRegisterUsername(e.target.value)}
                 />
@@ -139,6 +146,7 @@ export default function CardSettings() {
                   // defaultValue="kantapat.suwa@kmutt.ac.th"
                   name="email"
                   placeholder="Email"
+                  onKeyDown={handleKeyPress}
                   ref={emailRef}
                 // onChange={(e) => setRegisterEmail(e.target.value)}
                 />
@@ -158,6 +166,7 @@ export default function CardSettings() {
                   // defaultValue="Kantapat"
                   name="firstname"
                   placeholder="First Name"
+                  onKeyDown={handleKeyPress}
                   ref={firstnameRef}
                 // onChange={(e) => setRegisterFisrtname(e.target.value)}
                 />
@@ -177,6 +186,7 @@ export default function CardSettings() {
                   // defaultValue="Suwannahong"
                   name="lastname"
                   placeholder="Last Name"
+                  onKeyDown={handleKeyPress}
                   ref={lastnameRef}
                 // onChange={(e) => setRegisterLastname(e.target.value)}
                 />
@@ -234,6 +244,7 @@ export default function CardSettings() {
                   // defaultValue="kantapatcutyboy12345"
                   name="password"
                   placeholder="Password"
+                  onKeyDown={handleKeyPress}
                   ref={passwordRef}
                 // onChange={(e) => setRegisterPassword(e.target.value)}
                 />
@@ -253,6 +264,7 @@ export default function CardSettings() {
                   // defaultValue="kantapatcutyboy12345"
                   name="re-password"
                   placeholder="Re-Password"
+                  onKeyDown={handleKeyPress}
                   ref={rePasswordRef}
                 // onChange={(e) => setRegisterRePassword(e.target.value)}
                 />

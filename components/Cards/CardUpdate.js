@@ -72,6 +72,13 @@ export default function CardUpdate({ userId }) {
     }
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      updateUser();
+    }
+  };
+
   useEffect(() => {
     getUser();
   }, [userId]);
@@ -107,6 +114,7 @@ export default function CardUpdate({ userId }) {
                 <input
                   type="text"
                   ref={usernameRef}
+                  onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue={userData.username}
                 />
@@ -123,6 +131,7 @@ export default function CardUpdate({ userId }) {
                 <input
                   type="email"
                   ref={emailRef}
+                  onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue={userData.email}
                 />
@@ -139,6 +148,7 @@ export default function CardUpdate({ userId }) {
                 <input
                   type="text"
                   ref={firstnameRef}
+                  onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue={userData.firstname}
                 />
@@ -155,6 +165,7 @@ export default function CardUpdate({ userId }) {
                 <input
                   type="text"
                   ref={lastnameRef}
+                  onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue={userData.lastname}
                 />

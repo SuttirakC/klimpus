@@ -52,21 +52,28 @@ export default async function handler(req, res) {
         }
 
         if (req.method === 'PUT' && req.body.password) {
+            let message;
             const { user_id, password } = req.body;
+            const bcrypt = require('bcrypt');
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-            const updateUser = await query({
+            const updatePassword = await query({
                 query: 'UPDATE users SET password = ? WHERE user_id = ?',
-                values: [password, user_id],
+                values: [hashedPassword, user_id],
             });
 
-            if (updateUser.affectedRows) {
-                res.status(200).json({ response: { message: 'Reset Password Successfully' } });
+            if (updatePassword.affectedRows) {
+                message = 'Reset Password Successfully';
             } else {
-                res.status(400).json({ response: { message: 'Reset Password failed' } });
+                message = 'Reset Password failed';
             }
+
+            res.status(200).json({ response: { message: message } });
+
         }
 
     } catch (error) {
-        res.status(400).json({ response: {message: error.message }});
+        res.status(400).json({ response: { message: error.message } });
     }
 }
