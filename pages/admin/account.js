@@ -34,6 +34,10 @@ export default function Account() {
   useEffect(() => {
     getUserCount();
   }, []);
+
+  const updateUserCount = () => {
+    getUserCount(); // Update user count after deleting a user
+  };
   
   return (
     <>
@@ -115,7 +119,7 @@ export default function Account() {
         </div>
 
         <div className="w-full mt-10 px-4">
-          <CardTable />
+          <CardTable updateUserCount={updateUserCount}/>
         </div>
         {/* <div className="w-full mb-12 px-4">
           <CardTable color="dark" />
