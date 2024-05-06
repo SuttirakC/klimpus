@@ -3,7 +3,14 @@ import { useRouter } from 'next/router';
 import Link from "next/link";
 
 
-// components
+// Modal components
+import ModalSuccess from "components/Modal/ModalSuccess";
+import ModalFail from "components/Modal/ModalFail";
+import ModalUsernameExist from "components/Modal/ModalUsernameExist";
+import ModalEmailExist from "components/Modal/ModalEmailExist";
+import ModalEmailFormat from "components/Modal/ModalEmailFormat";
+import ModalPasswordNotMatch from "components/Modal/ModalPasswordNotMatch";
+import ModalFillInAll from "components/Modal/ModalFillInAll";
 
 export default function CardSettings() {
 
@@ -47,20 +54,23 @@ export default function CardSettings() {
       !firstnameRef.current.value ||
       !lastnameRef.current.value
     ) {
-      alert('Please fill in all required fields.');
+      // alert('Please fill in all required fields.');
+      document.getElementById('fillinall').showModal();
       return;
     }
 
     // Check if password and re-password match
     if (passwordRef.current.value !== rePasswordRef.current.value) {
-      alert('Passwords do not match.');
+      // alert('Passwords do not match.');
+      document.getElementById('pass_notmatch').showModal();
       return;
     }
 
     // Check email format
     const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailFormat.test(emailRef.current.value)) {
-      alert('Please enter a valid email address.');
+      // alert('Please enter a valid email address.');
+      document.getElementById('email_format').showModal();
       return;
     }
 
@@ -85,14 +95,22 @@ export default function CardSettings() {
 
     const response = await res.json();
     if (response.response && response.response.message === 'Created Successfully') {
-      alert(response.response.message);
+      // alert(response.response.message);
       // alert(response.response.data.username);
       setCreated(true);
-      router.push('/admin/account');
-    } else {
-      alert(response.response.message);
+      document.getElementById('create_success').showModal();
+      // router.push('/admin/account');
+    } else if (response.response && response.response.message === 'Creation failed') {
+      // alert(response.response.message);
+      document.getElementById('create_fail').showModal();
       setCreated(false);
+    } else if (response.response && response.response.message === 'Username already exists') {
+      document.getElementById('username_already').showModal();
+    }else if (response.response && response.response.message === 'Email already exists') {
+      document.getElementById('email_already').showModal();
     }
+
+
   }
 
   return (
@@ -102,124 +120,19 @@ export default function CardSettings() {
           <div className="text-center flex justify-between">
             <h6 className="text-slate-700 text-xl font-bold">New Account</h6>
 
-// P052 Start
-            {/* -> pop up for create account success*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-//             <button className="btn bg-kmutt_orange-200 text-white font-bold uppercase text-xs" onClick={() => document.getElementById('create_success').showModal()}>Create Account</button>
-            <dialog id="create_success" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-check text-3xl text-kmutt_green-100 mr-2"></div>
-                  <p className="py-2">New account has been created successfully.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <Link href="/admin/account">
-                      <button className="btn">Close</button>
-                    </Link>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for create account fail*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="create_fail" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-xmark text-3xl text-kmutt_red-100 mr-2"></div>
-                  <p className="py-2">New account has been not created!</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                      <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for username already exist*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="username_already" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Username already exist.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                      <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for email already exist*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="email_already" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Email already exist.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                      <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for password not match*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="pass_notmatch" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Password do not match.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                      <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for fill in all*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="fillinall" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Please fill in all required fields.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                      <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-// P052 Stop
-
+            {/* Modal components */}
+            <ModalSuccess />
+            <ModalFail />
+            <ModalFillInAll />
+            <ModalUsernameExist />
+            <ModalPasswordNotMatch />
+            <ModalEmailExist />
+            <ModalEmailFormat />
+                        
             {/* <Link href="/admin/account"> */}
             <button
-              className="bg-kmutt_orange-200 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="submit"
+              className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              type="button"
               onClick={addUser}
             >
               Create Account
@@ -362,7 +275,7 @@ export default function CardSettings() {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="password"
@@ -382,7 +295,7 @@ export default function CardSettings() {
                   Re-Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="re-password"

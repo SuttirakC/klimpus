@@ -1376,7 +1376,6 @@ select {
   align-items: center;
 }
 
-
 .modal-box {
   max-height: calc(100vh - 5em);
   grid-column-start: 1;
@@ -1404,7 +1403,6 @@ select {
   overscroll-behavior: contain;
 }
 
-
 .modal-open,
 .modal:target,
 .modal-toggle:checked + .modal,
@@ -1414,13 +1412,11 @@ select {
   opacity: 1;
 }
 
-
 .modal-action {
   display: flex;
   margin-top: 1.5rem;
   justify-content: flex-end;
 }
-
 
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
   overflow: hidden;
@@ -1877,13 +1873,11 @@ select {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-
 .modal-action > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
-
 
 @keyframes modal-pop {
   0% {
@@ -3743,6 +3737,10 @@ select {
   padding-bottom: 16rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -4166,6 +4164,11 @@ select {
 
 .hover\:-mt-4:hover {
   margin-top: -1rem;
+}
+
+.hover\:bg-kmutt_orange-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 69 31 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-slate-100:hover {
