@@ -1,119 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from 'chart.js/auto';
+import { InfluxDB } from '@influxdata/influxdb-client';
 
 export default function CardFlowRate() {
-  useEffect(() => {
-    const config = {
-      type: "line",
-      data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
-        ],
-        datasets: [
-          {
-            label: new Date().getFullYear(),
-            backgroundColor: "#FC6338",
-            borderColor: "#FC6338",
-            data: [100245, 95637, 89643, 118642, 124972, 50753, 43751, 60237, 80453, 100234, 139284, 90437],
-            fill: false,
-          },
-          // {
-          //   label: new Date().getFullYear() - 1,
-          //   backgroundColor: "#fff",
-          //   borderColor: "#fff",
-          //   data: [40, 68, 86, 74, 56, 60, 87],
-          //   fill: false,
-          // },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-          title: {
-            display: false,
-            text: "Sales Charts",
-            font: {
-              weight: 'bold',
-              size: 18,
-            },
-            color: "black",
-          },
-          legend: {
-            display: true,
-            labels: {
-              color: "black",
-            },
-            align: "end",
-            position: "bottom",
-          },
-          tooltip: {
-            mode: "index",
-            intersect: false,
-          },
-          hover: {
-            mode: "nearest",
-            intersect: true,
-          },
-        },
-        scales: {
-          x: {
-            ticks: {
-              color: "black",
-            },
-            display: true,
-            title: {
-              display: false,
-              text: "Month",
-              color: "black",
-            },
-            grid: {
-              display: false,
-              borderDash: [2],
-              borderDashOffset: [2],
-              color: "rgba(33, 37, 41, 0.3)",
-              zeroLineColor: "rgba(33, 37, 41, 0.3)",
-              zeroLineBorderDash: [2],
-              zeroLineBorderDashOffset: [2],
-            },
-          },
-          y: {
-            ticks: {
-              color: "black",
-            },
-            display: true,
-            title: {
-              display: false,
-              text: "Value",
-              color: "black",
-            },
-            grid: {
-              borderDash: [3],
-              borderDashOffset: [3],
-              drawBorder: false,
-              color: "rgba(33, 37, 41, 0.2)",
-              zeroLineColor: "rgba(33, 37, 41, 0.15)",
-              zeroLineBorderDash: [2],
-              zeroLineBorderDashOffset: [2],
-            },
-          },
-        },
-      },
-    };
-    const ctx = document.getElementById("line-chart-flow").getContext("2d");
-    new Chart(ctx, config);
-  }, []);
+  
 
   return (
     <>
@@ -122,16 +12,18 @@ export default function CardFlowRate() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-slate-400 mb-1 text-xs font-semibold">
-              Tap Water Usage @ the underground water tank inlet
+                Tap Water Usage @ the underground water tank inlet
               </h6>
-              <h2 className="text-xl font-semibold text-slate-700">Flow Rate (L/h)</h2>
+              <h2 className="text-xl font-semibold text-slate-700">Flow Rate (m3/h)</h2>
             </div>
           </div>
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
           <div className="relative h-64-px">
-            <canvas id="line-chart-flow"></canvas>
+            {/* <canvas id="line-chart-flow"></canvas> */}
+            <iframe src="http://10.13.253.146:3000/d-solo/bdk67fysuercwa/test-dashboard1?orgId=1&refresh=1m&from=now-1d&to=now&theme=light&panelId=1" 
+            width="100%" height="100%" frameborder="0"></iframe>
           </div>
         </div>
       </div>

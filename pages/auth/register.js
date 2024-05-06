@@ -1,10 +1,51 @@
-import React from "react";
+import {React, useEffect, useState, useRef } from "react";
 
 // layout for page
 
 import Auth from "layouts/Auth.js";
+// import { headers } from "next/headers";
 
 export default function Register() {
+
+  const usernameRef = useRef();
+  const usernameToDeleteRef = useRef();
+  const usernameToUpdateRef = useRef();
+
+  const [userData, setUserData] = useState([]);
+
+  const [updated, setUpdated] = useState(false);
+  const [created, setCreated] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+  const [updatedError, setUpdatedError] = useState(false);
+  const [deletedError, setDeletedError] = useState(false);
+
+  async function addUser() {}
+
+  async function getUsers() {
+    const postData = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/register`,postData
+      );
+
+    const response = await res.json();
+    setUserData(response.data);
+    console.log(response.data);
+  }
+
+  async function updateUser() {}
+
+  async function deleteUser() {}
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -38,6 +79,7 @@ export default function Register() {
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-slate-400 text-center mb-3 font-bold">
                   <small>Or sign up with credentials</small>
+                  {}
                 </div>
                 <form>
                   <div className="relative w-full mb-3">
@@ -100,6 +142,13 @@ export default function Register() {
                         </a>
                       </span>
                     </label>
+                    {userData.map((item) => (
+                      <div key={item.user_id}>
+                        <span>Username</span>: {item.username} <br /> {""}
+                        <span>Email</span>: {item.email} <br /> {""}
+                        <span>Firstname</span>: {item.firstname} <br /><br /> {""}
+                      </div>
+                    ))}
                   </div>
 
                   <div className="text-center mt-6">

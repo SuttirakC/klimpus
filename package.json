@@ -6,8 +6,12 @@
   "repository": "https://github.com/creativetimofficial/notus-nextjs",
   "license": "MIT",
   "dependencies": {
+    "@influxdata/influxdb-client": "^1.33.2",
+    "bcrypt": "^5.1.1",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "mariadb": "^3.3.0",
+    "next-auth": "^4.24.7",
     "react-scripts": "5.0.1",
     "tw-elements-react": "^1.0.0-alpha2"
   },
