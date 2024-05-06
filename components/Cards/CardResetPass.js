@@ -152,7 +152,7 @@ export default function CardResetPass({ userId }) {
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
               <button
                 className="bg-kmutt_orange-200 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                type="button"
+                type="password"
                 onClick={updateUser}
               >
                 Reset Password
@@ -176,7 +176,7 @@ export default function CardResetPass({ userId }) {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     ref={passwordRef}
                     placeholder="Password"
                     onKeyDown={handleKeyPress}

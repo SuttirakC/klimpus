@@ -60,14 +60,14 @@ const TableDropdown = ({ onEdit, onDelete }) => {
         
 // P052 Start
         
-//         <a
-//           className={
-//             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
-//           }
-//           onClick={() => document.getElementById('delete_confirm').showModal()}
-//         >
-//           Delete Account
-//         </a>
+         {/* <a
+          className={
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+          }
+          onClick={() => document.getElementById('delete_confirm').showModal()}
+        >
+          Delete Account
+        </a> */}
 
         {/* -> pop up for delete confirm*/}
         <dialog id="delete_confirm" className="modal modal-bottom sm:modal-middle">
