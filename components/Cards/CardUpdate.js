@@ -2,6 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 // components
+import ModalFillInAll from "components/Modal/ModalFillInAll";
+import ModalUpdateSuccess from "components/Modal/ModalUpdateSuccess";
+import ModalUpdateFail from "components/Modal/ModalUpdateFail";
+import ModalUsernameExist from "components/Modal/ModalUsernameExist";
+import ModalEmailExist from "components/Modal/ModalEmailExist";
+import ModalEmailFormat from "components/Modal/ModalEmailFormat";
+
 
 export default function CardUpdate({ userId }) {
 
@@ -40,14 +47,16 @@ export default function CardUpdate({ userId }) {
       !firstnameRef.current.value ||
       !lastnameRef.current.value
     ) {
-      alert("Please fill in all fields.");
+      // alert("Please fill in all fields.");
+      document.getElementById('fillinall').showModal();
       return;
     }
 
     // Check email format
     const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailFormat.test(emailRef.current.value)) {
-      alert('Please enter a valid email address.');
+      // alert('Please enter a valid email address.');
+      document.getElementById('email_format').showModal();
       return;
     }
 
@@ -71,11 +80,16 @@ export default function CardUpdate({ userId }) {
     );
 
     const response = await res.json();
-    if (response.response.message === 'Updated Successfully') {
-      alert(response.response.message);
+    if (response.response && response.response.message === 'Updated Successfully') {
+      // alert(response.response.message);
+      document.getElementById('update_success').showModal();
       setUpdated(true);
-    } else {
-      alert(response.response.message);
+    } else if (response.response && response.response.message === 'Update failed') {
+      document.getElementById('update_fail').showModal();
+    } else if (response.response && response.response.message === 'Username already exists') {
+      document.getElementById('username_already').showModal();
+    } else if (response.response && response.response.message === 'Email already exists') {
+      document.getElementById('email_already').showModal();
     }
   }
 
@@ -95,85 +109,15 @@ export default function CardUpdate({ userId }) {
       <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100 border-0">
         <div className="rounded-3xl bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
-    
-// P052 Start
 
-            {/* -> pop up for update success*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-//             <button className="btn bg-kmutt_orange-200 text-white font-bold uppercase text-xs" onClick={() => document.getElementById('update_success').showModal()}>Update Account</button>
-            <dialog id="update_success" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-check text-3xl text-kmutt_green-100 mr-2"></div>
-                  <p className="py-2">This account has been updated successfully.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <Link href="/admin/account">
-                      <button className="btn">Close</button>
-                    </Link>
-                  </form>
-                </div>
-              </div>
-            </dialog>
+            {/* Modal components */}
+            <ModalFillInAll />
+            <ModalUpdateSuccess />
+            <ModalUpdateFail />
+            <ModalUsernameExist />
+            <ModalEmailExist />
+            <ModalEmailFormat />
 
-            {/* -> pop up for update fail*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="update_fail" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-xmark text-3xl text-kmutt_red-100 mr-2"></div>
-                  <p className="py-2">This account has been not updated!</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for username already exist*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="username_already" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Username already exist.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-            {/* -> pop up for email already exist*/}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="email_already" className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg text-kmutt_orange-200">Message</h3>
-                <div className="flex flex-row justify-center text-center pt-2">
-                  <div className="fas fa-circle-exclamation text-3xl text-kmutt_yellow-100 mr-2"></div>
-                  <p className="py-2">Email already exist.</p>
-                </div>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button className="btn">Try again</button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-
-// P052 Stop
 
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
             <button
