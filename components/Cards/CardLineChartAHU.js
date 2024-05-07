@@ -22,19 +22,40 @@ export default function CardLineChartAHU() {
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
-            backgroundColor: "#FC6338",
-            borderColor: "#FC6338",
+            label: "Chiller No.1",
+            backgroundColor: "#B101B5",
+            borderColor: "#B101B5",
             data: [1910, 2453, 1532, 3152, 2311, 2456, 3544, 2931, 1836, 1384, 1538, 1183],
             fill: false,
           },
-          // {
-          //   label: new Date().getFullYear() - 1,
-          //   backgroundColor: "#fff",
-          //   borderColor: "#fff",
-          //   data: [40, 68, 86, 74, 56, 60, 87],
-          //   fill: false,
-          // },
+          {
+            label: "Chiller No.2",
+            backgroundColor: "#1E0458",
+            borderColor: "#1E0458",
+            data: [1912, 2353, 3532, 2152, 2331, 2457, 3542, 1931, 1236, 1784, 1578, 1383],
+            fill: false,
+          },
+          {
+            label: "Chiller No.3",
+            backgroundColor: "#70DB98",
+            borderColor: "#70DB98",
+            data: [1784, 2353, 3532, 2152, 2331, 1784, 3542, 1931, 1236, 1784, 1578, 3532],
+            fill: false,
+          },
+          {
+            label: "Chiller No.4",
+            backgroundColor: "#7AB1A9",
+            borderColor: "#7AB1A9",
+            data: [1236, 1578, 2331, 2152, 1578, 1784, 2542, 1931, 1784, 1184, 1578, 2331],
+            fill: false,
+          },
+          {
+            label: "Chiller No.5",
+            backgroundColor: "#0062FF",
+            borderColor: "#0062FF",
+            data: [1936, 3578, 2331, 1152, 2578, 1784, 1842, 1931, 1784, 1684, 1578, 1331],
+            fill: false,
+          },
         ],
       },
       options: {
@@ -122,9 +143,9 @@ export default function CardLineChartAHU() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-slate-400 mb-1 text-xs font-semibold">
-                Total Electrical Power Usage @ 1 Fl.
+                Current Average of Chiller No. 1-5
               </h6>
-              <h2 className="text-xl font-semibold text-slate-700">Total Power (kW)</h2>
+              <h2 className="text-xl font-semibold text-slate-700">Current Average (A)</h2>
             </div>
           </div>
         </div>
