@@ -12,6 +12,7 @@
     "gulp-append-prepend": "1.0.8",
     "mariadb": "^3.3.0",
     "mysql2": "^3.9.7",
+    "next-auth": "^4.24.7",
     "react-scripts": "5.0.1",
     "tw-elements-react": "^1.0.0-alpha2"
   },

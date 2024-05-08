@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 
+
 // components
 
 import CardLineChart from "components/Cards/CardLineChart.js";
@@ -11,6 +12,36 @@ import CardLineChart from "components/Cards/CardLineChart.js";
 import Admin from "layouts/Admin.js";
 
 export default function Inverter() {
+    // const timerDisplay = document.getElementById('timer');
+    // const startBtn = document.getElementById('startBtn');
+    // const stopBtn = document.getElementById('stopBtn');
+    // let intervalId;
+    // let seconds = 0;
+
+    // function update() {
+    //     const hours =
+    //         Math.floor(seconds / 3600).toString().padStart(2, '0');
+    //     const minutes =
+    //         Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+    //     const secs = (seconds % 60).toString().padStart(2, '0');
+    //     timerDisplay.textContent = `${hours}:${minutes}:${secs}`;
+    // }
+    // function start() {
+    //     intervalId = setInterval(() => {
+    //         seconds++;
+    //         update();
+    //     }, 1000);
+    //     startBtn.disabled = true;
+
+    // }
+    // function stop() {
+    //     clearInterval(intervalId);
+    //     seconds = 0;
+    //     update();
+    //     startBtn.disabled = false;
+    // }
+    // startBtn.addEventListener('click', start);
+    // stopBtn.addEventListener('click', stop);
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
@@ -101,17 +132,17 @@ export default function Inverter() {
                     </div>
                 </div>
 
-                <div className="bg-black w-full lg:w-6/12 xl:w-6/12 px-4">
+                <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
                     <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
                         <div className="flex-auto p-4">
                             <div className="flex flex-wrap">
                                 <div className="relative w-full pr-4 max-w-full flex flex-row">
-                                    <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
+                                    <div className="w-full lg:w-5/12 xl:w-5/12 px-4">
                                         <h6 className="text-kmutt_blue-100 font-bold text-3xl uppercase">
                                             All Control
                                         </h6>
                                     </div>
-                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                                    <div className="w-full lg:w-2/12 xl:w-2/12 flex flex-row items-center justify-start">
                                         <div className="p-1.5 fas fa-circle text-kmutt_orange-200 text-xl"></div>
                                         <h6 className="text-black font-semibold text-lg ml-2">
                                             Mixed
@@ -119,16 +150,16 @@ export default function Inverter() {
                                     </div>
                                     <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-end">
                                         {/* <Link href="/admin/account"> */}
-                                        <button
-                                            className="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4"
+                                        <button id="startBtn"
+                                            class="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
                                             type="button"
                                         >
                                             Start
                                         </button>
                                         {/* </Link> */}
                                         {/* <Link href="/admin/account"> */}
-                                        <button
-                                            className="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                        <button id="stopBtn"
+                                            class="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                             type="button"
                                         >
                                             Stop
@@ -138,62 +169,193 @@ export default function Inverter() {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="w-full flex flex-row">
+
+                            <div className="w-full lg:w-2/12 xl:w-2/12 flex items-start justify-center">
+                                <h6 className="text-md font-semibold text-slate-400 ">run time:</h6>
+                            </div>
+                            <div className="w-full lg:w-2/12 xl:w-2/12 flex items-start">
+                                <span id="timer"
+                                    class="text-md font-semibold text-slate-400 ">00:00:00</span>
+                            </div>
+                            <div className="w-full lg:w-2/12 xl:w-2/12 flex items-start justify-start">
+                                <h6 className="text-md font-semibold text-slate-400 ">Hr</h6>
+                            </div>
+
+                        </div>
+                        <div className="w-full flex items-start justify-start mt-3 ml-7">
+                            <h6 className="text-md font-semibold text-black">Frequency Speed</h6>
+                        </div>
+
+                        <div className="flex-auto p-4">
+                            <div className="flex flex-wrap">
+                                <div className="relative w-full pr-4 max-w-full flex flex-row">
+                                    <div className="w-full lg:w-4/12 xl:w-4/12 px-4 flex flex-row">
+                                        <button className="fas fa-circle-arrow-left text-3xl flex items-center mr-6" type="button"></button>
+                                        <h6 className="text-kmutt_orange-100 font-bold text-3xl uppercase flex items-center">
+                                            Mixed
+                                        </h6>
+                                        <button className="fas fa-circle-arrow-right text-3xl flex items-center ml-6" type="button"></button>
+                                    </div>
+                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                                        <h6 className="text-slate-400 font-semibold text-lg ml-2">
+                                            Hz
+                                        </h6>
+                                    </div>
+                                    <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-end">
+                                        {/* <Link href="/admin/account"> */}
+                                        <button id="lowfreq"
+                                            class="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                            type="button"
+                                        >
+                                            30.00
+                                        </button>
+                                        {/* </Link> */}
+                                        {/* <Link href="/admin/account"> */}
+                                        <button id="highfreq"
+                                            class="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                            type="button"
+                                        >
+                                            50.00
+                                        </button>
+                                        {/* </Link> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className="w-full">
+                    <h6 className="text-2xl font-semibold text-slate-200 mt-8 mb-4"> 1st Floor</h6>
+                </div>
+
+                <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
+                    <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
+                        <div className="flex-auto p-4">
+                            <div className="flex flex-wrap">
+                                <div className="relative w-full pr-4 max-w-full flex flex-row">
+                                    <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
+                                        <h6 className="text-kmutt_blue-100 font-bold text-3xl uppercase">
+                                            AHU 111
+                                        </h6>
+                                    </div>
+                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                                        <div className="p-1.5 fas fa-circle text-kmutt_green-100 text-xl"></div>
+                                        <h6 className="text-black font-semibold text-lg ml-2">
+                                            Running
+                                        </h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-row">
+
+                            <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
+                                <h6 className="text-md font-semibold text-slate-400 ">Model</h6>
+                            </div>
+                            <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
+                                <h6 className="text-md font-semibold text-slate-500 uppercase">Hitachi WJ200N</h6>
+                            </div>
+
+                        </div>
+                        <div className="flex flex-row">
+
+                            <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
+                                <h6 className="text-md font-semibold text-slate-400 ">Location</h6>
+                            </div>
+                            <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
+                                <h6 className="text-md font-semibold text-slate-400">@ LIB209, 1st Floor</h6>
+                            </div>
+
+                        </div>
+
+                        <div className="flex-auto p-4">
+                            <div className="flex flex-wrap">
+                                <div className="relative w-full pr-4 max-w-full flex flex-row">
+                                    <div className="w-full w-full lg:w-5/12 xl:w-5/12 flex items-start justify-start px-4">
+                                        <h6 className="text-md font-semibold text-black">Frequency Speed</h6>
+                                    </div>
+                                    <div className="w-full lg:w-4/12 xl:w-4/12 px-4 flex flex-row">
+                                        <button className="fas fa-circle-arrow-left text-2xl flex items-center mr-6" type="button"></button>
+                                        <h6 className="text-kmutt_orange-100 font-bold text-xl uppercase flex items-center">
+                                            50.00
+                                        </h6>
+                                        <button className="fas fa-circle-arrow-right text-2xl flex items-center ml-6" type="button"></button>
+                                    </div>
+                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                                        <h6 className="text-slate-400 font-semibold text-lg ml-2">
+                                            Hz
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div className="w-full flex items-start justify-start mt-4 ml-4">
+                                    {/* <Link href="/admin/account"> */}
+                                    <button id="startBtn"
+                                        class="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                        type="button"
+                                    >
+                                        Start
+                                    </button>
+                                    {/* </Link> */}
+                                    {/* <Link href="/admin/account"> */}
+                                    <button id="stopBtn"
+                                        class="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                        type="button"
+                                    >
+                                        Stop
+                                    </button>
+                                    {/* </Link> */}
+                                </div>
+                                <div className="w-full px-4 mt-6">
+                                    <h6 className="text-md font-semibold text-slate-400 ">Inverter status details: -</h6>
+                                </div>
+                                <div className="w-full flex flex-row mt-4">
+
+                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start justify-start px-4">
+                                        <h6 className="text-md font-semibold text-slate-500 ">run time:</h6>
+                                    </div>
+                                    <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start">
+                                        <span id="timer"
+                                            class="text-md font-semibold text-slate-500 ">00:00:00</span>
+                                    </div>
+                                    <div className="w-full lg:w-6/12 xl:w-6/12 flex items-start justify-start">
+                                        <h6 className="text-md font-semibold text-slate-500 ">Hr</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="w-full">
+                    <h6 className="text-2xl font-semibold text-slate-200 mt-8 mb-4"> 2nd - 5th Floor</h6>
+                </div>
+                <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
+                    <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
+                        <div className="flex-auto p-4">
+                            <div className="flex flex-wrap">
+                                <div className="relative w-full flex justify-center">
+                                    <h6 className="text-slate-500 font-bold text-xl">
+                                        No data
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div >
 
-
-            {/* <div className="flex flex-wrap mt-2 justify-end">
-                <div className="text-center flex">
-                    <Link href="/admin/ElectricalSub">
-                        <button
-                            className="bg-white active:bg-kmutt_orange-200 text-kmutt_orange-400 font-bold text-md px-8 py-3 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                            type="button"
-                        >
-                            Devices
-                            <div className="fas fa-caret-right text-black ml-2"></div>
-                        </button>
-                    </Link>
-                </div>
-            </div>
-
-            <div className="flex flex-wrap mt-6 ml-3 mr-2">
-                <div className="box-border h-20 w-full lg:w-7/12 xl:w-7/12 px-4 bg-white rounded-3xl text-bold">
-                    <h6 className="text-2xl font-semibold text-slate-700 text-center mt-6">Kilowatt-hour</h6>
-                </div>
-                <div className="box-border h-20 w-full lg:w-1/12 xl:w-1/12 px-4 ">
-
-                </div>
-                <div className="box-border h-20 w-full lg:w-4/12 xl:w-4/12 px-4 bg-kmutt_blue-100 rounded-3xl">
-                    <h6 className="text-3xl font-semibold text-white text-center mt-6">20 kWh</h6>
-                </div>
-            </div>
-
-            <div className="flex flex-wrap mt-6 justify-end mr-2">
-
-                <div class="inline-flex rounded shadow-sm" role="group">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
-                        Day
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                        Month
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                        Year
-                    </button>
-                </div>
-
-            </div>
-
-            <div className="flex flex-wrap">
-                <div className="w-full px-4 mt-4 mb-10">
-                    <CardLineChart />
-                </div>
-
-            </div> */}
         </>
+
     );
+
 }
 
 Inverter.layout = Admin;

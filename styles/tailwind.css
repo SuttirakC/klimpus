@@ -2564,6 +2564,18 @@ select {
   margin-left: 0.75rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.ml-7 {
+  margin-left: 1.75rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -2586,6 +2598,10 @@ select {
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
 }
 
 .mr-auto {
@@ -2791,6 +2807,10 @@ select {
 
 .w-16 {
   width: 4rem;
+}
+
+.w-3\/12 {
+  width: 25%;
 }
 
 .w-5 {
@@ -4090,6 +4110,11 @@ select {
 .active\:bg-kmutt_orange-200:active {
   --tw-bg-opacity: 1;
   background-color: rgb(252 99 56 / var(--tw-bg-opacity));
+}
+
+.active\:bg-slate-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .active\:bg-slate-50:active {
