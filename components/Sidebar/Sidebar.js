@@ -10,13 +10,21 @@ import UserDropdown from "components/Dropdowns/UserDropdown.js";
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   useEffect(() => {
-    if (!session) {
-      router.push("/auth/login");
+    if (status === "loading") {
+      return; // Do nothing while session is loading
     }
-  }, [session]);
+    if (!session) {
+      router.push("/auth/login"); // Redirect to login page if not logged in
+    }
+  }, [session, status, router]);
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: "/auth/login" });
+    router.push("/auth/login");
+  };
 
   return (
     <>
@@ -387,7 +395,8 @@ export default function Sidebar() {
                       : "text-slate-700 hover:text-yellow-500")
                   }
                   // onClick={() => setCollapseShow("hidden")}
-                  onClick={() => signOut()}
+                  // onClick={() => signOut()}
+                  onClick={handleSignOut}
 
                 >
                   <i

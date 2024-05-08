@@ -757,10 +757,7 @@ export default function Login({ csrfToken }) {
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-3xl bg-white border-0">
 
               <div className="flex-auto px-12 lg:px-10 py-10 pt-6">
-                <div className="text-slate-400 text-center mb-3 font-bold">
-                  {/* <small>Or sign in with credentials</small> */}
-                </div>
-
+               
                 <form method="post" action="/api/auth/callback/credentials">
                   <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                   <div className="relative w-full mb-3">
@@ -792,18 +789,6 @@ export default function Login({ csrfToken }) {
                       name="password"
                     />
                   </div>
-                  {/* <div>
-                    <label className="inline-flex items-center cursor-pointer">
-                      <input
-                        id="customCheckLogin"
-                        type="checkbox"
-                        className="form-checkbox border-0 rounded bg-slate-100 text-slate-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                      />
-                      <span className="ml-2 text-sm font-semibold text-slate-600">
-                        Remember me
-                      </span>
-                    </label>
-                  </div> */}
 
                   <div className="text-center mt-6">
                     <span href="#pablo" className="text-slate-200 cursor-pointer">

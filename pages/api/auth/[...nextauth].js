@@ -56,12 +56,12 @@ export const authOptions = {
             session.accessToken = token.accessToken
             session.user = token.user
             return session
-        }
+        },
     },
     pages: {
         signIn: '../../auth/login',
         // signOut: '../../auth/login',
         // error: '/auth/error',
-    }
+    },
 }
 export default NextAuth(authOptions)
