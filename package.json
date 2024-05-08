@@ -7,8 +7,11 @@
   "license": "MIT",
   "dependencies": {
     "@influxdata/influxdb-client": "^1.33.2",
+    "express": "^4.19.2",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "mariadb": "^3.3.0",
+    "mysql2": "^3.9.7",
     "react-scripts": "5.0.1",
     "tw-elements-react": "^1.0.0-alpha2"
   },
