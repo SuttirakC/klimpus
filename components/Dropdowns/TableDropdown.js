@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { createPopper } from "@popperjs/core";
 import Link from "next/link";
 
-const TableDropdown = () => {
+import ModalDeleteConfirm from "components/Modal/ModalDeleteConfirm";
+
+const TableDropdown = ({ onEdit, onDelete }) => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
   const btnDropdownRef = useRef(null);
   const popoverDropdownRef = useRef(null);
+  const deleteModalRef = useRef(null);
 
   useEffect(() => {
     if (btnDropdownRef.current && popoverDropdownRef.current && dropdownPopoverShow) {
@@ -23,11 +26,28 @@ const TableDropdown = () => {
     setDropdownPopoverShow(false);
   };
 
+  const handleEdit = () => {
+    onEdit(); // Call the onEdit callback when the Edit option is clicked
+    closeDropdownPopover(); // Close the dropdown after clicking Edit
+  };
+
+  const handleDelete = () => {
+    // Open the delete confirmation modal
+    if (deleteModalRef.current) {
+      deleteModalRef.current.showModal();
+    }
+  };
+
+  const confirmDelete = () => {
+    // Call the onDelete callback to delete the user
+    onDelete();
+    closeDropdownPopover(); // Close the dropdown after deleting the user
+  };
+
   return (
     <>
       <a
         className="text-slate-500 py-1 px-3"
-        href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
           e.preventDefault();
@@ -43,35 +63,31 @@ const TableDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded-2xl shadow-2xl min-w-48"
         }
       >
-        <Link href="/admin/UpdateAccount">
+
         <span
-          // href="#pablo"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
-          // onClick={(e) => e.preventDefault()}
+          onClick={handleEdit}
         >
           Update Account
         </span>
-        </Link>
-        <a
-          href="#pablo"
+
+        <ModalDeleteConfirm
+          deleteModalRef={deleteModalRef}
+          confirmDelete={confirmDelete}
+          closeDropdownPopover={closeDropdownPopover}
+        />
+
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700 cursor-pointer"
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={handleDelete}
         >
           Delete Account
-        </a>
-        {/* <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a> */}
+        </span>
+
       </div>
     </>
   );

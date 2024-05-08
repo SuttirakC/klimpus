@@ -12,6 +12,8 @@ import CardResetPass from "components/Cards/CardResetPass";
 
 export default function UpdateAccount() {
     const router = useRouter();
+    const { id } = router.query; // Extract the id from query parameters
+    
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-start md:flex-nowrap flex-wrap md:px-10 px-4">
@@ -32,8 +34,8 @@ export default function UpdateAccount() {
             <div className="flex flex-wrap">
 
                 <div className="w-full mt-8 px-4 mb-2">
-                    <CardUpdate/>
-                    <CardResetPass/>
+                    <CardUpdate userId={id}/>
+                    <CardResetPass userId={id}/>
                 </div>
             </div>
         </>
