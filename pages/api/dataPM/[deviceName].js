@@ -14,7 +14,6 @@ const fetchInfluxData = async (value) => {
     import "influxdata/influxdb/schema"
     from(bucket: "raw_data")
     |> range(start: -1h)
-    |> filter(fn: (r) => r["_measurement"] == "PowerMeter")
     |> filter(fn: (r) => r["device_name"] == "${value}")
     |> last()
     |> schema.fieldsAsCols()
