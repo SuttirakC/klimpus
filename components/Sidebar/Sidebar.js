@@ -187,11 +187,11 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/chiller">
+                <Link href="/admin/Chiller">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/chiller") !== -1
+                      (router.pathname.indexOf("/admin/Chiller") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -200,7 +200,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-snowflake mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/chiller") !== -1
+                        (router.pathname.indexOf("/admin/Chiller") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
