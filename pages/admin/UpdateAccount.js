@@ -1,6 +1,7 @@
-import React from "react";
+import { React, useEffect, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 // components
 
@@ -13,14 +14,26 @@ import CardResetPass from "components/Cards/CardResetPass";
 export default function UpdateAccount() {
     const router = useRouter();
     const { id } = router.query; // Extract the id from query parameters
-    
+    const [role, setRole] = useState(1);
+    const { data: session, status } = useSession()
+
+    useEffect(() => {
+        // Redirect if user role is not admin
+        if (session) {
+            setRole(session.user.role_id);
+        }
+        if (session && role !== 1) {
+            router.push("/");
+        }
+    }, [session, role]);
+
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-start md:flex-nowrap flex-wrap md:px-10 px-4">
                 <Link href="/admin/account">
                     <span
                         className={"fas fa-arrow-left  text-2xl text-white"}
-                    >    
+                    >
                     </span>
                 </Link>
                 <div
@@ -34,8 +47,8 @@ export default function UpdateAccount() {
             <div className="flex flex-wrap">
 
                 <div className="w-full mt-8 px-4 mb-2">
-                    <CardUpdate userId={id}/>
-                    <CardResetPass userId={id}/>
+                    <CardUpdate userId={id} />
+                    <CardResetPass userId={id} />
                 </div>
             </div>
         </>
