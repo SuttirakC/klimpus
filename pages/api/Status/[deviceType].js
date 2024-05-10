@@ -46,8 +46,8 @@ export default async function handler(req, res) {
             try {
                 // console.log(deviceType);
                 const data = await fetchOnlineDevice({deviceType});
-                console.log(data);
-                res.status(200).json(data);
+                console.log(typeof data);
+                res.status(200).json(JSON.stringify(data));
             } catch (error) {
                 console.error('Error fetching data from MariaDB:', error);
                 res.status(500).json({ error: 'Error fetching data from MariaDB' });
