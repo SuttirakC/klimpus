@@ -40,7 +40,7 @@ export default function BlockDevice() {
             }
         }
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it. 
-            
+
             setState(state => ({ data: state.data, error: false, loading: true }))
             fetchData()
                 //  .then(newData => setState({ data: newData, error: false, loading: false }))
@@ -64,8 +64,8 @@ export default function BlockDevice() {
     return (
         <>
             {obj ? (
-                obj.map((data) => (
-                    <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0" key={data.device_showname}>
+                obj.map((data, index) => (
+                    <div key={index} className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                         <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                             <div className="text-center flex justify-between">
                                 <h6 className="text-slate-700 text-xl font-bold">{data.device_showname}</h6>
@@ -74,8 +74,8 @@ export default function BlockDevice() {
 
                         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                             <div className="flex flex-wrap mt-8">
-                                {data.lists.map((data2) => (
-                                    <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                                {data.lists.map((data2, index2) => (
+                                    <div key={index2} className="w-full lg:w-6/12 xl:w-3/12 px-4">
                                         <CardStats
                                             bgcolor="bg-white"
                                             statSubtitle={data2.deviceName}
@@ -92,14 +92,14 @@ export default function BlockDevice() {
                     </div>
                 ))
             ) : (
-            <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0" >
-            <div className="rounded-3xl bg-white mb-0 px-6 py-6">
-                <div className="text-center flex justify-between">
-                    <h6 className="text-slate-700 text-xl font-bold"> Loading <span className="loading loading-dots loading-md"></span></h6> 
-                    
+                <div key="loading" className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0" >
+                    <div className="rounded-3xl bg-white mb-0 px-6 py-6">
+                        <div className="text-center flex justify-between">
+                            <h6 className="text-slate-700 text-xl font-bold"> Loading <span className="loading loading-dots loading-md"></span></h6>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
             )}
         </>
     );
