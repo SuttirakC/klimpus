@@ -5,6 +5,14 @@ import Link from "next/link";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
+export async function getServerSideProps() {
+  return {
+    redirect: {
+      destination: '/admin/dashboard', // ที่หมายเลขหน้าที่คุณต้องการนำทางไป
+      permanent: false, // ถ้าค่าเป็น true, เบราว์เซอร์จะเก็บไว้ว่าหน้าถูกเปลี่ยนทางอย่างถาวร
+    },
+  };
+}
 export default function Index() {
   return (
     <>
