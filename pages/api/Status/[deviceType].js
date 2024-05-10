@@ -17,7 +17,7 @@ const fetchOnlineDevice = async ({deviceType}) => {
             console.log(rows[0]);
             return ({
                 ONLINES: Number(rows[0].ONLINES),
-                OFFINES: Number(rows[0].ALLS) - Number(rows[0].ONLINES),
+                OFFLINES: Number(rows[0].ALLS) - Number(rows[0].ONLINES),
                 ALLS: Number(rows[0].ALLS),
             });
         } else {
