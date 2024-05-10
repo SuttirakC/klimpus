@@ -38,9 +38,9 @@ export default function WaterSub() {
 
                 <div className="box-border h-12 w-full lg:w-2/12 xl:w-2/12 px-4 rounded-3xl text-bold">
 
-                    <form class="max-w-sm mx-auto">
+                    <form className="max-w-sm mx-auto">
                         {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
-                        <select id="devices" class="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
+                        <select id="devices" className="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
                             onChange={(e) => {
                                 router.push(e.target.value);
                             }

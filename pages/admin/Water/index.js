@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 
 
 // components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
 import CardWaterInfo from "components/Cards/CardWaterInfo";
 import CardBarChart from "components/Cards/CardBarChart.js";
 
@@ -128,14 +126,14 @@ export default function Water() {
 
                 <div className="flex flex-wrap mt-6 justify-end mr-2">
 
-                    <div class="inline-flex rounded shadow-sm" role="group">
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
+                    <div className="inline-flex rounded shadow-sm" role="group">
+                        <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
                             Day
                         </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                        <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                             Month
                         </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                        <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                             Year
                         </button>
                     </div>

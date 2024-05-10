@@ -17,7 +17,7 @@ export default function CardLineChart({title,}) {
         </div>
         <div className="p-4 flex-auto">
         <div className="relative h-350-px">
-        <iframe src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=11" width="100%" height="100%" frameborder="0" ></iframe>
+        <iframe src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=11" width="100%" height="100%" ></iframe>
         </div>
           {/* Chart */}
           {/* <div className="relative h-350-px">
