@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import CardLineChart from "components/Cards/CardLineChart.js";
 import CardBarChart from "components/Cards/CardBarChart.js";
+import CardLineChartAHU from "components/Cards/CardLineChartAHU.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import CardDashboard from "components/Cards/CardDashboard";
@@ -12,7 +13,6 @@ import CardDashboard from "components/Cards/CardDashboard";
 // layout for page
 
 import Admin from "layouts/Admin.js";
-import CardLineChartAHU from "components/Cards/CardLineChartAHU";
 
 export default function Dashboard() {
   return (
@@ -129,16 +129,16 @@ export default function Dashboard() {
       </div>
 
       <div className="flex flex-wrap mt-4">
-        <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mt-8">
+        <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4 mt-8">
           <CardLineChart />
         </div>
 
-        <div className="w-full xl:w-4/12 px-4 mt-8">
+        <div className="w-full xl:w-6/12 px-4 mt-8">
+          <CardLineChartAHU />
+        </div>
+        <div className="w-full mb-12 xl:mb-0 px-4 mt-2">
           <CardBarChart />
         </div>
-        {/* <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-          <CardBarChart />
-        </div> */}
         {/* <div className="w-full xl:w-4/12 px-4">
           <CardSocialTraffic />
         </div> */}
