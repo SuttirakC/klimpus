@@ -1,6 +1,7 @@
-import React from "react";
+import { React, useEffect, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 // components
 
@@ -11,6 +12,19 @@ import CardSettings from "components/Cards/CardSettings";
 
 export default function CreateAccount() {
     const router = useRouter();
+    const [role, setRole] = useState(1);
+    const { data: session, status } = useSession()
+
+    useEffect(() => {
+        // Redirect if user role is not admin
+        if (session) {
+            setRole(session.user.role_id);
+        }
+        if (session && role !== 1) {
+            router.push("/");
+        }
+    }, [session, role]);
+    
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-start md:flex-nowrap flex-wrap md:px-10 px-4">
