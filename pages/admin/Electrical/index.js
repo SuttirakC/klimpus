@@ -12,6 +12,7 @@ import Admin from "layouts/Admin.js";
 
 export default function Electrical() {
 
+    
 
     return (
         <>
@@ -68,7 +69,7 @@ export default function Electrical() {
             {/* <div className="flex flex-wrap mt-6 ml-3 mr-2">
                 <div className="box-border h-20 w-full lg:w-7/12 xl:w-7/12 px-4 bg-white rounded-3xl text-bold">
                     <h6 className="text-2xl font-semibold text-slate-700 text-center mt-6">Kilowatt-hour</h6>
-                </div>
+                </div>0
                 <div className="box-border h-20 w-full lg:w-1/12 xl:w-1/12 px-4 ">
 
                 </div>
