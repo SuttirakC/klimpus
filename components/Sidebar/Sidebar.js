@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react"
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
@@ -8,6 +10,22 @@ import UserDropdown from "components/Dropdowns/UserDropdown.js";
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
+  const { data: session, status } = useSession()
+
+  useEffect(() => {
+    if (status === "loading") {
+      return; // Do nothing while session is loading
+    }
+    if (!session) {
+      router.push("/auth/login"); // Redirect to login page if not logged in
+    }
+  }, [session, status, router]);
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: "/auth/login" });
+    router.push("/auth/login");
+  };
+
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
@@ -145,11 +163,11 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/WaterMain">
+                <Link href="/admin/Water">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/WaterMain") !== -1
+                      (router.pathname.indexOf("/admin/Water") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -158,7 +176,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-droplet mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/WaterMain") !== -1
+                        (router.pathname.indexOf("/admin/Water") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
@@ -169,11 +187,11 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/maps">
+                <Link href="/admin/Chiller">
                   <span
                     className={
                       "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/maps") !== -1
+                      (router.pathname.indexOf("/admin/Chiller") !== -1
                         ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
                         : "text-slate-700 hover:text-kmutt_orange-300")
                     }
@@ -182,7 +200,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-snowflake mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/maps") !== -1
+                        (router.pathname.indexOf("/admin/Chiller") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
@@ -299,42 +317,44 @@ export default function Sidebar() {
               </li> */}
             </ul>
 
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Admin Panel
-            </h6>
-            {/* Navigation */}
+            {session?.user?.role_id === 1 ? (
+              <>
+                {/* Divider */}
+                <hr className="my-4 md:min-w-full" />
+                {/* Heading */}
+                <h6 className="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                  Admin Panel
+                </h6>
+                {/* Navigation */}
+                {/* { session?.user?.role_id === 1 ? */}
+                <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-
-              <li className="items-center">
-                <Link href="/admin/account">
-                  <span
-                    className={
-                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
-                      (router.pathname.indexOf("/admin/account") !== -1
-                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
-                        : "text-slate-700 hover:text-kmutt_orange-300")
-                    }
-                    onClick={() => setCollapseShow("hidden")}
-                  >
-                    <i
-                      className={
-                        "fas fa-users mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/maps") !== -1
-                          ? "opacity-75"
-                          : "text-slate-300")
-                      }
-                    ></i>{" "}
-                    Account Control
-                  </span>
-                </Link>
-              </li>
+                  <li className="items-center">
+                    <Link href="/admin/account">
+                      <span
+                        className={
+                          "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                          (router.pathname.indexOf("/admin/account") !== -1
+                            ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                            : "text-slate-700 hover:text-kmutt_orange-300")
+                        }
+                        onClick={() => setCollapseShow("hidden")}
+                      >
+                        <i
+                          className={
+                            "fas fa-users mr-2 text-sm " +
+                            (router.pathname.indexOf("/admin/maps") !== -1
+                              ? "opacity-75"
+                              : "text-slate-300")
+                          }
+                        ></i>{" "}
+                        Account Control
+                      </span>
+                    </Link>
+                  </li>
 
 
-              {/* <li className="items-center">
+                  {/* <li className="items-center">
                 <Link href="/landing">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
@@ -346,7 +366,7 @@ export default function Sidebar() {
                 </Link>
               </li> */}
 
-              {/* <li className="items-center">
+                  {/* <li className="items-center">
                 <Link href="/profile">
                   <span
                     className="text-slate-700 hover:text-slate-500 text-xs uppercase py-3 font-bold block cursor-pointer"
@@ -357,33 +377,39 @@ export default function Sidebar() {
                   </span>
                 </Link>
               </li> */}
-            </ul>
+                </ul>
+              </>
+            ) : null
+            }
 
             <hr className="my-4 md:min-w-full" />
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
 
               <li className="items-center">
-                <Link href="/auth/login">
-                  <span
+                {/* <Link href="/auth/login"> */}
+                <span
+                  className={
+                    "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                    (router.pathname.indexOf("/auth/login") !== -1
+                      ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
+                      : "text-slate-700 hover:text-yellow-500")
+                  }
+                  // onClick={() => setCollapseShow("hidden")}
+                  // onClick={() => signOut()}
+                  onClick={handleSignOut}
+
+                >
+                  <i
                     className={
-                      "text-xs uppercase py-3 font-bold block cursor-pointer " +
+                      "fas fa-person-walking-arrow-right mr-2 text-sm " +
                       (router.pathname.indexOf("/auth/login") !== -1
-                        ? "text-kmutt_orange-200 hover:text-kmutt_orange-100"
-                        : "text-slate-700 hover:text-yellow-500")
+                        ? "opacity-75"
+                        : "text-slate-300")
                     }
-                    onClick={() => setCollapseShow("hidden")}
-                  >
-                    <i
-                      className={
-                        "fas fa-person-walking-arrow-right mr-2 text-sm " +
-                        (router.pathname.indexOf("/auth/login") !== -1
-                          ? "opacity-75"
-                          : "text-slate-300")
-                      }
-                    ></i>{" "}
-                    Sign out
-                  </span>
-                </Link>
+                  ></i>{" "}
+                  Sign out
+                </span>
+                {/* </Link> */}
               </li>
             </ul>
 

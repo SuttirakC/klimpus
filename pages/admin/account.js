@@ -1,6 +1,7 @@
-import {React, useEffect, useState, useRef } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 // components
 
@@ -14,6 +15,8 @@ import Admin from "layouts/Admin.js";
 export default function Account() {
   const router = useRouter();
   const [userCount, setUserCount] = useState(null);
+  const [role, setRole] = useState(1);
+  const { data: session, status } = useSession()
 
   async function getUserCount() {
     const postData = {
@@ -34,7 +37,21 @@ export default function Account() {
   useEffect(() => {
     getUserCount();
   }, []);
-  
+
+  useEffect(() => {
+    // Redirect if user role is not admin
+    if (session) {
+      setRole(session.user.role_id);
+    }
+    if (session && role !== 1) {
+      router.push("/");
+    }
+  }, [session, role]);
+
+  const updateUserCount = () => {
+    getUserCount(); // Update user count after deleting a user
+  };
+
   return (
     <>
       <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
@@ -115,7 +132,7 @@ export default function Account() {
         </div>
 
         <div className="w-full mt-10 px-4">
-          <CardTable />
+          <CardTable updateUserCount={updateUserCount} />
         </div>
         {/* <div className="w-full mb-12 px-4">
           <CardTable color="dark" />
