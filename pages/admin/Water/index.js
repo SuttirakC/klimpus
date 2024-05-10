@@ -22,24 +22,6 @@ export default function Water() {
 
     useEffect(() => {
         setLoading(true)
-        async function fetchStatus() {
-            const fetchpath = `/api/Status/FlowMeter`;
-            try {
-                const response = await fetch(fetchpath);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const newData = await response.json();
-                // console.log("----->", newData);
-                setStatus(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
-            } catch (error) {
-                setError(error.message);
-                setStatus(null);
-            }
-        }
-
         async function fetchData() {
             const fetchpath = `/api/waterUsage`;
             try {
@@ -58,15 +40,37 @@ export default function Water() {
             }
         }
 
-        fetchStatus();
         fetchData()
-    }, [data, status]);
+    }, [data]);
+
+    useEffect(() => {
+        setLoading(true)
+        async function fetchStatus() {
+            const fetchpath = `/api/Status/FlowMeter`;
+            try {
+                const response = await fetch(fetchpath);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const newData = await response.json();
+                // console.log("----->", newData);
+                setStatus(newData);
+                setLoading(false);
+                setIframeKey(prevKey => prevKey + 1);
+            } catch (error) {
+                setError(error.message);
+                setStatus(null);
+            }
+        }
+
+        fetchStatus()
+    }, [status]);
 
     // if (error) {
     //     return <div>Error: {error}</div>;
     // }
     // if (isLoading) return <p>Loading...</p>
-    if (!status || !data) return;
+    if (!data || !status) return;
     const obj = JSON.parse(data);
     const obj2 = JSON.parse(status);
     return (

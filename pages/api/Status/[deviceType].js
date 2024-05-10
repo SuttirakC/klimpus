@@ -1,6 +1,6 @@
 import { createPool, query, closePool } from "../../../lib/db_connection.js";
 
-const fetchOnlineDevice = async ({deviceType}) => {
+const fetchOnlineDevice = async ({deviceType, res}) => {
     // console.log(deviceType);
     try {
         createPool();
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         } else {
             try {
                 // console.log(deviceType);
-                const data = await fetchOnlineDevice({deviceType});
+                const data = await fetchOnlineDevice({deviceType, res});
                 // console.log(typeof data);
                 res.status(200).json(JSON.stringify(data));
             } catch (error) {
