@@ -4,8 +4,6 @@ import Link from "next/link";
 
 // components
 
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardElecInfo from "components/Cards/CardElecInfo";
 import BlockElectrical from "components/Block/BlockElectrical.js";
 
 // layout for page
