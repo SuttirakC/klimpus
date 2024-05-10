@@ -69,7 +69,7 @@ export default function Chiller() {
                     <div className="flex flex-wrap mt-8 mb-20">
                         <div className="w-full lg:w-8/12 xl:w-8/12 px-4">
                             <div className="w-full lg:h-6/12 xl:h-6/12">
-                                <CardChillerStatus />
+                                <CardChillerStatus dataStatus={obj}/>
                                 <CardLineChartAHU />
 
                             </div>
