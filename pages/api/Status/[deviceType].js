@@ -10,11 +10,11 @@ const fetchOnlineDevice = async ({deviceType}) => {
             query: querys,
             values: [deviceType],
         });
-        console.log(rows.length);
+        // console.log(rows.length);
         closePool();
         // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
           if (rows.length > 0) {
-            console.log(rows[0]);
+            // console.log(rows[0]);
             return ({
                 ONLINES: Number(rows[0].ONLINES),
                 OFFINES: Number(rows[0].ALLS) - Number(rows[0].ONLINES),
@@ -36,7 +36,7 @@ const fetchOnlineDevice = async ({deviceType}) => {
 
 export default async function handler(req, res) {
     var deviceType = req.query.deviceType;
-    console.log(deviceType);
+    // console.log(deviceType);
     if (req.method !== 'GET') {
         res.status(405).send('Method Not Allowed');
     } else {
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
             try {
                 // console.log(deviceType);
                 const data = await fetchOnlineDevice({deviceType});
-                console.log(typeof data);
+                // console.log(typeof data);
                 res.status(200).json(JSON.stringify(data));
             } catch (error) {
                 console.error('Error fetching data from MariaDB:', error);
