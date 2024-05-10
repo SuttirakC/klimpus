@@ -12,6 +12,7 @@ import Admin from "layouts/Admin.js";
 
 export default function Electrical() {
 
+    
 
     return (
         <>
@@ -68,7 +69,7 @@ export default function Electrical() {
             {/* <div className="flex flex-wrap mt-6 ml-3 mr-2">
                 <div className="box-border h-20 w-full lg:w-7/12 xl:w-7/12 px-4 bg-white rounded-3xl text-bold">
                     <h6 className="text-2xl font-semibold text-slate-700 text-center mt-6">Kilowatt-hour</h6>
-                </div>
+                </div>0
                 <div className="box-border h-20 w-full lg:w-1/12 xl:w-1/12 px-4 ">
 
                 </div>
@@ -84,14 +85,14 @@ export default function Electrical() {
                     <CardLineChart />
                     <div className="flex flex-wrap mt-6 justify-end mr-2">
 
-                        <div class="inline-flex rounded shadow-sm" role="group">
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
+                        <div className="inline-flex rounded shadow-sm" role="group">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
                                 Day
                             </button>
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                                 Month
                             </button>
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                                 Year
                             </button>
                         </div>
@@ -103,14 +104,14 @@ export default function Electrical() {
                     <CardLineChart />
                     <div className="flex flex-wrap mt-6 justify-end mr-2">
 
-                        <div class="inline-flex rounded shadow-sm" role="group">
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
+                        <div className="inline-flex rounded shadow-sm" role="group">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
                                 Day
                             </button>
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                                 Month
                             </button>
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
+                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
                                 Year
                             </button>
                         </div>

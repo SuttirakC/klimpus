@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-
+// import 
 // components
 
 import CardWattLineChart from "../Cards/CardWattLineChart.js";
@@ -18,7 +18,7 @@ export default function BlockElectricalMain() {
     useEffect(() => {
         setLoading(true)
         async function fetchData() {
-            const fetchpath = `/api/dataPM/${deviceName}`;
+            const fetchpath = `/api/Status/PowerMeter`;
             try {
                 const response = await fetch(fetchpath);
                 if (!response.ok) {
@@ -35,7 +35,7 @@ export default function BlockElectricalMain() {
         }
 
         fetchData();
-    }, [data,deviceName]);
+    }, [data]);
 
     // if (error) {
     //     return <div>Error: {error}</div>;
@@ -53,14 +53,14 @@ export default function BlockElectricalMain() {
                     <div className="flex flex-wrap mt-8">
                         <div className="w-full lg:w-9/12 xl:w-9/12 px-4">
 
-                            <CardWattLineChart deviceName={deviceName}/>
+                            <CardWattLineChart />
                         </div>
                         <div className="w-full lg:w-3/12 xl:w-3/12 px-4">
                         <div className="mt-0">
                                 <CardElecInfo
                                     // statSubtitle="Timr"
                                     statTitle="Time"
-                                    elecinfo={obj.times}
+                                    elecinfo={obj.ALLS}
                                 />
                             </div>
                             <div className="mt-8">

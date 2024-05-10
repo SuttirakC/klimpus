@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import { SessionProvider } from "next-auth/react";
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -85,9 +86,11 @@ export default class MyApp extends App {
           <title>Notus NextJS by Creative Tim</title>
           <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SessionProvider session={pageProps.session}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SessionProvider>
       </React.Fragment>
     );
   }

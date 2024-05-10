@@ -11,7 +11,7 @@ import CardDeviceElec from "components/Cards/CardDeviceElec";
 import CardDeviceWater from "components/Cards/CardDeviceWater";
 import CardDeviceChiller from "components/Cards/CardDeviceChiller";
 import CardDeviceInverter from "components/Cards/CardDeviceInverter";
-
+import BlockDevice from "components/Block/BlockDevice";
 
 export default function Device() {
     const router = useRouter();
@@ -30,10 +30,11 @@ export default function Device() {
             <div className="flex flex-wrap">
 
                 <div className="w-full mt-8 px-4">
-                    <CardDeviceElec />
+                <BlockDevice />
+                    {/* <CardDeviceElec />
                     <CardDeviceWater />
                     <CardDeviceChiller />
-                    <CardDeviceInverter />
+                    <CardDeviceInverter /> */}
                 </div>
 
             </div>

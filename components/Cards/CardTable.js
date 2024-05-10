@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
 
-export default function CardTable({ color }) {
+export default function CardTable({ color, updateUserCount }) {
   const router = useRouter();
   const [userData, setUserData] = useState([]);
 
@@ -35,6 +35,8 @@ export default function CardTable({ color }) {
       if (response.ok) {
         // If delete successful, fetch users again to update the table
         getUsers();
+        // Update user count
+        updateUserCount();
       } else {
         // Handle delete error
         console.error("Failed to delete user");
@@ -227,4 +229,5 @@ CardTable.defaultProps = {
 
 CardTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
+  updateUserCount: PropTypes.func.isRequired, // Add prop type for updateUserCount callback
 };

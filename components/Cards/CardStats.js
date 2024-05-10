@@ -15,7 +15,7 @@ export default function CardStats({
 }) {
   return (
     <>
-      <div className={"relative flex flex-col min-w-0 break-words rounded-3xl mb-6 xl:mb-0 shadow-lg " + bgcolor}>
+      <div className={"relative flex flex-col min-w-0 break-words rounded-3xl mb-6 xl:mb-6 shadow-lg " + bgcolor}>
         <div className="flex-auto p-4">
           <div className="flex flex-wrap">
             <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
