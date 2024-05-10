@@ -4,7 +4,7 @@ const fetchOnlineDevice = async ({deviceType}) => {
     // console.log(deviceType);
     try {
         createPool();
-        const querys = "SELECT COUNT(ds.deviceStatus) AS ONLINES, COUNT(ds.deviceName) AS ALLS FROM device_db db JOIN device_status ds ON db.deviceName = ds.deviceName WHERE db.deviceType = ?;";
+        const querys = "SELECT SUM(CASE WHEN ds.deviceStatus = 1 THEN 1 ELSE 0 END) AS ONLINES, COUNT(ds.deviceName) AS ALLS FROM device_db db JOIN device_status ds ON db.deviceName = ds.deviceName WHERE db.deviceType = ?;";
         const rows = await query({
             name_db: 'klimpus_device',
             query: querys,
