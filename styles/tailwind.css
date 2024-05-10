@@ -2572,6 +2572,10 @@ select {
   z-index: 2;
 }
 
+.z-20 {
+  z-index: 20;
+}
+
 .z-3 {
   z-index: 3;
 }
@@ -4693,6 +4697,10 @@ select {
 @media (min-width: 1280px) {
   .xl\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .xl\:mb-6 {
+    margin-bottom: 1.5rem;
   }
 
   .xl\:w-1\/12 {
