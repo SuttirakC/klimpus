@@ -4,15 +4,16 @@ import Link from "next/link";
 
 // components
 
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardInfoMain from "components/Cards/CardMainLineChartInfo.js";
+import CardElecTotalChart from "components/Cards/CardElec_TotalChart.js";
+
 // layout for page
 
 import Admin from "layouts/Admin.js";
+import BlockElectricalTotal from "components/Block/BlockElectricalTotal";
 
 export default function Electrical() {
 
-    
+
 
     return (
         <>
@@ -40,31 +41,7 @@ export default function Electrical() {
                 </div>
             </div>
 
-            <div className="flex flex-wrap mt-8">
-                <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                    <CardInfoMain
-                        waterinfo="Month Energy Unit"
-                        statTitle="300"
-                        statSubtitle="kWh"
-                    />
-                </div>
-                <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                    <CardInfoMain
-                        waterinfo="Cumulative Energy Usage"
-                        statTitle="3,298"
-                        statSubtitle="kWh"
-                    />
-                </div>
-                <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                    <CardInfoMain
-                        waterinfo="Online Devices Status"
-                        statusicon="fas fa-circle"
-                        statuscolor="text-kmutt_green-100"
-                        statTitle="2/3"
-                        statSubtitle="App"
-                    />
-                </div>
-            </div>
+            <BlockElectricalTotal/>
 
             {/* <div className="flex flex-wrap mt-6 ml-3 mr-2">
                 <div className="box-border h-20 w-full lg:w-7/12 xl:w-7/12 px-4 bg-white rounded-3xl text-bold">
@@ -77,47 +54,23 @@ export default function Electrical() {
                     <h6 className="text-3xl font-semibold text-white text-center mt-6">20 kWh</h6>
                 </div>
             </div> */}
-            
+
 
 
             <div className="flex flex-wrap mt-6">
                 <div className="w-1/2 px-4 mt-4 mb-10">
-                    <CardLineChart />
-                    <div className="flex flex-wrap mt-6 justify-end mr-2">
-
-                        <div className="inline-flex rounded shadow-sm" role="group">
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
-                                Day
-                            </button>
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                                Month
-                            </button>
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                                Year
-                            </button>
-                        </div>
-
-                    </div>
-
+                    <CardElecTotalChart
+                        title="Realtime Electrical Usage @ 1 Fl."
+                        type="TotalWatt_Line"
+                        iframeKey=""
+                    />
                 </div>
                 <div className="w-1/2 px-4 mt-4 mb-10">
-                    <CardLineChart />
-                    <div className="flex flex-wrap mt-6 justify-end mr-2">
-
-                        <div className="inline-flex rounded shadow-sm" role="group">
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
-                                Day
-                            </button>
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                                Month
-                            </button>
-                            <button type="button" className="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                                Year
-                            </button>
-                        </div>
-
-                    </div>
-
+                    <CardElecTotalChart
+                        title="Realtime Electrical Usage @ 1 Fl."
+                        type="TotalEnergy_Bar"
+                        iframeKey=""
+                    />
                 </div>
 
 

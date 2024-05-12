@@ -92,8 +92,8 @@ export default function BlockWater({ deviceName }) {
     var obj2 = null;
 
     try {
-        obj = JSON.parse(data);
-        obj2 = JSON.parse(deviceInfo);
+        obj = (data);
+        obj2 = (deviceInfo);
     } catch (error) {
         console.error('Error parsing JSON:', error);
         return <p>Error parsing JSON</p>;
