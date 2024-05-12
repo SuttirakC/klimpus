@@ -21,8 +21,9 @@ export default function CardOnline({
                 <div className="flex-auto p-4">
                     <div className="flex flex-wrap">
                         <div className="relative w-full max-w-full flex flex-row justify-end">
-                            <span className="font-bold text-3xl mr-4">
-                            <i className={statOnline ? "fas fa-circle mr-2  text-kmutt_green-100" : "fas fa-circle mr-2 text-kmutt_red-100" } > </i> {Onlineinfo}
+                            <span className="font-bold mr-4">
+                            <i className={"items-center justify-center fas fa-circle mr-2 " + ( statOnline ? " text-kmutt_green-100" : "text-kmutt_red-100") } > </i> 
+                            <span className="text-3xl">{Onlineinfo}</span>
                             </span>
                             <h5 className="text-slate-400 font-bold text-md flex-shrink-0">
                                 {/* updated on */}

@@ -109,7 +109,7 @@ export default function BlockWater({ deviceName }) {
 
     return (
         <>
-            {data ? (
+            {(data&&deviceInfo) ? (
 
                 <div className="flex flex-wrap mt-8 mb-20">
 

@@ -60,14 +60,14 @@ export default function Electrical() {
             <div className="flex flex-wrap mt-6">
                 <div className="w-1/2 px-4 mt-4 mb-10">
                     <CardElecTotalChart
-                        title="Realtime Electrical Usage @ 1 Fl."
+                        title="Electrical Usage @ 1 Fl."
                         type="TotalWatt_Line"
                         iframeKey=""
                     />
                 </div>
                 <div className="w-1/2 px-4 mt-4 mb-10">
                     <CardElecTotalChart
-                        title="Realtime Electrical Usage @ 1 Fl."
+                        title="Electrical Usage @ 1 Fl."
                         type="TotalEnergy_Bar"
                         iframeKey=""
                     />

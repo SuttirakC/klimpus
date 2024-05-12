@@ -56,8 +56,7 @@ export default function ElectricalSub() {
                         onChange={(e) => {
                               router.push(e.target.value);
 
-                            }
-                        >
+                            }}>
                             <option disabled defaultValue="" >Choose the load panel</option>
                             <option selected={deviceName === "PowerMeter_LP11"} defaultValue="PowerMeter_LP11" value="PowerMeter_LP11" >LP11</option>
                             <option selected={deviceName === "PowerMeter_LP12"} defaultValue="PowerMeter_LP12" value="PowerMeter_LP12">LP12</option>
