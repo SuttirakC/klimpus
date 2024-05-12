@@ -9,7 +9,7 @@ export default function CardLineChart({title,}) {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-slate-400 mb-1 text-xs font-semibold">
-                Electrical Power Usage @ 1 Fl.
+                {title}
               </h6>
               <h2 className="text-xl font-semibold text-slate-700">Total Power (kW)</h2>
             </div>

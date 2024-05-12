@@ -1,51 +1,48 @@
-import { query} from "../../../lib/db_connection.js";
+import {  query ,closePool} from "../../../../lib/db_connection.js";
+// Importing process module 
 
-const fetchOnlineDevice = async ({deviceType}) => {
-    // console.log(deviceType);
+
+const fetchOnlineDevice = async ({ deviceName }) => {
+    // console.log(deviceName);
     try {
-
-        const querys = "SELECT SUM(CASE WHEN ds.deviceStatus = 1 THEN 1 ELSE 0 END) AS ONLINES, COUNT(ds.deviceName) AS ALLS FROM device_db db JOIN device_status ds ON db.deviceName = ds.deviceName WHERE db.deviceType = ?;";
+        const querys = "SELECT deviceStatus AS result FROM device_status WHERE deviceName = ?;";
         const rows = await query({
             name_db: 'klimpus_device',
             query: querys,
-            values: [deviceType],
+            values: [deviceName],
         });
         // console.log(rows.length);
         // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
-          if (rows[0].ALLS > 0) {
-            console.log(rows[0]);
-            return ({
-                ONLINES: Number(rows[0].ONLINES),
-                OFFLINES: Number(rows[0].ALLS) - Number(rows[0].ONLINES),
-                ALLS: Number(rows[0].ALLS),
-            });
+        if (rows.length > 0) {
+            // console.log(rows[0]);
+            return (rows[0]);
         } else {
+            // await closePool();
             throw new Error('No data found from InfluxDB');
         }
         // res.status(200).json(rows);
-        
+
 
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Internal server error' });
     }
-  };
+};
 
 
 export default async function handler(req, res) {
-    var deviceType = req.query.deviceType;
-    
-    // console.log(req);
+    var deviceName = req.query.deviceName;
+
     if (req.method !== 'GET') {
         res.status(405).send('Method Not Allowed');
     } else {
-        if (!deviceType) {
-            res.status(404).json({ error: 'Missing deviceType parameter' });
+        if (!deviceName) {
+            res.status(404).json({ error: 'Missing devicename parameter' });
         } else {
             try {
                 // console.log(deviceType);
-                const data = await fetchOnlineDevice({deviceType});
-                // console.log(data);
+                const data = await fetchOnlineDevice({ deviceName });
+                // console.log(typeof data);
                 res.status(200).json(data);
             } catch (error) {
                 console.error('Error fetching data from MariaDB:', error);
@@ -55,5 +52,5 @@ export default async function handler(req, res) {
     }
 
 
- 
+
 }

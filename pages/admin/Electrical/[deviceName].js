@@ -10,9 +10,12 @@ import BlockElectrical from "components/Block/BlockElectrical.js";
 
 import Admin from "layouts/Admin.js";
 
+
+
 export default function ElectricalSub() {
     const router = useRouter();
     const deviceName = router.query.deviceName;
+
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
@@ -36,8 +39,8 @@ export default function ElectricalSub() {
                     <form class="max-w-sm mx-auto">
                         {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
                         <select id="floor" class="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4">
-                            <option disabled >Choose the floor</option>
-                            <option selected value="ONE">1st Floor</option>
+                            <option disabled defaultValue="" >Choose the floor</option>
+                            <option selected defaultValue="ONE">1st Floor</option>
                             {/* <option value="CA">Canada</option>
                             <option value="FR">France</option>
                             <option value="DE">Germany</option> */}
@@ -50,17 +53,17 @@ export default function ElectricalSub() {
 
                     <form class="max-w-sm mx-auto">
                         <select id="floor" class="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
-                        onChange={(e) => {
-                              router.push(e.target.value);
+                            onChange={(e) => {
+                                router.push(e.target.value);
                             }
-                          }
-                          >
-                            <option disabled >Choose the load panel</option>
-                            <option selected={deviceName==="PowerMeter_LP11"} value="PowerMeter_LP11">LP11</option>
-                            <option selected={deviceName==="PowerMeter_LP12"} value="PowerMeter_LP12">LP12</option>
-                            <option selected={deviceName==="PowerMeter_LP13"} value="PowerMeter_LP13">LP13</option>
-                            <option selected={deviceName==="PowerMeter_LP14"} value="PowerMeter_LP14">LP14</option>
-                            <option selected={deviceName==="PowerMeter_LP15"} value="PowerMeter_LP15">LP15</option>
+                            }
+                        >
+                            <option disabled defaultValue="" >Choose the load panel</option>
+                            <option selected={deviceName === "PowerMeter_LP11"} defaultValue="PowerMeter_LP11" value="PowerMeter_LP11" >LP11</option>
+                            <option selected={deviceName === "PowerMeter_LP12"} defaultValue="PowerMeter_LP12" value="PowerMeter_LP12">LP12</option>
+                            <option selected={deviceName === "PowerMeter_LP13"} defaultValue="PowerMeter_LP13" value="PowerMeter_LP13">LP13</option>
+                            <option selected={deviceName === "PowerMeter_LP14"} defaultValue="PowerMeter_LP14" value="PowerMeter_LP14">LP14</option>
+                            <option selected={deviceName === "PowerMeter_LP15"} defaultValue="PowerMeter_LP15" value="PowerMeter_LP15">LP15</option>
                         </select>
                     </form>
 

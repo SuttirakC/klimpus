@@ -44,7 +44,7 @@ export default function BlockWater({ deviceName }) {
     // }
     // if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No data</p>
-    var obj = JSON.parse(data);
+    var obj = data;
 
     var deviceNo;
     if (deviceName == "FlowMeter_1FL") {
