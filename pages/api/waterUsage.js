@@ -25,7 +25,7 @@ const fetchInfluxData = async () => {
     // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
       // console.log(response)
-      return JSON.stringify(response[0]);
+      return (response[0]);
     } else {
       throw new Error('No data found from InfluxDB');
     }

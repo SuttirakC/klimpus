@@ -109,7 +109,7 @@ export default function BlockElectricalMain() {
                         statusicon="fas fa-circle"
                         statuscolor="text-kmutt_green-100"
                         statTitle={data_online.ONLINES + "/" + data_online.ALLS}
-                        statSubtitle="App"
+                        statSubtitle="Devices"
                     />
                 </div>
                 </div>
