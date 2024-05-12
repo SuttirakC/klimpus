@@ -153,7 +153,7 @@ export default function CardLineChartAHU() {
           {/* Chart */}
           <div className="relative h-350-px">
             {/* <canvas id="line-chart-AHU"></canvas> */}
-            <iframe src="http://modld146.lib.kmutt.ac.th:3000/d-solo/edl66s64hn9c0a/chiller?orgId=1&from=now-1d&to=now&refresh=1m&theme=light&panelId=1" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="http://modld146.lib.kmutt.ac.th:3000/d-solo/edl66s64hn9c0a/chiller?orgId=1&from=now-1d&to=now&refresh=1m&theme=light&panelId=1" width="100%" height="100%"></iframe>
           </div>
         </div>
       </div>

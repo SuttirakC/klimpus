@@ -23,7 +23,7 @@ export default function CardBarChart() {
         <div className="relative h-350-px">
           {/* <canvas id="bar-chart"></canvas> */}
           <iframe src="http://10.13.253.146:3000/d-solo/bdk67fysuercwa/flowmeter?orgId=1&from=now-30d&to=now&refresh=1m&theme=light&panelId=4"
-           width="100%" height="100%" frameborder="0"></iframe>
+           width="100%" height="100%"></iframe>
         </div>
       </div>
     </div>

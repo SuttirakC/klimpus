@@ -36,7 +36,7 @@ export default function CardWattLineChart({deviceName,iframeKey}) {
         </div>
         <div className="p-4 flex-auto">
         <div className="relative h-350-px">
-        <iframe key={iframeKey} src={src} width="100%" height="100%" frameborder="0"></iframe>
+        <iframe key={iframeKey} src={src} width="100%" height="100%"></iframe>
         </div>
           {/* Chart */}
           {/* <div className="relative h-350-px">

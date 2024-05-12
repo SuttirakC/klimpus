@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
 
-export default function CardChillerStatus({ color }) {
+export default function CardChillerStatus({ color, dataStatus }) {
+
     return (
         <>
             <div
@@ -101,19 +102,19 @@ export default function CardChillerStatus({ color }) {
                                     Fan Status
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.showFan_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_1 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_red-100 mr-2"></i> Offline
+                                    <i className={dataStatus.showFan_2 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_2 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_red-100 mr-2"></i> Offline
+                                    <i className={dataStatus.showFan_3 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_3 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.showFan_4 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_4 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.showFan_5 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_5 ? "Online" : "Offline"}
                                 </td>
                             </tr>
                             <tr>
@@ -121,19 +122,19 @@ export default function CardChillerStatus({ color }) {
                                     Chiller Status
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_red-100 mr-2"></i> Offline
+                                    <i className={dataStatus.statusChiller_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_1 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusChiller_2 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_2 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusChiller_3 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_3 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusChiller_4 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_4 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_red-100 mr-2"></i> Offline
+                                    <i className={dataStatus.statusChiller_5 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_5 ? "Online" : "Offline"}
                                 </td>
                             </tr>
                             <tr>
@@ -141,19 +142,19 @@ export default function CardChillerStatus({ color }) {
                                     Pump Status
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusPump_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_1 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusPump_2 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_2 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusPump_3 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_3 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusPump_4 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_4 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusPump_5 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_5 ? "Online" : "Offline"}
                                 </td>
                             </tr>
                             <tr>
@@ -161,19 +162,19 @@ export default function CardChillerStatus({ color }) {
                                     Valve Status
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusValve_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_1 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_red-100 mr-2"></i> Offline
+                                    <i className={dataStatus.statusValve_2 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_2 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusValve_3 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_3 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusValve_4 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_4 ? "Online" : "Offline"}
                                 </td>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i className="fas fa-circle text-kmutt_green-100 mr-2"></i> Online
+                                    <i className={dataStatus.statusValve_5 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_5 ? "Online" : "Offline"}
                                 </td>
                             </tr>
 

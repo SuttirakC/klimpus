@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 // components
 import CardFlowrateLineChart from "../Cards/CardFlowrateLineChart";
 import CardVelocityLineChart from "../Cards/CardVelocityLineChart";
-import CardFlowRate from "../Cards/CardFlowRate";
-import CardVelo from "../Cards/CardVelo";
 
 // layout for page
 
@@ -12,9 +10,33 @@ import Admin from "layouts/Admin.js";
 
 export default function BlockWater({ deviceName }) {
     const [data, setData] = useState(null);
+    const [deviceInfo, setDeviceInfo] = useState([]);
     const [error, setError] = useState(null);
     const [iframeKey, setIframeKey] = useState(0);
     const [isLoading, setLoading] = useState(false);
+
+    //แบบเดิม (createConnection)
+    // async function getDeviceInfo() {
+    //     const postData = {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         //   body:JSON.stringify({deviceName}),
+    //     };
+
+    //     const res = await fetch(
+    //         `${process.env.NEXT_PUBLIC_URL}/api/WaterInfo/${deviceName}`, postData
+    //     );
+
+    //     const response = await res.json();
+    //     setDeviceInfo(response.response);
+    //     // console.log(deviceInfo);
+    // }
+
+    // useEffect(() => {
+    //     getDeviceInfo();
+    // }, [deviceInfo, deviceName]);
 
     useEffect(() => {
         setLoading(true)
@@ -39,12 +61,43 @@ export default function BlockWater({ deviceName }) {
         fetchData();
     }, [data, deviceName]);
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
+
+    useEffect(() => {
+        setLoading(true)
+        async function fetchDeviceInfo() {
+            const fetchpath = `/api/WaterInfo/${deviceName}`;
+            try {
+                const response = await fetch(fetchpath);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const newData = await response.json();
+                // console.log("----->", newData);
+                setDeviceInfo(newData);
+                setLoading(false);
+                setIframeKey(prevKey => prevKey + 1);
+            } catch (error) {
+                setError(error.message);
+                setDeviceInfo(null);
+            }
+        }
+
+        fetchDeviceInfo();
+    }, [deviceInfo, deviceName]);
+
+
     // if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No data</p>
-    var obj = data;
+    var obj = null;
+    var obj2 = null;
+
+    try {
+        obj = (data);
+        obj2 = (deviceInfo);
+    } catch (error) {
+        console.error('Error parsing JSON:', error);
+        return <p>Error parsing JSON</p>;
+    }
 
     var deviceNo;
     if (deviceName == "FlowMeter_1FL") {
@@ -73,11 +126,13 @@ export default function BlockWater({ deviceName }) {
                                         </h6>
                                     </div>
                                     <div className="relative w-full pr-4 max-w-full flex flex-row justify-end">
-                                        <div className={"p-3 items-center justify-center w-12 h-12 fas fa-circle text-kmutt_green-100"}>
-
-                                        </div>
-                                        <h6 className="font-bold text-3xl text-kmutt_green-100 ">
-                                            Online
+                                        {/* <i className={deviceInfo.deviceStatus ? "p-3 items-center justify-center fas fa-circle  text-kmutt_green-100 mr-2" : "p-3 items-center justify-center fas fa-circle text-kmutt_red-100 mr-2"}></i>
+                                        <h6 className={deviceInfo.deviceStatus ? "font-bold text-3xl text-kmutt_green-100" : "font-bold text-3xl text-kmutt_red-100"}>
+                                            {deviceInfo.deviceStatus ? "Online" : "Offline"}
+                                        </h6> */}
+                                        <i className={obj2.deviceStatus ? "p-3 items-center justify-center fas fa-circle  text-kmutt_green-100 mr-2" : "p-3 items-center justify-center fas fa-circle text-kmutt_red-100 mr-2"}></i>
+                                        <h6 className={obj2.deviceStatus ? "font-bold text-3xl text-kmutt_green-100" : "font-bold text-3xl text-kmutt_red-100"}>
+                                            {obj2.deviceStatus ? "Online" : "Offline"}
                                         </h6>
                                     </div>
                                 </div>
@@ -95,7 +150,8 @@ export default function BlockWater({ deviceName }) {
                                     </div>
                                     <div className="relative w-full pr-4 max-w-full flex flex-row justify-end">
                                         <h6 className="font-bold text-xl text-slate-500 mb-3 mt-2">
-                                            Located at the underground water tank inlet
+                                            {/* {deviceInfo.deviceLocation} */}
+                                            {obj2.deviceLocation}
                                         </h6>
                                     </div>
                                 </div>
@@ -148,7 +204,7 @@ export default function BlockWater({ deviceName }) {
 
                     <div className="w-full lg:w-8/12 xl:w-8/12 px-4">
                         {/* <CardFlowRate /> */}
-                        <CardFlowrateLineChart deviceName={deviceName} />   
+                        <CardFlowrateLineChart deviceName={deviceName} />
                         {/* <CardVelo /> */}
                         <CardVelocityLineChart deviceName={deviceName} />
                     </div>

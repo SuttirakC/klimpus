@@ -26,7 +26,7 @@ export default function CardFlowrateLineChart({ deviceName }) {
                 </div>
                 <div className="p-4 flex-auto">
                     <div className="relative h-64-px">
-                        <iframe src={src} width="100%" height="100%" frameborder="0"></iframe>
+                        <iframe src={src} width="100%" height="100%"></iframe>
                     </div>
 
                 </div>

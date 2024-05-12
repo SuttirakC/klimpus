@@ -36,9 +36,9 @@ export default function ElectricalSub() {
 
                 <div className="box-border h-12 w-full lg:w-2/12 xl:w-2/12 px-4 rounded-3xl text-bold">
 
-                    <form class="max-w-sm mx-auto">
-                        {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
-                        <select id="floor" class="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4">
+                    <form className="max-w-sm mx-auto">
+                        {/* <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
+                        <select id="floor" className="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4">
                             <option disabled defaultValue="" >Choose the floor</option>
                             <option selected defaultValue="ONE">1st Floor</option>
                             {/* <option value="CA">Canada</option>
@@ -51,11 +51,11 @@ export default function ElectricalSub() {
 
                 <div className="box-border h-12 w-full lg:w-2/12 xl:w-2/12 px-4 rounded-3xl text-bold">
 
-                    <form class="max-w-sm mx-auto">
-                        <select id="floor" class="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
-                            onChange={(e) => {
-                                router.push(e.target.value);
-                            }
+                    <form className="max-w-sm mx-auto">
+                        <select id="floor" className="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
+                        onChange={(e) => {
+                              router.push(e.target.value);
+
                             }
                         >
                             <option disabled defaultValue="" >Choose the load panel</option>

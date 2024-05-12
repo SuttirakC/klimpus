@@ -69,7 +69,7 @@ export default function Chiller() {
                     <div className="flex flex-wrap mt-8 mb-20">
                         <div className="w-full lg:w-8/12 xl:w-8/12 px-4">
                             <div className="w-full lg:h-6/12 xl:h-6/12">
-                                <CardChillerStatus />
+                                <CardChillerStatus dataStatus={obj}/>
                                 <CardLineChartAHU />
 
                             </div>
@@ -143,7 +143,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Chiller Running State"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.chillerRunningState_1}
+                                            statTitle={String(obj.chillerRunningState_1)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -154,7 +154,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Evaporator Water Flow Status"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.evapWaterFlow_status_1}
+                                            statTitle={String(obj.evapWaterFlow_status_1)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -165,7 +165,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="BAS Chiller ON/OFF Command"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.commandOnOff_1}
+                                            statTitle={String(obj.commandOnOff_1)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -174,7 +174,7 @@ export default function Chiller() {
                             </div>
                         </div>
 
-                        <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                        <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                             <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                                 <div className="text-center flex justify-between">
                                     <h6 className="text-slate-700 text-xl font-bold">Chiller No.2</h6>
@@ -188,7 +188,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Chiller Running State"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.chillerRunningState_2}
+                                            statTitle={String(obj.chillerRunningState_2)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -199,7 +199,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Evaporator Water Flow Status"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.evapWaterFlow_status_2}
+                                            statTitle={String(obj.evapWaterFlow_status_2)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -210,7 +210,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="BAS Chiller ON/OFF Command"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.commandOnOff_2}
+                                            statTitle={String(obj.commandOnOff_2)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -219,7 +219,7 @@ export default function Chiller() {
                             </div>
                         </div>
 
-                        <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                        <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                             <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                                 <div className="text-center flex justify-between">
                                     <h6 className="text-slate-700 text-xl font-bold">Chiller No.3</h6>
@@ -233,7 +233,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Chiller Running State"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.chillerRunningState_3}
+                                            statTitle={String(obj.chillerRunningState_3)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -244,7 +244,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Evaporator Water Flow Status"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.evapWaterFlow_status_3}
+                                            statTitle={String(obj.evapWaterFlow_status_3)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -255,7 +255,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="BAS Chiller ON/OFF Command"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.commandOnOff_3}
+                                            statTitle={String(obj.commandOnOff_3)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -264,7 +264,7 @@ export default function Chiller() {
                             </div>
                         </div>
 
-                        <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                        <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                             <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                                 <div className="text-center flex justify-between">
                                     <h6 className="text-slate-700 text-xl font-bold">Chiller No.4</h6>
@@ -278,7 +278,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Chiller Running State"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.chillerRunningState_4}
+                                            statTitle={String(obj.chillerRunningState_4)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -289,7 +289,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Evaporator Water Flow Status"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.evapWaterFlow_status_4}
+                                            statTitle={String(obj.evapWaterFlow_status_4)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -300,7 +300,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="BAS Chiller ON/OFF Command"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.commandOnOff_4}
+                                            statTitle={String(obj.commandOnOff_4)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -309,7 +309,7 @@ export default function Chiller() {
                             </div>
                         </div>
 
-                        <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                        <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                             <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                                 <div className="text-center flex justify-between">
                                     <h6 className="text-slate-700 text-xl font-bold">Chiller No.5</h6>
@@ -323,7 +323,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Chiller Running State"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.chillerRunningState_5}
+                                            statTitle={String(obj.chillerRunningState_5)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -334,7 +334,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="Evaporator Water Flow Status"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.evapWaterFlow_status_5}
+                                            statTitle={String(obj.evapWaterFlow_status_5)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />
@@ -345,7 +345,7 @@ export default function Chiller() {
                                             bgcolor="bg-white"
                                             statSubtitle="BAS Chiller ON/OFF Command"
                                             statTitleColor="text-kmutt_orange-100"
-                                            statTitle={obj.commandOnOff_5}
+                                            statTitle={String(obj.commandOnOff_5)}
                                             statIconName="fas fa-snowflake"
                                             statIconColor="bg-gray-300"
                                         />

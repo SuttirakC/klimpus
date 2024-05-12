@@ -27,15 +27,14 @@ const fetchOnlineDevice = async ({deviceType}) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
+        throw new Error('Internal server error');
+        //res.status(500).json({ error: 'Internal server error' });
     }
   };
 
 
 export default async function handler(req, res) {
     var deviceType = req.query.deviceType;
-    
-    // console.log(req);
     if (req.method !== 'GET') {
         res.status(405).send('Method Not Allowed');
     } else {
