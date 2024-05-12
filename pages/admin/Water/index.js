@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 
 
 // components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
 import CardWaterInfo from "components/Cards/CardWaterInfo";
 import CardBarChart from "components/Cards/CardBarChart.js";
+import numberFormat from "functions/number_format";
 
 // layout for page
 
@@ -15,6 +14,7 @@ import Admin from "layouts/Admin.js";
 
 export default function Water() {
     const [data, setData] = useState(null);
+    const [status, setStatus] = useState(null);
     const [error, setError] = useState(null);
     const [iframeKey, setIframeKey] = useState(0);
     const [isLoading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ export default function Water() {
     useEffect(() => {
         setLoading(true)
         async function fetchData() {
-            const fetchpath = `/api/Status/FlowMeter`;
+            const fetchpath = `/api/waterUsage`;
             try {
                 const response = await fetch(fetchpath);
                 if (!response.ok) {
@@ -39,15 +39,39 @@ export default function Water() {
             }
         }
 
-        fetchData();
+        fetchData()
     }, [data]);
+
+    useEffect(() => {
+        setLoading(true)
+        async function fetchStatus() {
+            const fetchpath = `/api/Status/FlowMeter`;
+            try {
+                const response = await fetch(fetchpath);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const newData = await response.json();
+                // console.log("----->", newData);
+                setStatus(newData);
+                setLoading(false);
+                setIframeKey(prevKey => prevKey + 1);
+            } catch (error) {
+                setError(error.message);
+                setStatus(null);
+            }
+        }
+
+        fetchStatus()
+    }, [status]);
 
     // if (error) {
     //     return <div>Error: {error}</div>;
     // }
     // if (isLoading) return <p>Loading...</p>
-    if (!data) return <p>No data</p>
-    var obj = JSON.parse(data);
+    if (!data || !status) return;
+    const obj = (data);
+    const obj2 = (status);
     return (
         <>
             <div>
@@ -79,14 +103,14 @@ export default function Water() {
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
                             waterinfo="Day Usage"
-                            statTitle="300"
+                            statTitle={numberFormat(obj.flow_day * 1000)}
                             statSubtitle="Liters"
                         />
                     </div>
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
                             waterinfo="Month Usage"
-                            statTitle="3,298"
+                            statTitle={numberFormat(obj.flow_month * 1000)}
                             statSubtitle="Liters"
                         />
                     </div>
@@ -95,40 +119,14 @@ export default function Water() {
                             waterinfo="Online Devices Status"
                             statusicon="fas fa-circle"
                             statuscolor="text-kmutt_green-100"
-                            statTitle={obj.ONLINES + "/" + obj.ALLS}
+                            statTitle={obj2.ONLINES + "/" + obj2.ALLS}
                             statSubtitle="Devices"
                         />
                     </div>
                 </div>
-                {/* <div className="flex flex-wrap mt-6 ml-3 mr-2">
-                <div className="box-border h-20 w-full lg:w-7/12 xl:w-7/12 px-4 bg-white rounded-3xl text-bold">
-                    <h6 className="text-2xl font-semibold text-slate-700 text-center mt-6">Kilowatt-hour</h6>
-                </div>
-                <div className="box-border h-20 w-full lg:w-1/12 xl:w-1/12 px-4 ">
 
-                </div>
-                <div className="box-border h-20 w-full lg:w-4/12 xl:w-4/12 px-4 bg-kmutt_blue-100 rounded-3xl">
-                    <h6 className="text-3xl font-semibold text-white text-center mt-6">20 kWh</h6>
-                </div>
-            </div> */}
-
-                <div className="flex flex-wrap mt-6 justify-end mr-2">
-
-                    <div class="inline-flex rounded shadow-sm" role="group">
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-s-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white ">
-                            Day
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                            Month
-                        </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-e-3xl hover:bg-slate-100 hover:text-kmutt_orange-100 focus:z-10 focus:bg-kmutt_orange-100 focus:text-white">
-                            Year
-                        </button>
-                    </div>
-
-                </div>
-
-                <div className="flex flex-wrap">
+               
+                <div className="flex flex-wrap mt-6">
                     <div className="w-full px-4 mt-4 mb-4">
                         <CardBarChart />
                     </div>

@@ -151,7 +151,7 @@ export default function Inverter() {
                                     <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-end">
                                         {/* <Link href="/admin/account"> */}
                                         <button id="startBtn"
-                                            class="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                            className="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
                                             type="button"
                                         >
                                             Start
@@ -159,7 +159,7 @@ export default function Inverter() {
                                         {/* </Link> */}
                                         {/* <Link href="/admin/account"> */}
                                         <button id="stopBtn"
-                                            class="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                            className="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                             type="button"
                                         >
                                             Stop
@@ -177,7 +177,7 @@ export default function Inverter() {
                             </div>
                             <div className="w-full lg:w-2/12 xl:w-2/12 flex items-start">
                                 <span id="timer"
-                                    class="text-md font-semibold text-slate-400 ">00:00:00</span>
+                                    className="text-md font-semibold text-slate-400 ">00:00:00</span>
                             </div>
                             <div className="w-full lg:w-2/12 xl:w-2/12 flex items-start justify-start">
                                 <h6 className="text-md font-semibold text-slate-400 ">Hr</h6>
@@ -206,7 +206,7 @@ export default function Inverter() {
                                     <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-end">
                                         {/* <Link href="/admin/account"> */}
                                         <button id="lowfreq"
-                                            class="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                            className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
                                             type="button"
                                         >
                                             30.00
@@ -214,7 +214,7 @@ export default function Inverter() {
                                         {/* </Link> */}
                                         {/* <Link href="/admin/account"> */}
                                         <button id="highfreq"
-                                            class="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                            className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                             type="button"
                                         >
                                             50.00
@@ -277,7 +277,7 @@ export default function Inverter() {
                         <div className="flex-auto p-4">
                             <div className="flex flex-wrap">
                                 <div className="relative w-full pr-4 max-w-full flex flex-row">
-                                    <div className="w-full w-full lg:w-5/12 xl:w-5/12 flex items-start justify-start px-4">
+                                    <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-start px-4">
                                         <h6 className="text-md font-semibold text-black">Frequency Speed</h6>
                                     </div>
                                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4 flex flex-row">
@@ -297,7 +297,7 @@ export default function Inverter() {
                                 <div className="w-full flex items-start justify-start mt-4 ml-4">
                                     {/* <Link href="/admin/account"> */}
                                     <button id="startBtn"
-                                        class="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                        className="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
                                         type="button"
                                     >
                                         Start
@@ -305,7 +305,7 @@ export default function Inverter() {
                                     {/* </Link> */}
                                     {/* <Link href="/admin/account"> */}
                                     <button id="stopBtn"
-                                        class="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                        className="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                         type="button"
                                     >
                                         Stop
@@ -322,7 +322,7 @@ export default function Inverter() {
                                     </div>
                                     <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start">
                                         <span id="timer"
-                                            class="text-md font-semibold text-slate-500 ">00:00:00</span>
+                                            className="text-md font-semibold text-slate-500 ">00:00:00</span>
                                     </div>
                                     <div className="w-full lg:w-6/12 xl:w-6/12 flex items-start justify-start">
                                         <h6 className="text-md font-semibold text-slate-500 ">Hr</h6>

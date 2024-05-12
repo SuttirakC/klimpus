@@ -130,7 +130,7 @@ export default function Dashboard() {
 
       <div className="flex flex-wrap mt-4">
         <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4 mt-8">
-          <CardLineChart />
+          <CardLineChart title="Total Power from Power meter LP11-LP15" />
         </div>
 
         <div className="w-full xl:w-6/12 px-4 mt-8">
