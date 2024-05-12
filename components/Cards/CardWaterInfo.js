@@ -10,7 +10,8 @@ export default function CardWaterInfo({
 }) {
     return (
         <>
-            <div className="relative flex flex-col min-w-0 break-words bg-gradient-to-b from-white from-85% to-kmutt_blue-200 to-15% rounded-3xl mb-6 xl:mb-0 shadow-lg">
+            {/* <div className="relative flex flex-col min-w-0 break-words bg-gradient-to-b from-white from-85% to-kmutt_blue-200 to-15% rounded-3xl mb-6 xl:mb-0 shadow-lg"> */}
+            <div className="relative flex flex-col min-w-0 break-words bg-white rounded-2xl mb-6 xl:mb-0 shadow-lg">
                 <div className="flex-auto p-4">
                     <div className="flex flex-wrap">
                         <div className="relative w-full pr-4 max-w-full flex">

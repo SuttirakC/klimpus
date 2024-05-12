@@ -1,8 +1,8 @@
-import { createPool, query, closePool } from "../../../lib/db_connection.js";
+import { query  } from "../../../lib/db_connection.js";
 
 const fetchOnlineDevice = async ({ deviceName, res }) => {
     try {
-        createPool();
+        // createPool();
         const query1 = "SELECT deviceStatus FROM `device_status` WHERE deviceName = ?;";
         const status = await query({
             name_db: 'klimpus_device',
@@ -16,7 +16,7 @@ const fetchOnlineDevice = async ({ deviceName, res }) => {
             query: query2,
             values: [deviceName],
         });
-        closePool();
+        // closePool();
         if (status.length && location.length) {
             return { deviceStatus: status[0].deviceStatus, deviceLocation: location[0].deviceLocation };
         } else {
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         } else {
             try {
                 const data = await fetchOnlineDevice({ deviceName, res });
-                res.status(200).json(JSON.stringify(data));
+                res.status(200).json(data);
             } catch (error) {
                 console.error('Error fetching data from MariaDB:', error);
                 res.status(500).json({ error: 'Error fetching data from MariaDB' });

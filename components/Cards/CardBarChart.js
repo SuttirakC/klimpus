@@ -13,7 +13,7 @@ export default function CardBarChart() {
               Tap Water Usage
             </h6>
             <h2 className="text-slate-700 text-xl font-semibold">
-              Total Liters
+              Total Liters (L)
             </h2>
           </div>
         </div>
