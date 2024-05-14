@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try {
       const notifications = await query({
         name_db: 'klimpus',
-        query: 'SELECT * FROM noti_case WHERE noti_case_status = 1'
+        query: 'SELECT * FROM noti_case WHERE noti_case_status = 1 ORDER BY noti_case_level DESC'
       });
     //   console.log(notifications);
       res.status(200).json(notifications);
