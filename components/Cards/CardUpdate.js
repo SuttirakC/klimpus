@@ -20,22 +20,22 @@ export default function CardUpdate({ userId }) {
   const [userData, setUserData] = useState([]);
   const [updated, setUpdated] = useState(false);
 
-  async function getUser() {
-    const postData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // async function getUser() {
+  //   const postData = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-    );
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+  //   );
 
-    const response = await res.json();
-    setUserData(response.response.data[0]);
-    // console.log(response.response.data[0]);
-  }
+  //   const response = await res.json();
+  //   setUserData(response.response.data[0]);
+  //   // console.log(response.response.data[0]);
+  // }
 
   async function updateUser() {
 
@@ -101,6 +101,23 @@ export default function CardUpdate({ userId }) {
   };
 
   useEffect(() => {
+    async function getUser() {
+      const postData = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+  
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+      );
+  
+      const response = await res.json();
+      setUserData(response.response.data[0]);
+      // console.log(response.response.data[0]);
+    }
+    
     getUser();
   }, [userId]);
 
@@ -139,12 +156,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="username"
                 >
                   Username
                 </label>
                 <input
                   type="text"
+                  id="username"
                   ref={usernameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -156,12 +174,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="email"
                 >
                   Email address
                 </label>
                 <input
                   type="email"
+                  id="email"
                   ref={emailRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -173,12 +192,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="firstname"
                 >
                   First Name
                 </label>
                 <input
                   type="text"
+                  id="firstname"
                   ref={firstnameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -190,12 +210,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="lastname"
                 >
                   Last Name
                 </label>
                 <input
                   type="text"
+                  id="lastname"
                   ref={lastnameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"

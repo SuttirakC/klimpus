@@ -151,7 +151,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="username"
                 >
                   Username
                 </label>
@@ -161,6 +161,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="63070501005"
                   name="username"
+                  id="username"
                   placeholder="Username"
                   onKeyDown={handleKeyPress}
                   ref={usernameRef}
@@ -172,7 +173,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="email"
                 >
                   Email address
                 </label>
@@ -181,6 +182,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapat.suwa@kmutt.ac.th"
                   name="email"
+                  id="email"
                   placeholder="Email"
                   onKeyDown={handleKeyPress}
                   ref={emailRef}
@@ -192,7 +194,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="firstname"
                 >
                   First Name
                 </label>
@@ -201,6 +203,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="Kantapat"
                   name="firstname"
+                  id="firstname"
                   placeholder="First Name"
                   onKeyDown={handleKeyPress}
                   ref={firstnameRef}
@@ -212,7 +215,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="lastname"
                 >
                   Last Name
                 </label>
@@ -221,6 +224,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="Suwannahong"
                   name="lastname"
+                  id="lastname"
                   placeholder="Last Name"
                   onKeyDown={handleKeyPress}
                   ref={lastnameRef}
@@ -270,7 +274,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="password"
                 >
                   Password
                 </label>
@@ -279,6 +283,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="password"
+                  id="password"
                   placeholder="Password"
                   onKeyDown={handleKeyPress}
                   ref={passwordRef}
@@ -290,7 +295,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="re-password"
                 >
                   Re-Password
                 </label>
@@ -299,6 +304,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="re-password"
+                  id="re-password"
                   placeholder="Re-Password"
                   onKeyDown={handleKeyPress}
                   ref={rePasswordRef}

@@ -13,22 +13,22 @@ export default function CardResetPass({ userId }) {
   const rePasswordRef = useRef();
   const [userData, setUserData] = useState([]);
 
-  async function getUser() {
-    const postData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // async function getUser() {
+  //   const postData = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-    );
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+  //   );
 
-    const response = await res.json();
-    setUserData(response.response.data[0]);
-    // console.log(response.response.data[0]);
-  }
+  //   const response = await res.json();
+  //   setUserData(response.response.data[0]);
+  //   // console.log(response.response.data[0]);
+  // }
 
   async function updateUser() {
 
@@ -83,6 +83,23 @@ export default function CardResetPass({ userId }) {
   };
 
   useEffect(() => {
+    async function getUser() {
+      const postData = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+  
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+      );
+  
+      const response = await res.json();
+      setUserData(response.response.data[0]);
+      // console.log(response.response.data[0]);
+    }
+
     getUser();
   }, [userId]);
 
@@ -121,12 +138,13 @@ export default function CardResetPass({ userId }) {
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="password"
                   >
                     Password
                   </label>
                   <input
                     type="password"
+                    id="password"
                     ref={passwordRef}
                     placeholder="Password"
                     onKeyDown={handleKeyPress}
@@ -139,12 +157,13 @@ export default function CardResetPass({ userId }) {
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="re-password"
                   >
                     Re-Password
                   </label>
                   <input
                     type="password"
+                    id="re-password"
                     ref={rePasswordRef}
                     placeholder="Re-Password"
                     onKeyDown={handleKeyPress}
