@@ -55,12 +55,20 @@ export default function Sidebar() {
             </span>
           </Link>
           {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
+          {/* <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
               <NotificationDropdown />
             </li>
             <li className="inline-block relative">
               <UserDropdown />
+            </li>
+          </ul> */}
+          <ul className="md:hidden items-center flex flex-wrap list-none">
+            <li className="inline-block relative">
+              
+            </li>
+            <li className="inline-block relative">
+              
             </li>
           </ul>
           {/* Collapse */}
