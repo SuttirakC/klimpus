@@ -17,7 +17,7 @@ export default function Login({ csrfToken }) {
     if (session) {
       router.push("/admin/dashboard");
     }
-  }, [session]);
+  }, [session, router]);
 
   return (
     <>

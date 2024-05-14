@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef } from "react";
+import { React, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -16,7 +16,7 @@ export default function Account() {
   const router = useRouter();
   const [userCount, setUserCount] = useState(null);
   const [role, setRole] = useState(1);
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   async function getUserCount() {
     const postData = {
@@ -46,7 +46,7 @@ export default function Account() {
     if (session && role !== 1) {
       router.push("/");
     }
-  }, [session, role]);
+  }, [session, role, router]);
 
   const updateUserCount = () => {
     getUserCount(); // Update user count after deleting a user

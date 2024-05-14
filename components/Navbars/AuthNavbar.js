@@ -25,7 +25,7 @@ export default function Navbar(props) {
                 <span
                   className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap cursor-pointer"
                 >
-                  King Mongkut's University of Technology Thonburi
+                  King Mongkut&apos;s University of Technology Thonburi
                 </span>
               </Link>
               <button

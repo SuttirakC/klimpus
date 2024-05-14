@@ -28,7 +28,7 @@ const fetchInfluxData_totalEn = async () => {
 
     // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      console.log(response)
+      // console.log(response)
       // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
@@ -59,7 +59,7 @@ const fetchInfluxData_yesEn = async () => {
 
     // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      console.log(response)
+      // console.log(response)
       // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
