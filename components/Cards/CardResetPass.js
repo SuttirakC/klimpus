@@ -13,22 +13,22 @@ export default function CardResetPass({ userId }) {
   const rePasswordRef = useRef();
   const [userData, setUserData] = useState([]);
 
-  async function getUser() {
-    const postData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // async function getUser() {
+  //   const postData = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-    );
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+  //   );
 
-    const response = await res.json();
-    setUserData(response.response.data[0]);
-    // console.log(response.response.data[0]);
-  }
+  //   const response = await res.json();
+  //   setUserData(response.response.data[0]);
+  //   // console.log(response.response.data[0]);
+  // }
 
   async function updateUser() {
 
@@ -83,6 +83,23 @@ export default function CardResetPass({ userId }) {
   };
 
   useEffect(() => {
+    async function getUser() {
+      const postData = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+  
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+      );
+  
+      const response = await res.json();
+      setUserData(response.response.data[0]);
+      // console.log(response.response.data[0]);
+    }
+
     getUser();
   }, [userId]);
 
