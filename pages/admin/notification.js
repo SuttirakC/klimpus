@@ -75,7 +75,7 @@ export default function Notification() {
                 </a>
             </div>
 
-            <div className="carousel rounded-box mt-8">
+            <div className="carousel w-full rounded-box mt-8">
                 <div id="elec" className="carousel-item w-full lg:w-5/12 xl:w-5/12 px-2">
                     <CardNotiElec notifications={notifications.elec} />
                 </div>
