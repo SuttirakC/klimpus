@@ -30,7 +30,7 @@ export default function Notification() {
                     chiller: data.filter(noti => noti.type === 'chiller'),
                     other: data.filter(noti => noti.type === 'other'),
                 };
-                console.log("Categorized",categorized);
+                // console.log("Categorized",categorized);
                 if (data.length === 0) {
                     setNotifications({
                         elec: [],
