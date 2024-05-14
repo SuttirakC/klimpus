@@ -31,12 +31,31 @@ export default function Notification() {
                     other: data.filter(noti => noti.type === 'other'),
                 };
                 console.log("Categorized",categorized);
+                if (data.length === 0) {
+                    setNotifications({
+                        elec: [],
+                        water: [],
+                        ahu: [],
+                        chiller: [],
+                        other: []
+                    });
+                    return;
+                }
+                
                 if (data.length > 0) {
                     // alert('New notifications available!');
                     setNotifications(categorized);
                 }
             } catch (error) {
                 console.error('Error fetching notifications:', error);
+                // Reset notifications to empty if there's an error
+                setNotifications({
+                    elec: [],
+                    water: [],
+                    ahu: [],
+                    chiller: [],
+                    other: []
+                });
             }
         };
 
