@@ -23,7 +23,7 @@ export default function CreateAccount() {
         if (session && role !== 1) {
             router.push("/");
         }
-    }, [session, role]);
+    }, [session, role, router]);
     
     return (
         <>

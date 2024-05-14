@@ -25,7 +25,7 @@ export default function UpdateAccount() {
         if (session && role !== 1) {
             router.push("/");
         }
-    }, [session, role]);
+    }, [session, role, router]);
 
     return (
         <>
