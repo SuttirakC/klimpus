@@ -2929,6 +2929,11 @@ select {
   background-color: rgb(252 99 56 / var(--tw-bg-opacity));
 }
 
+.bg-kmutt_red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 69 31 / var(--tw-bg-opacity));
+}
+
 .bg-kmutt_red-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 61 61 / var(--tw-bg-opacity));
@@ -3744,12 +3749,28 @@ select {
 }
 
 @media (min-width: 640px) {
+  .sm\:static {
+    position: static;
+  }
+
+  .sm\:block {
+    display: block;
+  }
+
   .sm\:w-auto {
     width: auto;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 }
 
 @media (min-width: 768px) {
+  .md\:static {
+    position: static;
+  }
+
   .md\:fixed {
     position: fixed;
   }
