@@ -138,12 +138,13 @@ export default function CardResetPass({ userId }) {
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="password"
                   >
                     Password
                   </label>
                   <input
                     type="password"
+                    id="password"
                     ref={passwordRef}
                     placeholder="Password"
                     onKeyDown={handleKeyPress}
@@ -156,12 +157,13 @@ export default function CardResetPass({ userId }) {
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="re-password"
                   >
                     Re-Password
                   </label>
                   <input
                     type="password"
+                    id="re-password"
                     ref={rePasswordRef}
                     placeholder="Re-Password"
                     onKeyDown={handleKeyPress}
