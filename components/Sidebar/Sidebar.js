@@ -158,13 +158,13 @@ export default function Sidebar() {
                   >
                     <i
                       className={
-                        "fas fa-tv mr-2 text-sm " +
+                        "fas fa-tv mr-2 text-xs " +
                         (router.pathname.indexOf("/admin/dashboard") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Overall
+                    Home
                   </span>
                 </Link>
               </li>

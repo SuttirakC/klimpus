@@ -106,7 +106,7 @@ export default function CardSettings() {
       setCreated(false);
     } else if (response.response && response.response.message === 'Username already exists') {
       document.getElementById('username_already').showModal();
-    }else if (response.response && response.response.message === 'Email already exists') {
+    } else if (response.response && response.response.message === 'Email already exists') {
       document.getElementById('email_already').showModal();
     }
 
@@ -128,15 +128,15 @@ export default function CardSettings() {
             <ModalPasswordNotMatch />
             <ModalEmailExist />
             <ModalEmailFormat />
-                        
+
             {/* <Link href="/admin/account"> */}
-            <button
+            {/* <button
               className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
               onClick={addUser}
             >
               Create Account
-            </button>
+            </button> */}
             {/* </Link> */}
 
           </div>
@@ -312,6 +312,7 @@ export default function CardSettings() {
                 />
               </div>
             </div>
+
             {/* <div className="w-full lg:w-4/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
@@ -327,6 +328,15 @@ export default function CardSettings() {
                   />
                 </div>
               </div> */}
+          </div>
+          <div className="flex flex-wrap mt-6 justify-end">
+            <button
+              className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              type="button"
+              onClick={addUser}
+            >
+              Create Account
+            </button>
           </div>
 
           {/* <hr className="mt-6 border-b-1 border-slate-300" />

@@ -2929,11 +2929,6 @@ select {
   background-color: rgb(252 99 56 / var(--tw-bg-opacity));
 }
 
-.bg-kmutt_red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(212 69 31 / var(--tw-bg-opacity));
-}
-
 .bg-kmutt_red-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 61 61 / var(--tw-bg-opacity));
@@ -3629,6 +3624,11 @@ select {
     border-bottom-right-radius: var(--rounded-box, 1rem);
     border-bottom-left-radius: var(--rounded-box, 1rem);
   }
+}
+
+.hover\:bg-kmutt_blue-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 64 166 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-kmutt_orange-400:hover {

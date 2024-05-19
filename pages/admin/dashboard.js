@@ -104,7 +104,7 @@ export default function Dashboard() {
 
       <div className="flex flex-wrap mt-8 justify-center ">
 
-        <div className="w-full max-w-60 px-4">
+        <div className="w-full max-w-60 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.elec[0]?.noti_case_level)}
             statSubtitle="Electric"
@@ -115,7 +115,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="w-full max-w-60 px-4">
+        <div className="w-full max-w-60 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.water[0]?.noti_case_level)}
             statSubtitle="Tap Water"
@@ -126,7 +126,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="w-full max-w-60 px-4">
+        <div className="w-full max-w-60 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.chiller[0]?.noti_case_level)}
             statSubtitle="Chiller"
@@ -137,7 +137,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="w-full max-w-60 px-4">
+        <div className="w-full max-w-60 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.ahu[0]?.noti_case_level)}
             statSubtitle="AHU"
@@ -148,7 +148,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="w-full max-w-60 px-4">
+        <div className="w-full max-w-60 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.other[0]?.noti_case_level)}
             statSubtitle="Other"
@@ -161,7 +161,7 @@ export default function Dashboard() {
 
 
         {/* Alert Notification */}
-        <div className=" w-95 px-4">
+        <div className=" w-95 px-4 mt-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
             <div className="flex-auto p-4">
               <div className="flex flex-wrap">
