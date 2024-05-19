@@ -90,11 +90,11 @@ export default function CardResetPass({ userId }) {
           "Content-Type": "application/json",
         },
       };
-  
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
       );
-  
+
       const response = await res.json();
       setUserData(response.response.data[0]);
       // console.log(response.response.data[0]);
@@ -117,13 +117,13 @@ export default function CardResetPass({ userId }) {
             <ModalRePasswordFail />
 
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
-            <button
+            {/* <button
               className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
               onClick={updateUser}
             >
               Reset Password
-            </button>
+            </button> */}
 
           </div>
         </div>
@@ -172,10 +172,21 @@ export default function CardResetPass({ userId }) {
                   />
                 </div>
               </div>
+
             </div>
 
           </form>
+          <div className="flex flex-wrap mt-6 justify-end">
+            <button
+              className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              type="button"
+              onClick={updateUser}
+            >
+              Reset Password
+            </button>
+          </div>
         </div>
+
       </div>
     </>
   );
