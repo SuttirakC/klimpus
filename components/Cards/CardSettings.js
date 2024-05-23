@@ -10,6 +10,7 @@ import ModalUsernameExist from "components/Modal/ModalUsernameExist";
 import ModalEmailExist from "components/Modal/ModalEmailExist";
 import ModalEmailFormat from "components/Modal/ModalEmailFormat";
 import ModalPasswordNotMatch from "components/Modal/ModalPasswordNotMatch";
+import ModalPasswordValidation from "components/Modal/ModalPasswordValidation";
 import ModalFillInAll from "components/Modal/ModalFillInAll";
 
 export default function CardSettings() {
@@ -56,6 +57,12 @@ export default function CardSettings() {
     ) {
       // alert('Please fill in all required fields.');
       document.getElementById('fillinall').showModal();
+      return;
+    }
+
+    // Check if password is at least 8 characters long
+    if (passwordRef.current.value.length < 8) {
+      document.getElementById('pass_too_short').showModal();
       return;
     }
 
@@ -128,6 +135,7 @@ export default function CardSettings() {
             <ModalPasswordNotMatch />
             <ModalEmailExist />
             <ModalEmailFormat />
+            <ModalPasswordValidation />
 
             {/* <Link href="/admin/account"> */}
             {/* <button
