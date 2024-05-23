@@ -20,22 +20,22 @@ export default function CardUpdate({ userId }) {
   const [userData, setUserData] = useState([]);
   const [updated, setUpdated] = useState(false);
 
-  async function getUser() {
-    const postData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // async function getUser() {
+  //   const postData = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-    );
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+  //   );
 
-    const response = await res.json();
-    setUserData(response.response.data[0]);
-    // console.log(response.response.data[0]);
-  }
+  //   const response = await res.json();
+  //   setUserData(response.response.data[0]);
+  //   // console.log(response.response.data[0]);
+  // }
 
   async function updateUser() {
 
@@ -101,6 +101,23 @@ export default function CardUpdate({ userId }) {
   };
 
   useEffect(() => {
+    async function getUser() {
+      const postData = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
+      );
+
+      const response = await res.json();
+      setUserData(response.response.data[0]);
+      // console.log(response.response.data[0]);
+    }
+
     getUser();
   }, [userId]);
 
@@ -120,13 +137,13 @@ export default function CardUpdate({ userId }) {
 
 
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
-            <button
+            {/* <button
               className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
               onClick={updateUser}
             >
               Update Account
-            </button>
+            </button> */}
 
           </div>
         </div>
@@ -139,12 +156,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="username"
                 >
                   Username
                 </label>
                 <input
                   type="text"
+                  id="username"
                   ref={usernameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -156,12 +174,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="email"
                 >
                   Email address
                 </label>
                 <input
                   type="email"
+                  id="email"
                   ref={emailRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -173,12 +192,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="firstname"
                 >
                   First Name
                 </label>
                 <input
                   type="text"
+                  id="firstname"
                   ref={firstnameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -190,12 +210,13 @@ export default function CardUpdate({ userId }) {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="lastname"
                 >
                   Last Name
                 </label>
                 <input
                   type="text"
+                  id="lastname"
                   ref={lastnameRef}
                   onKeyDown={handleKeyPress}
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -228,7 +249,15 @@ export default function CardUpdate({ userId }) {
               <option value="2" >Technical</option>
             </select>
           </form>
-
+          <div className="flex flex-wrap mt-6 justify-end">
+            <button
+              className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              type="button"
+              onClick={updateUser}
+            >
+              Update Account
+            </button>
+          </div>
         </div>
       </div>
     </>

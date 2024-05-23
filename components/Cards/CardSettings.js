@@ -10,6 +10,7 @@ import ModalUsernameExist from "components/Modal/ModalUsernameExist";
 import ModalEmailExist from "components/Modal/ModalEmailExist";
 import ModalEmailFormat from "components/Modal/ModalEmailFormat";
 import ModalPasswordNotMatch from "components/Modal/ModalPasswordNotMatch";
+import ModalPasswordValidation from "components/Modal/ModalPasswordValidation";
 import ModalFillInAll from "components/Modal/ModalFillInAll";
 
 export default function CardSettings() {
@@ -56,6 +57,12 @@ export default function CardSettings() {
     ) {
       // alert('Please fill in all required fields.');
       document.getElementById('fillinall').showModal();
+      return;
+    }
+
+    // Check if password is at least 8 characters long
+    if (passwordRef.current.value.length < 8) {
+      document.getElementById('pass_too_short').showModal();
       return;
     }
 
@@ -106,7 +113,7 @@ export default function CardSettings() {
       setCreated(false);
     } else if (response.response && response.response.message === 'Username already exists') {
       document.getElementById('username_already').showModal();
-    }else if (response.response && response.response.message === 'Email already exists') {
+    } else if (response.response && response.response.message === 'Email already exists') {
       document.getElementById('email_already').showModal();
     }
 
@@ -128,15 +135,16 @@ export default function CardSettings() {
             <ModalPasswordNotMatch />
             <ModalEmailExist />
             <ModalEmailFormat />
-                        
+            <ModalPasswordValidation />
+
             {/* <Link href="/admin/account"> */}
-            <button
+            {/* <button
               className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
               onClick={addUser}
             >
               Create Account
-            </button>
+            </button> */}
             {/* </Link> */}
 
           </div>
@@ -151,7 +159,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="username"
                 >
                   Username
                 </label>
@@ -161,6 +169,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="63070501005"
                   name="username"
+                  id="username"
                   placeholder="Username"
                   onKeyDown={handleKeyPress}
                   ref={usernameRef}
@@ -172,7 +181,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="email"
                 >
                   Email address
                 </label>
@@ -181,6 +190,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapat.suwa@kmutt.ac.th"
                   name="email"
+                  id="email"
                   placeholder="Email"
                   onKeyDown={handleKeyPress}
                   ref={emailRef}
@@ -192,7 +202,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="firstname"
                 >
                   First Name
                 </label>
@@ -201,6 +211,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="Kantapat"
                   name="firstname"
+                  id="firstname"
                   placeholder="First Name"
                   onKeyDown={handleKeyPress}
                   ref={firstnameRef}
@@ -212,7 +223,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="lastname"
                 >
                   Last Name
                 </label>
@@ -221,6 +232,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="Suwannahong"
                   name="lastname"
+                  id="lastname"
                   placeholder="Last Name"
                   onKeyDown={handleKeyPress}
                   ref={lastnameRef}
@@ -270,7 +282,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="password"
                 >
                   Password
                 </label>
@@ -279,6 +291,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="password"
+                  id="password"
                   placeholder="Password"
                   onKeyDown={handleKeyPress}
                   ref={passwordRef}
@@ -290,7 +303,7 @@ export default function CardSettings() {
               <div className="relative w-full mb-3">
                 <label
                   className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+                  htmlFor="re-password"
                 >
                   Re-Password
                 </label>
@@ -299,6 +312,7 @@ export default function CardSettings() {
                   className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   // defaultValue="kantapatcutyboy12345"
                   name="re-password"
+                  id="re-password"
                   placeholder="Re-Password"
                   onKeyDown={handleKeyPress}
                   ref={rePasswordRef}
@@ -306,6 +320,7 @@ export default function CardSettings() {
                 />
               </div>
             </div>
+
             {/* <div className="w-full lg:w-4/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
@@ -321,6 +336,15 @@ export default function CardSettings() {
                   />
                 </div>
               </div> */}
+          </div>
+          <div className="flex flex-wrap mt-6 justify-end">
+            <button
+              className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              type="button"
+              onClick={addUser}
+            >
+              Create Account
+            </button>
           </div>
 
           {/* <hr className="mt-6 border-b-1 border-slate-300" />

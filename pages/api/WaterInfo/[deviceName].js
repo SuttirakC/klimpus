@@ -27,7 +27,7 @@ const fetchOnlineDevice = async ({ deviceName, res }) => {
 
     } catch (err) {
         console.error(err);
-        closePool();
+        // closePool();
         res.status(500).json({ error: 'Internal server error' });
     }
 };

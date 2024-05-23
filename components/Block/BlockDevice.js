@@ -52,7 +52,7 @@ export default function BlockDevice() {
 
         return () => clearInterval(intervalId); //This is important
 
-    }, [useState]);
+    }, [state]);
 
     // if (error) {
     //     return <div>Error: {error}</div>;

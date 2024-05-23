@@ -13,7 +13,7 @@ const fetchOnlineDevice = async ({deviceType}) => {
         // console.log(rows.length);
         // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
           if (rows[0].ALLS > 0) {
-            console.log(rows[0]);
+            // console.log(rows[0]);
             return ({
                 ONLINES: Number(rows[0].ONLINES),
                 OFFLINES: Number(rows[0].ALLS) - Number(rows[0].ONLINES),

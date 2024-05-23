@@ -20,21 +20,23 @@ export default function Navbar(props) {
             <p className="text-sm ">King Mongkut's University of Technology Thonburi</p>
           </div> */}
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-end">
-            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start
+            sm:w-auto sm:static sm:block sm:justify-start
+            md:w-auto md:static md:block md:justify-start">
               <Link href="/">
                 <span
                   className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap cursor-pointer"
                 >
-                  King Mongkut's University of Technology Thonburi
+                  King Mongkut&apos;s University of Technology Thonburi
                 </span>
               </Link>
-              <button
+              {/* <button
                 className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                 type="button"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
                 <i className="text-white fas fa-bars"></i>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
