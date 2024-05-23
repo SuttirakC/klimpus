@@ -6,6 +6,7 @@ import ModalPasswordNotMatch from "components/Modal/ModalPasswordNotMatch";
 import ModalFillPassword from "components/Modal/ModalFillPassword";
 import ModalRePasswordSuccess from "components/Modal/ModalRePasswordSuccess";
 import ModalRePasswordFail from "components/Modal/ModalRePasswordFail";
+import ModalPasswordValidation from "components/Modal/ModalPasswordValidation";
 
 export default function CardResetPass({ userId }) {
 
@@ -39,6 +40,12 @@ export default function CardResetPass({ userId }) {
     ) {
       // alert("Please fill password.");
       document.getElementById('fillpassword').showModal();
+      return;
+    }
+
+    // Check if password is at least 8 characters long
+    if (passwordRef.current.value.length < 8) {
+      document.getElementById('pass_too_short').showModal();
       return;
     }
 
@@ -115,6 +122,8 @@ export default function CardResetPass({ userId }) {
             <ModalFillPassword />
             <ModalRePasswordSuccess />
             <ModalRePasswordFail />
+            <ModalPasswordValidation />
+
 
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
             {/* <button
