@@ -2944,11 +2944,6 @@ select {
   background-color: rgb(255 199 43 / var(--tw-bg-opacity));
 }
 
-.bg-kmutt_yellow-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 238 189 / var(--tw-bg-opacity));
-}
-
 .bg-orange-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 215 170 / var(--tw-bg-opacity));
