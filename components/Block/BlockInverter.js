@@ -254,7 +254,7 @@ export default function BlockInverter() {
         </div >
             
             
-            ) : (<div>Loading...</div>)}
+            ) : (<div>is Loading...</div>)}
         </>
     );
 }
