@@ -7,10 +7,6 @@ import { useRouter } from "next/router";
 // layout for page
 
 import Admin from "layouts/Admin.js";
-import CardDeviceElec from "components/Cards/CardDeviceElec";
-import CardDeviceWater from "components/Cards/CardDeviceWater";
-import CardDeviceChiller from "components/Cards/CardDeviceChiller";
-import CardDeviceInverter from "components/Cards/CardDeviceInverter";
 import BlockDevice from "components/Block/BlockDevice";
 
 export default function Device() {
