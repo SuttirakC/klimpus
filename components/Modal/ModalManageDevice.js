@@ -1,8 +1,11 @@
 // components/Modal/ModalManageDevice.js
 import React from "react";
-import Link from "next/link";
 
 const ModalManageDevice = () => {
+  const openLink = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <dialog id="manage_device_modal" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
@@ -10,50 +13,43 @@ const ModalManageDevice = () => {
           <div className="fas fa-sliders text-3xl text-slate-700 mr-2"></div>
           <h3 className="font-bold text-2xl text-kmutt_orange-200">Manage Device</h3>
         </div>
-        <div className="py-2 text-lg">
-          <h4 className="font-semibold text-xl text-slate-600 mb-2">ChirpStack</h4>
-          <li className="mb-4">
-            <a
-              href="http://modld146.lib.kmutt.ac.th:8080/"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              http://modld146.lib.kmutt.ac.th:8080/
-            </a>
-          </li>
-          <hr className="border-t border-slate-300 my-4" />
-          <h4 className="font-semibold text-xl text-slate-600 mb-2">InfluxDB</h4>
-          <li>
-            <a
-              href="http://modld146.lib.kmutt.ac.th:8086/"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              http://modld146.lib.kmutt.ac.th:8086/
-            </a>
-          </li>
-          <hr className="border-t border-slate-300 my-4" />
-          <h4 className="font-semibold text-xl text-slate-600 mb-2">MariaDB</h4>
-          <li>
-            <a
-              href="http://modld146.lib.kmutt.ac.th:8081/"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              http://modld146.lib.kmutt.ac.th:8081/
-            </a>
-          </li>
-          <hr className="border-t border-slate-300 my-4" />
-          <h4 className="font-semibold text-xl text-slate-600 mb-2">Grafana</h4>
-          <li>
-            <a
-              href="http://modld146.lib.kmutt.ac.th:3000/"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              http://modld146.lib.kmutt.ac.th:3000/
-            </a>
-          </li>
+        <div className="py-2 text-lg grid grid-cols-2 gap-4">
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8080/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            ChirpStack
+          </button>
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:1880/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            Node-Red
+          </button>
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8086/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            InfluxDB
+          </button>
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:3000/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            Grafana
+          </button>
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8081/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            MariaDB
+          </button>          
+          <button
+            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:9000/")}
+            className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
+          >
+            Portainer
+          </button>          
         </div>
         <div className="modal-action">
           <form method="dialog">
