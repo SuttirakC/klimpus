@@ -19,6 +19,7 @@ function inv_power(data){
 }
 
 export default function BlockInverter() {
+    const enableControl = 0;
     const [data_online, setData_online] = useState(null);
     const [isLoading, setLoading] = useState(false)
     const [error_online, setError_online] = useState(null);
@@ -60,9 +61,9 @@ export default function BlockInverter() {
         on = inv_set.ONLINES;
         off = inv_set.OFFLINES;
         all = inv_set.ALLS;
-        console.log(inv_set);
-        p_on = (on / all) * 100;
-        p_off = (off / all) * 100;
+        // console.log(inv_set);
+        p_on = (Number(on) / Number(all)) * 100;
+        p_off = (Number(off) / Number(all)) * 100;
     }
     return (
         <>
@@ -84,12 +85,13 @@ export default function BlockInverter() {
                     <div className="w-full lg:w-10/12 xl:w-10/12">
                         <h6 className="text-md font-semibold text-slate-600 mb-1">Active Air Handling Unit</h6>
                         <div className="relative w-full">
-                            <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_green-300">
+                            {/* <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_green-300">
                                 <div
                                     style={{ width: p_on }}
                                     className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-kmutt_green-200"
                                 ></div>
-                            </div>
+                            </div> */}
+                            <progress className="progress progress-info" value={p_on} max="100"></progress>
                         </div>
                     </div>
                     <div className="w-full lg:w-2/12 xl:w-2/12 flex flex-row justify-end">
@@ -102,12 +104,15 @@ export default function BlockInverter() {
                     <div className="w-full lg:w-10/12 xl:w-10/12">
                         <h6 className="text-md font-semibold text-slate-600 mt-4 mb-1">Inactive Air Handling Unit</h6>
                         <div className="relative w-full">
-                            <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_red-300">
+                            
+                            {/* <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_red-300">
                                 <div
-                                    style={{ width: {p_off} }}
+                                    style={{ width: 600 }}
                                     className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-kmutt_red-200"
                                 ></div>
-                            </div>
+                            </div> */}
+                            <progress className="progress progress-error" value={p_off} max="100"></progress>
+                          
                         </div>
                     </div>
                     <div className="w-full lg:w-2/12 xl:w-2/12 flex flex-row items-end justify-end">
@@ -122,7 +127,7 @@ export default function BlockInverter() {
 
             <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
                 <CardInverterControl 
-                enableControl="0"
+                enableControl={enableControl}
                 status="0"
                 frequency="auto"
                 duration="mex"
@@ -133,108 +138,145 @@ export default function BlockInverter() {
                 <h6 className="text-2xl font-semibold text-slate-200 mt-8 mb-4"> 1st Floor</h6>
             </div>
 
-            <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
-                    <div className="flex-auto p-4">
-                        <div className="flex flex-wrap">
-                            <div className="relative w-full pr-4 max-w-full flex flex-row">
-                                <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
-                                    <h6 className="text-kmutt_blue-100 font-bold text-3xl uppercase">
-                                        AHU 111
-                                    </h6>
-                                </div>
-                                <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
-                                    <div className="p-1.5 fas fa-circle text-kmutt_green-100 text-xl"></div>
-                                    <h6 className="text-black font-semibold text-lg ml-2">
-                                        Running
-                                    </h6>
-                                </div>
+           {data_online.map((data, index) => (
+           <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
+           <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
+               <div className="flex-auto p-4">
+                   <div className="flex flex-wrap">
+                       <div className="relative w-full pr-4 max-w-full flex flex-row">
+                           <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
+                               <h6 className="text-kmutt_blue-100 font-bold text-3xl uppercase">
+                                   {data.device_name}
+                               </h6>
+                           </div>
+                           <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                                {data.inverter_power ? 
+                                <>
+                                <i className="p-1.5 fas fa-circle text-kmutt_green-100 text-xl"/>
+                               <h6 className="text-black font-semibold text-lg ml-2">
+                                   Running
+                               </h6>
+                                </> :
+                                <>
+                                <i className="p-1.5 fas fa-circle text-kmutt_red-100 text-xl"/>
+                               <h6 className="text-black font-semibold text-lg ml-2">
+                                   Stopped
+                               </h6>
+                                </>
+                                }
+                               
+                           </div>
 
-                            </div>
-                        </div>
-                    </div>
+                       </div>
+                   </div>
+               </div>
 
-                    <div className="flex flex-row">
+               <div className="flex flex-row">
 
-                        <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
-                            <h6 className="text-md font-semibold text-slate-400 ">Model</h6>
-                        </div>
-                        <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
-                            <h6 className="text-md font-semibold text-slate-500 uppercase">Hitachi WJ200N</h6>
-                        </div>
+                   <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
+                       <h6 className="text-md font-semibold text-slate-400 ">Model</h6>
+                   </div>
+                   <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
+                       <h6 className="text-md font-semibold text-slate-500 uppercase">Hitachi WJ200N</h6>
+                   </div>
 
-                    </div>
-                    <div className="flex flex-row">
+               </div>
+               <div className="flex flex-row">
 
-                        <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
-                            <h6 className="text-md font-semibold text-slate-400 ">Location</h6>
-                        </div>
-                        <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
-                            <h6 className="text-md font-semibold text-slate-400">@ LIB209, 1st Floor</h6>
-                        </div>
+                   <div className="w-full lg:w-4/12 xl:w-4/12 px-8">
+                       <h6 className="text-md font-semibold text-slate-400 ">Location</h6>
+                   </div>
+                   <div className="w-full lg:w-4/12 xl:w-4/12 flex items-start">
+                       <h6 className="text-md font-semibold text-slate-400">@ LIB105, 1st Floor</h6>
+                   </div>
 
-                    </div>
+               </div>
 
-                    <div className="flex-auto p-4">
-                        <div className="flex flex-wrap">
-                            <div className="relative w-full pr-4 max-w-full flex flex-row">
-                                <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-start px-4">
-                                    <h6 className="text-md font-semibold text-black">Frequency Speed</h6>
-                                </div>
-                                <div className="w-full lg:w-4/12 xl:w-4/12 px-4 flex flex-row">
-                                    <button className="fas fa-circle-arrow-left text-2xl flex items-center mr-6" type="button"></button>
-                                    <h6 className="text-kmutt_orange-100 font-bold text-xl uppercase flex items-center">
-                                        50.00
-                                    </h6>
-                                    <button className="fas fa-circle-arrow-right text-2xl flex items-center ml-6" type="button"></button>
-                                </div>
-                                <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
-                                    <h6 className="text-slate-400 font-semibold text-lg ml-2">
-                                        Hz
-                                    </h6>
-                                </div>
+               <div className="flex-auto p-4">
+                   <div className="flex flex-wrap">
+                       <div className="relative w-full pr-4 max-w-full flex flex-row">
+                           <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-start px-4">
+                               <h6 className="text-md font-semibold text-black">Frequency Speed</h6>
+                           </div>
+                           <div className="w-full lg:w-4/12 xl:w-4/12 px-4 flex flex-row">
+                               { enableControl?
+                                <button className="fas fa-circle-arrow-left text-2xl flex items-center mr-6" type="button"></button>
+                                :
+                                <button className="fas fa-circle-arrow-left text-2xl flex items-center mr-6 text-slate-200" type="button"></button>
+                               }
+                               <h6 className="text-kmutt_orange-100 font-bold text-xl uppercase flex items-center">
+                               {data.output_frequency_monitor_lo/100}
+                               </h6>
+                               { enableControl?
+                                <button className="fas fa-circle-arrow-right text-2xl flex items-center ml-6" type="button"></button>
+                                :
+                                <button className="fas fa-circle-arrow-right text-2xl flex items-center ml-6 text-slate-200" type="button"></button>
+                               }
+                           </div>
+                           <div className="w-full lg:w-3/12 xl:w-3/12 flex flex-row items-center justify-center">
+                               <h6 className="text-slate-400 font-semibold text-lg ml-2">
+                                   Hz
+                               </h6>
+                           </div>
 
-                            </div>
-                            <div className="w-full flex items-start justify-start mt-4 ml-4">
-                                {/* <Link href="/admin/account"> */}
-                                <button id="startBtn"
-                                    className="bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                       </div>
+                       <div className="w-full flex items-start justify-start mt-4 ml-4">
+                       {enableControl ?
+                                <>
+                               <button id="startBtn"
+                                    className={"bg-kmutt_orange-100 active:bg-kmutt_orange-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4"}
                                     type="button"
                                 >
                                     Start
                                 </button>
-                                {/* </Link> */}
-                                {/* <Link href="/admin/account"> */}
                                 <button id="stopBtn"
-                                    className="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-3/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                    className="bg-kmutt_blue-100 active:bg-kmutt_blue-100 text-white font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                     type="button"
                                 >
                                     Stop
                                 </button>
-                                {/* </Link> */}
-                            </div>
-                            <div className="w-full px-4 mt-6">
-                                <h6 className="text-md font-semibold text-slate-400 ">Inverter status details: -</h6>
-                            </div>
-                            <div className="w-full flex flex-row mt-4">
+                                </>:
+                                <>
+                                 <button disabled id="startBtn"
+                                    className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                    type="button"
+                                >
+                                    Start
+                                </button>
+                                <button disabled id="stopBtn"
+                                    className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
+                                    type="button"
+                                >
+                                    Stop
+                                </button>
+                                </>
+                                }
+                       </div>
+                       {/* <div className="w-full px-4 mt-6">
+                           <h6 className="text-md font-semibold text-slate-400 ">Inverter status details: -</h6>
+                       </div>
+                       <div className="w-full flex flex-row mt-4">
 
-                                <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start justify-start px-4">
-                                    <h6 className="text-md font-semibold text-slate-500 ">run time:</h6>
-                                </div>
-                                <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start">
-                                    <span id="timer"
-                                        className="text-md font-semibold text-slate-500 ">00:00:00</span>
-                                </div>
-                                <div className="w-full lg:w-6/12 xl:w-6/12 flex items-start justify-start">
-                                    <h6 className="text-md font-semibold text-slate-500 ">Hr</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                           <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start justify-start px-4">
+                               <h6 className="text-md font-semibold text-slate-500 ">run time:</h6>
+                           </div>
+                           <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start">
+                               <span id="timer"
+                                   className="text-md font-semibold text-slate-500 ">00:00:00</span>
+                           </div>
+                           <div className="w-full lg:w-6/12 xl:w-6/12 flex items-start justify-start">
+                               <h6 className="text-md font-semibold text-slate-500 ">Hr</h6>
+                           </div>
+                       </div> */}
+                   </div>
+               </div>
 
-                </div>
-            </div>
-            <div className="w-full">
+           </div>
+       </div>
+           ))}
+
+            
+            {/* <div className="w-full">
                 <h6 className="text-2xl font-semibold text-slate-200 mt-8 mb-4"> 2nd - 5th Floor</h6>
             </div>
             <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
@@ -249,7 +291,7 @@ export default function BlockInverter() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
         </div >
             

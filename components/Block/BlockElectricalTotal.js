@@ -87,7 +87,7 @@ export default function BlockElectricalMain() {
     return (
         <>
             {(data_total && data_online) ? (
-
+                
                 <div className="flex flex-wrap mt-8">
                 <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                     <CardInfoMain
