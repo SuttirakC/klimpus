@@ -34,7 +34,7 @@ export default function BlockInverter() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                console.log(newData);
+                // console.log(newData);
                 const newData = await response.json();
                 setData_online(newData);
                 setError_online(null);
