@@ -115,7 +115,7 @@ export default function BlockElectricalMain() {
                 </div>
 
 
-            ) : (<div>Loading...</div>)}
+            ) : (<div>Loading ...</div>)}
         </>
     );
 }
