@@ -42,7 +42,7 @@ export default function BlockElectricalMain() {
                 // setLoading(false);
             } catch (error) {
                 setError_online(error.message);
-                setData_online(null);
+                // setData_online(null);
             }
         }
 
@@ -56,11 +56,11 @@ export default function BlockElectricalMain() {
                 const newData = await response.json();
                 // console.log("----->", newData);
                 setData_total(newData);
-                setError_total(null);
+                // setError_total(null);
                 // setLoading(false);
             } catch (error) {
                 setError_total(error.message);
-                setData_total(null);
+                // setData_total(null);
             }
         }
 
@@ -81,7 +81,7 @@ export default function BlockElectricalMain() {
     //     return <div>Error: {error}</div>;
     // }
     // if (isLoading) return <p>Loading...</p>
-    if (!data_total && !data_online ) return <p>No data</p>
+    // if (!data_total && !data_online ) return <p>No data</p>
     // var obj = JSON.parse(data);
 
     return (
@@ -115,7 +115,17 @@ export default function BlockElectricalMain() {
                 </div>
 
 
-            ) : (<div>Loading ...</div>)}
+            ) : (<div className="flex flex-wrap mt-8">
+            <div className=" w-full lg:w-4/12 xl:w-4/12 px-4">
+            <div class="skeleton  h-32 w-full "></div>
+            </div>
+            <div className=" w-full lg:w-4/12 xl:w-4/12 px-4">
+            <div class="skeleton  h-32 w-full "></div>
+            </div>
+            <div className="  w-full lg:w-4/12 xl:w-4/12 px-4">
+            <div class="skeleton h-32 w-full "></div>
+            </div>
+            </div>)}
         </>
     );
 }
