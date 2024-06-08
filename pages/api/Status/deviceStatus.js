@@ -1,4 +1,4 @@
-import { createPool, query, closePool }  from "../../../lib/db_connection.js";
+import { query }  from "../../../lib/db_connection.js";
 
 
 export default async function handler(req, res) {

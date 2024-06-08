@@ -68,8 +68,8 @@ export default function BlockElectrical({ deviceName }) {
                 setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
-                // setData(null);
-                // setData_online(null);
+                setData(null);
+                setData_online(null);
             }
         }
 
