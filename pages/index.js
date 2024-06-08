@@ -17,7 +17,7 @@ export default function Login({ csrfToken }) {
     if (session) {
       router.push("/admin/dashboard");
     }
-  }, [session]);
+  }, [session, router]);
 
   return (
     <>
@@ -52,12 +52,13 @@ export default function Login({ csrfToken }) {
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
+                      htmlFor="username"
                     >
                       Username
                     </label>
                     <input
                       type="text"
+                      id="username"
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
                       name="username"
@@ -67,12 +68,13 @@ export default function Login({ csrfToken }) {
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-slate-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
+                      htmlFor="password"
                     >
                       Password
                     </label>
                     <input
                       type="password"
+                      id="password"
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                       name="password"

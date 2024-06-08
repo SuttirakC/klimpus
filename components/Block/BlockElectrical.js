@@ -68,8 +68,8 @@ export default function BlockElectrical({ deviceName }) {
                 setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
-                // setData(null);
-                // setData_online(null);
+                setData(null);
+                setData_online(null);
             }
         }
 
@@ -84,7 +84,7 @@ export default function BlockElectrical({ deviceName }) {
         <div className="relative flex flex-col break-words  m-12  shadow-lg rounded-3xl bg-slate-100/80 border-0" >
             <div className="rounded-3xl bg-white  px-6 py-6">
                 <div className="text-center flex justify-between">
-                    <h6 className="text-slate-700  text-xl font-bold"> No {deviceName}'s Data Found From DB <span className="loading loading-infinity loading-md"></span></h6> 
+                    <h6 className="text-slate-700  text-xl font-bold"> No {deviceName}&apos;s Data Found From DB <span className="loading loading-infinity loading-md"></span></h6> 
                     
                 </div>
             </div>

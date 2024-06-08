@@ -14,7 +14,7 @@ const fetchInfluxData_totalEn = async () => {
     `
     import "timezone"
     from(bucket: "raw_data")
-      |> range(start: -1d)
+      |> range(start: -1y)
       |> filter(fn: (r) => r["_measurement"] == "PowerMeter" )
       |> filter(fn: (r) => r["_field"] == "energy")
       |> aggregateWindow(every: 1d, fn: last, location: timezone.location(name: "Asia/Bangkok"))
@@ -28,7 +28,7 @@ const fetchInfluxData_totalEn = async () => {
 
     // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      console.log(response)
+      // console.log(response)
       // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
@@ -47,7 +47,7 @@ const fetchInfluxData_yesEn = async () => {
     const query =    
     `
     from(bucket: "report_summary_daily_energy")
-      |> range(start: -10y)
+      |> range(start: -1y)
       |> filter(fn: (r) => r["_measurement"] == "PowerMeter")
       |> filter(fn: (r) => r["_field"] == "energy")
       |> group()
@@ -59,7 +59,7 @@ const fetchInfluxData_yesEn = async () => {
 
     // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      console.log(response)
+      // console.log(response)
       // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     try {
       const energy_total = await fetchInfluxData_totalEn();
       const energy_yestd = await fetchInfluxData_yesEn();
-      const energy_today = energy_total - energy_yestd-1181.60;
+      const energy_today = energy_total - energy_yestd;
 
       res.status(200).json({
         "energy_today": energy_today,

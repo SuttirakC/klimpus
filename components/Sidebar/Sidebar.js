@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react"
@@ -11,6 +11,29 @@ export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
   const { data: session, status } = useSession()
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch('/api/checkNotifications');
+        const data = await response.json();
+        const unread = data.filter(noti => noti.noti_case_status === 1);
+        setUnreadCount(unread.length);
+
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    const interval = setInterval(() => {
+      fetchNotifications();
+    }, 100); // Check every 10 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
 
   useEffect(() => {
     if (status === "loading") {
@@ -55,12 +78,20 @@ export default function Sidebar() {
             </span>
           </Link>
           {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
+          {/* <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
               <NotificationDropdown />
             </li>
             <li className="inline-block relative">
               <UserDropdown />
+            </li>
+          </ul> */}
+          <ul className="md:hidden items-center flex flex-wrap list-none">
+            <li className="inline-block relative">
+              
+            </li>
+            <li className="inline-block relative">
+              
             </li>
           </ul>
           {/* Collapse */}
@@ -127,13 +158,13 @@ export default function Sidebar() {
                   >
                     <i
                       className={
-                        "fas fa-tv mr-2 text-sm " +
+                        "fas fa-tv mr-2 text-xs " +
                         (router.pathname.indexOf("/admin/dashboard") !== -1
                           ? "opacity-75"
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Overall
+                    Home
                   </span>
                 </Link>
               </li>
@@ -264,7 +295,7 @@ export default function Sidebar() {
                           : "text-slate-300")
                       }
                     ></i>{" "}
-                    Notification
+                    Notification  {unreadCount ?(<i className="fas fa-exclamation-circle text-base text-red-500 ml-2"></i>):null}
                   </span>
                 </Link>
               </li>
