@@ -1,5 +1,7 @@
-import React from "react";
+//import React from "react";
 import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function CardDashboard({
   statSubtitle,
@@ -9,6 +11,67 @@ export default function CardDashboard({
   statStatus,
   bgcolor
 }) {
+
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [notifications, setNotifications] = useState({
+    elec: [],
+    water: [],
+    ahu: [],
+    chiller: [],
+    other: []
+  });
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch('/api/checkNotifications');
+        const data = await response.json();
+        const unread = data.filter(noti => noti.noti_case_status === 1);
+        setUnreadCount(unread.length);
+        // console.log("Data",response);
+        const categorized = {
+          elec: data.filter(noti => noti.type === 'elec'),
+          water: data.filter(noti => noti.type === 'water'),
+          ahu: data.filter(noti => noti.type === 'ahu'),
+          chiller: data.filter(noti => noti.type === 'chiller'),
+          other: data.filter(noti => noti.type === 'other'),
+        };
+        // console.log("Categorized", categorized);
+        if (data.length === 0) {
+          setNotifications({
+            elec: [],
+            water: [],
+            ahu: [],
+            chiller: [],
+            other: []
+          });
+          return;
+        }
+
+        if (data.length > 0) {
+          // alert('New notifications available!');
+          setNotifications(categorized);
+        }
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+        // Reset notifications to empty if there's an error
+        setNotifications({
+          elec: [],
+          water: [],
+          ahu: [],
+          chiller: [],
+          other: []
+        });
+      }
+    };
+    const interval = setInterval(() => {
+      fetchNotifications();
+    }, 100); // Check every 10 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <div className={"relative flex flex-col min-w-0 break-words rounded-3xl mb-6 xl:mb-0 shadow-lg " + bgcolor}>
@@ -37,6 +100,31 @@ export default function CardDashboard({
           </div>
 
         </div>
+        {unreadCount > 0 ? (
+          <div role="alert" className="bg-white flex flex-row ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6 ml-3">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              {/* <h3 className="font-bold">New message!</h3> */}
+              <div className="text-xs ml-4 mb-4">You have {unreadCount} message(s)</div>
+            </div>
+            <Link href="/admin/notification">
+              <button className="btn btn-sm ml-2 mr-4">See</button>
+            </Link>
+          </div>
+        ) : (
+          <div role="alert" className="bg-white flex flex-row">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6 ml-3">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              {/* <h3 className="font-bold">No message</h3> */}
+              <div className="text-xs py-1 ml-2 mb-4">You have {unreadCount} message(s)</div>
+            </div>
+          </div>
+        )}
+
         <div className="relative flex items-center justify-center mt-4 mb-4">
           <div className={"text-5xl text-white"}>
 

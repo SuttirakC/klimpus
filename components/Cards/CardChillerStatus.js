@@ -24,7 +24,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                                     (color === "light" ? "text-slate-700" : "text-white")
                                 }
                             >
-                                Chiller Performance
+                                System Status
                             </h3>
                         </div>
                     </div>

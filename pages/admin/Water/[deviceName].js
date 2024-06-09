@@ -47,8 +47,8 @@ export default function WaterSub() {
                             }
                         >
                             <option value="" hidden>Choose the device</option>
-                            <option selected={deviceName === "FlowMeter_1FL"} value="FlowMeter_1FL">Device 1</option>
-                            <option selected={deviceName === "FlowMeter_6FL"} value="FlowMeter_6FL">Device 2</option>
+                            <option selected={deviceName === "FlowMeter_1FL"} value="FlowMeter_1FL">Devic - Outside</option>
+                            <option selected={deviceName === "FlowMeter_6FL"} value="FlowMeter_6FL">Device - LIB608</option>
                         </select>
                     </form>
 

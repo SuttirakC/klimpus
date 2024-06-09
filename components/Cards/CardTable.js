@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 // components
 
@@ -45,7 +46,7 @@ export default function CardTable({ color, updateUserCount }) {
       console.error("Error deleting user:", error);
     }
   }
-  
+
 
   useEffect(() => {
     getUsers();
@@ -82,7 +83,7 @@ export default function CardTable({ color, updateUserCount }) {
         }
       >
         <div className="rounded-t mb-0 px-4 py-3 border-0">
-          <div className="flex flex-wrap items-center">
+          <div className="flex flex-row items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3
                 className={
@@ -92,8 +93,19 @@ export default function CardTable({ color, updateUserCount }) {
               >
                 User List
               </h3>
+
             </div>
+            <Link href="/admin/CreateAccount">
+              <button
+                className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                type="button"
+              // onClick={addUser}
+              >
+                Create New Account
+              </button>
+            </Link>
           </div>
+
         </div>
         <div className="block w-full overflow-x-auto">
           {/* Projects table */}
