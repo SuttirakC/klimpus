@@ -2,7 +2,7 @@ import { InfluxDB } from '@influxdata/influxdb-client';
 
 
 // สร้าง InfluxDB client instance
-const influxDBClient = new InfluxDB({ url: 'http://10.13.253.146:8086/', token: 'rnyByZstwsxmgePL9Y1uDP2xzNvLDkwxk7EjqjkAkSrjozYO4KJ4YlBV4aDOtwC7bd1GYBrcB93tDdu6oD5hMQ=='  });
+const influxDBClient = new InfluxDB({ url: process.env.InfluxDB_HOST, token: process.env.InfluxDB_TOKEN  });
 const queryApi = influxDBClient.getQueryApi('kmutt_lib');
 
 const fetchInfluxData = async (value) => {

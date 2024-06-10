@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         const { status } = req.body;
   
         // Assuming you have the Node-RED API endpoint
-        const nodeRedEndpoint = 'http://modld146.lib.kmutt.ac.th:1880/api/unable_influx'; // Update with your Node-RED endpoint
+        const nodeRedEndpoint = process.env.NodeRED_HOST + '/api/unable_influx'; // Update with your Node-RED endpoint
   
         // Make a POST request to Node-RED API
         const response = await fetch(nodeRedEndpoint, {
