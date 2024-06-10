@@ -9,68 +9,12 @@ export default function CardDashboard({
   statIconName,
   statIconColor,
   statStatus,
+  notifications,
+  notificationCount,
   bgcolor
 }) {
 
-  const [unreadCount, setUnreadCount] = useState(0);
-  const [notifications, setNotifications] = useState({
-    elec: [],
-    water: [],
-    ahu: [],
-    chiller: [],
-    other: []
-  });
-
-  useEffect(() => {
-    const fetchNotifications = async () => {
-      try {
-        const response = await fetch('/api/checkNotifications');
-        const data = await response.json();
-        const unread = data.filter(noti => noti.noti_case_status === 1);
-        setUnreadCount(unread.length);
-        // console.log("Data",response);
-        const categorized = {
-          elec: data.filter(noti => noti.type === 'elec'),
-          water: data.filter(noti => noti.type === 'water'),
-          ahu: data.filter(noti => noti.type === 'ahu'),
-          chiller: data.filter(noti => noti.type === 'chiller'),
-          other: data.filter(noti => noti.type === 'other'),
-        };
-        // console.log("Categorized", categorized);
-        if (data.length === 0) {
-          setNotifications({
-            elec: [],
-            water: [],
-            ahu: [],
-            chiller: [],
-            other: []
-          });
-          return;
-        }
-
-        if (data.length > 0) {
-          // alert('New notifications available!');
-          setNotifications(categorized);
-        }
-      } catch (error) {
-        console.error('Error fetching notifications:', error);
-        // Reset notifications to empty if there's an error
-        setNotifications({
-          elec: [],
-          water: [],
-          ahu: [],
-          chiller: [],
-          other: []
-        });
-      }
-    };
-    const interval = setInterval(() => {
-      fetchNotifications();
-    }, 100); // Check every 10 seconds
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
+  const unreadCount = notifications.filter(noti => noti.noti_case_status === 1).length;
 
   return (
     <>
@@ -100,7 +44,7 @@ export default function CardDashboard({
           </div>
 
         </div>
-        {unreadCount > 0 ? (
+        {notificationCount > 0 ? (
           <div role="alert" className="bg-white flex flex-row ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6 ml-3">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -109,7 +53,7 @@ export default function CardDashboard({
               {/* <h3 className="font-bold">New message!</h3> */}
               <div className="text-xs ml-4 mb-4">You have {unreadCount} message(s)</div>
             </div>
-            <Link href="/admin/notification">
+            <Link href={`/admin/notification?type=${statSubtitle.toLowerCase()}`}>
               <button className="btn btn-sm ml-2 mr-4">See</button>
             </Link>
           </div>

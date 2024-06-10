@@ -112,6 +112,8 @@ export default function Dashboard() {
             statIconName="fas fa-bolt"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.elec[0]?.noti_case_level)}
+            notificationCount={notifications.elec.length}
+            notifications={notifications.elec}
           />
         </div>
 
@@ -123,6 +125,8 @@ export default function Dashboard() {
             statIconName="fas fa-droplet"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.water[0]?.noti_case_level)}
+            notificationCount={notifications.water.length}
+            notifications={notifications.water}
           />
         </div>
 
@@ -134,6 +138,8 @@ export default function Dashboard() {
             statIconName="fas fa-snowflake"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.chiller[0]?.noti_case_level)}
+            notificationCount={notifications.chiller.length}
+            notifications={notifications.chiller}
           />
         </div>
 
@@ -145,6 +151,8 @@ export default function Dashboard() {
             statIconName="fas fa-wind"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.ahu[0]?.noti_case_level)}
+            notificationCount={notifications.ahu.length}
+            notifications={notifications.ahu}
           />
         </div>
 
@@ -156,6 +164,8 @@ export default function Dashboard() {
             statIconName="fas fa-gear"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.other[0]?.noti_case_level)}
+            notificationCount={notifications.other.length}
+            notifications={notifications.other}
           />
           
         </div>
