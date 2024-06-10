@@ -64,7 +64,7 @@ export default function Account() {
         </a>
       </div>
       <div className="flex flex-wrap mt-8">
-        <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
           <CardStats
             bgcolor="bg-gradient-to-b from-white from-90% to-kmutt_gray-100 to-10%"
             statSubtitle="Total Account"
@@ -75,7 +75,7 @@ export default function Account() {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
           <CardStats
             bgcolor="bg-gradient-to-b from-white from-90% to-kmutt_gray-200 to-10%"
             statSubtitle="Admin Role"
@@ -86,7 +86,7 @@ export default function Account() {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
           <CardStats
             bgcolor="bg-gradient-to-b from-white from-90% to-black to-10%"
             statSubtitle="Technical Role"
@@ -97,7 +97,7 @@ export default function Account() {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+        {/* <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-gradient-to-b from-white from-90% to-kmutt_blue-100 to-10% rounded-3xl mb-6 xl:mb-0 shadow-lg">
             <Link href="/admin/CreateAccount">
               <div className="flex-auto p-4">
@@ -129,7 +129,7 @@ export default function Account() {
               </div>
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <div className="w-full mt-10 px-4">
           <CardTable updateUserCount={updateUserCount} />

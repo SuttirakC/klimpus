@@ -120,7 +120,7 @@ export default function Chiller() {
 
                 </div>
 
-                <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0 mt-4">
+                <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0 mt-4">
                     <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-slate-700 text-xl font-bold">Chiller No.1</h6>
@@ -165,7 +165,7 @@ export default function Chiller() {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                     <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-slate-700 text-xl font-bold">Chiller No.2</h6>
@@ -210,7 +210,7 @@ export default function Chiller() {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                     <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-slate-700 text-xl font-bold">Chiller No.3</h6>
@@ -255,7 +255,7 @@ export default function Chiller() {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                     <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-slate-700 text-xl font-bold">Chiller No.4</h6>
@@ -300,7 +300,7 @@ export default function Chiller() {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
+                <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0">
                     <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-slate-700 text-xl font-bold">Chiller No.5</h6>

@@ -16,9 +16,16 @@ const fetchOnlineDevice = async ({ deviceName, res }) => {
             query: query2,
             values: [deviceName],
         });
+
+        const query3 = "SELECT deviceName FROM `device_db` WHERE deviceName = ?;";
+        const deviceName1 = await query({
+            name_db: 'klimpus_device',
+            query: query3,
+            values: [deviceName],
+        });
         // closePool();
         if (status.length && location.length) {
-            return { deviceStatus: status[0].deviceStatus, deviceLocation: location[0].deviceLocation };
+            return { deviceName: deviceName1[0].deviceName, deviceStatus: status[0].deviceStatus, deviceLocation: location[0].deviceLocation};
         } else {
             throw new Error('No data found from InfluxDB');
         }

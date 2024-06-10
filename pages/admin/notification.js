@@ -9,6 +9,7 @@ import CardNotiOther from 'components/Cards/CardNotiOther';
 
 export default function Notification() {
     const router = useRouter();
+    const { type } = router.query;
     const [notifications, setNotifications] = useState({
         elec: [],
         water: [],
@@ -66,6 +67,12 @@ export default function Notification() {
         // Clean up the interval on component unmount
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        if (type) {
+            document.getElementById(type)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [type]);
 
     return (
         <>
