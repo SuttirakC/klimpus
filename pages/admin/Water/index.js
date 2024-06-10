@@ -102,14 +102,14 @@ export default function Water() {
                 <div className="flex flex-wrap mt-8">
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
-                            waterinfo="Today"
+                            waterinfo="Today Usage"
                             statTitle={numberFormat(obj.flow_day * 1000)}
                             statSubtitle="Liters"
                         />
                     </div>
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
-                            waterinfo="This Month"
+                            waterinfo="This Month Usage"
                             statTitle={numberFormat(obj.flow_month * 1000)}
                             statSubtitle="Liters"
                         />
