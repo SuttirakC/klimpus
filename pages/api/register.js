@@ -15,24 +15,15 @@ export default async function handler(req, res) {
 
         if (req.method === 'POST') {
             const { username, password, email, role_id, firstname, lastname } = req.body;
-            // const username = req.body.username;
-            // const password = req.body.password;
-            // const email = req.body.email;
-            // const role_id = req.body.role_id;
-            // const firstname = req.body.firstname;
-            // const lastname = req.body.lastname;
-
             const bcrypt = require('bcrypt');
             const saltRounds = 10;
             const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-            // Check if username exists
             const existingUsername = await query({
                 query: 'SELECT * FROM users WHERE username = ?',
                 values: [username],
             });
 
-            // Check if email exists
             const existingEmail = await query({
                 query: 'SELECT * FROM users WHERE email = ?',
                 values: [email],
@@ -60,7 +51,6 @@ export default async function handler(req, res) {
             }
 
             let userData = {
-                // user_id: addUser.affectedRows,
                 username: username,
                 password: password,
                 email: email,

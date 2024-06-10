@@ -1,17 +1,12 @@
 import { InfluxDB } from '@influxdata/influxdb-client';
 import { DateTime } from 'luxon';
 
-// สร้าง InfluxDB client instance
 const influxDBClient = new InfluxDB({ url: process.env.InfluxDB_HOST, token: process.env.InfluxDB_TOKEN  });
 const queryApi = influxDBClient.getQueryApi('kmutt_lib');
-// Calculate the current date in the required format
 const tomonth =DateTime.now().startOf('month').toISODate() + "T00:00:00.001Z";
-// console.log(tomonth);
 
 const fetchInfluxData_totalEn = async () => {
-  // console.log(deviceName.deviceName);
   try {
-    // สร้างคำสั่ง query ข้อมูลจาก InfluxDB
     const query =    
     `
     import "timezone"
@@ -25,13 +20,9 @@ const fetchInfluxData_totalEn = async () => {
       |> sum()
     `;
 
-    // // ทำการ query ข้อมูลจาก InfluxDB โดยใช้ getQueryApi
     const response = await queryApi.collectRows(query);
 
-    // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      // console.log(response)
-      // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
       throw new Error('No data found from InfluxDB');
@@ -43,9 +34,7 @@ const fetchInfluxData_totalEn = async () => {
 };
 
 const fetchInfluxData_yesEn = async () => {
-  // console.log(deviceName.deviceName);
   try {
-    // สร้างคำสั่ง query ข้อมูลจาก InfluxDB
     const query =    
     `
     from(bucket: "report_summary_daily_energy")
@@ -56,13 +45,9 @@ const fetchInfluxData_yesEn = async () => {
       |> sum()
     `;
 
-    // // ทำการ query ข้อมูลจาก InfluxDB โดยใช้ getQueryApi
     const response = await queryApi.collectRows(query);
 
-    // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      // console.log(response)
-      // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
       throw new Error('No data found from InfluxDB');
@@ -74,9 +59,7 @@ const fetchInfluxData_yesEn = async () => {
 };
 
 const fetchInfluxData_moEn = async () => {
-  // console.log(deviceName.deviceName);
   try {
-    // สร้างคำสั่ง query ข้อมูลจาก InfluxDB
     const query =    
     `
     import "strings"
@@ -91,13 +74,9 @@ const fetchInfluxData_moEn = async () => {
       |> sum()
     `;
 
-    // // ทำการ query ข้อมูลจาก InfluxDB โดยใช้ getQueryApi
     const response = await queryApi.collectRows(query);
 
-    // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      // console.log(response)
-      // return JSON.stringify(response[0]);
       return response[0]._value;
     } else {
       throw new Error('No data found from InfluxDB');
@@ -109,7 +88,6 @@ const fetchInfluxData_moEn = async () => {
 };
 
 
-// pages/api/data.js
 export default async function handler(req, res) {
 
     try {

@@ -1,7 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-
-// components
 import ModalPasswordNotMatch from "components/Modal/ModalPasswordNotMatch";
 import ModalFillPassword from "components/Modal/ModalFillPassword";
 import ModalRePasswordSuccess from "components/Modal/ModalRePasswordSuccess";
@@ -14,44 +11,21 @@ export default function CardResetPass({ userId }) {
   const rePasswordRef = useRef();
   const [userData, setUserData] = useState([]);
 
-  // async function getUser() {
-  //   const postData = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   const res = await fetch(
-  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-  //   );
-
-  //   const response = await res.json();
-  //   setUserData(response.response.data[0]);
-  //   // console.log(response.response.data[0]);
-  // }
-
   async function updateUser() {
-
-    // Check if any required input is blank
     if (
       !passwordRef.current.value ||
       !rePasswordRef.current.value
     ) {
-      // alert("Please fill password.");
       document.getElementById('fillpassword').showModal();
       return;
     }
 
-    // Check if password is at least 8 characters long
     if (passwordRef.current.value.length < 8) {
       document.getElementById('pass_too_short').showModal();
       return;
     }
 
-    // Check if password and re-password match
     if (passwordRef.current.value !== rePasswordRef.current.value) {
-      // alert('Passwords do not match.');
       document.getElementById('pass_notmatch').showModal();
       return;
     }
@@ -74,14 +48,13 @@ export default function CardResetPass({ userId }) {
     const response = await res.json();
     if (response.response.message === 'Reset Password Successfully') {
       document.getElementById('repassword_success').showModal();
-      passwordRef.current.value = ""; // Clear password input
-      rePasswordRef.current.value = ""; // Clear re-password input
+      passwordRef.current.value = ""; 
+      rePasswordRef.current.value = ""; 
     } else if (response.response.message === 'Reset Password failed') {
       document.getElementById('repassword_fail').showModal();
     }
   }
 
-  // Handle Enter key press to trigger the "Reset Password" button
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -104,7 +77,6 @@ export default function CardResetPass({ userId }) {
 
       const response = await res.json();
       setUserData(response.response.data[0]);
-      // console.log(response.response.data[0]);
     }
 
     getUser();
@@ -117,7 +89,6 @@ export default function CardResetPass({ userId }) {
         <div className="rounded-3xl bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
 
-            {/* Modal components */}
             <ModalPasswordNotMatch />
             <ModalFillPassword />
             <ModalRePasswordSuccess />
@@ -126,13 +97,6 @@ export default function CardResetPass({ userId }) {
 
 
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
-            {/* <button
-              className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="button"
-              onClick={updateUser}
-            >
-              Reset Password
-            </button> */}
 
           </div>
         </div>
@@ -158,7 +122,6 @@ export default function CardResetPass({ userId }) {
                     placeholder="Password"
                     onKeyDown={handleKeyPress}
                     className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  // defaultValue={userData.password}
                   />
                 </div>
               </div>
@@ -177,7 +140,6 @@ export default function CardResetPass({ userId }) {
                     placeholder="Re-Password"
                     onKeyDown={handleKeyPress}
                     className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  // defaultValue={userData.password}
                   />
                 </div>
               </div>

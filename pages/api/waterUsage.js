@@ -1,14 +1,9 @@
 import { InfluxDB } from '@influxdata/influxdb-client';
 
-
-// สร้าง InfluxDB client instance
 const influxDBClient = new InfluxDB({ url: process.env.InfluxDB_HOST, token: process.env.InfluxDB_TOKEN  });
 const queryApi = influxDBClient.getQueryApi('kmutt_lib');
-
 const fetchInfluxData = async () => {
-    // console.log(deviceName.deviceName);
   try {
-    // สร้างคำสั่ง query ข้อมูลจาก InfluxDB
     const query = 
     `
     import "influxdata/influxdb/schema"
@@ -18,13 +13,10 @@ const fetchInfluxData = async () => {
     |> last()
     |> schema.fieldsAsCols()
     `;
-    
-    // // ทำการ query ข้อมูลจาก InfluxDB โดยใช้ getQueryApi
+  
     const response = await queryApi.collectRows( query );
 
-    // ตรวจสอบว่ามีข้อมูลที่ได้รับมาหรือไม่
     if (response.length > 0) {
-      // console.log(response)
       return (response[0]);
     } else {
       throw new Error('No data found from InfluxDB');
@@ -35,8 +27,6 @@ const fetchInfluxData = async () => {
   }
 };
 
-
-// pages/api/data.js
 export default async function handler(req, res) {
 
       try {

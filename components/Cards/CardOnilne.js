@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import datetime_format from "../../functions/datetime_format.js";
 
 export default function CardOnline({
@@ -26,8 +25,6 @@ export default function CardOnline({
                             <span className="text-3xl">{Onlineinfo}</span>
                             </span>
                             <h5 className="text-slate-400 font-bold text-md flex-shrink-0">
-                                {/* updated on */}
-                                {/* {statSubtitle} */}
                             </h5>
                         </div>
                         <div className="relative w-full pr-4 max-w-full flex">

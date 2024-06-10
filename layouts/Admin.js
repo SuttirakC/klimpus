@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "components/Navbars/AuthNavbar.js";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import HeaderStats from "components/Headers/HeaderStats.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 export default function Admin({ children }) {
@@ -23,12 +22,8 @@ export default function Admin({ children }) {
         <AdminNavbar />
         <Navbar transparent />
         
-
-        {/* Header */}
-        {/* <HeaderStats /> */}
-        
         <div className="relative md:pt-32 pb-32 pt-12">
-          
+
         </div>
 
         <div className="relative px-4 md:px-10 min-h-full mx-auto w-full -m-36">
@@ -36,11 +31,7 @@ export default function Admin({ children }) {
           {children}
           <FooterAdmin/>
         </div>
-       
-
-
       </div>
-
     </>
   );
 }

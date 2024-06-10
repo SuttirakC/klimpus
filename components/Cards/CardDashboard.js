@@ -1,4 +1,3 @@
-//import React from "react";
 import Link from "next/link";
 
 export default function CardDashboard({
@@ -38,8 +37,6 @@ export default function CardDashboard({
                 
               </div>
             </div>
-            {/* <hr className="mt-4 md:min-w-full" /> */}
-
           </div>
 
         </div>

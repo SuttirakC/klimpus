@@ -1,45 +1,13 @@
 import React, { useState, useEffect } from "react";
-
-// components
 import CardFlowrateLineChart from "../Cards/CardFlowrateLineChart";
 import CardVelocityLineChart from "../Cards/CardVelocityLineChart";
-
-// layout for page
-
-import Admin from "layouts/Admin.js";
 
 export default function BlockWater({ deviceName }) {
     const [data, setData] = useState(null);
     const [deviceInfo, setDeviceInfo] = useState([]);
     const [error, setError] = useState(null);
-    const [iframeKey, setIframeKey] = useState(0);
-    const [isLoading, setLoading] = useState(false);
-
-    //แบบเดิม (createConnection)
-    // async function getDeviceInfo() {
-    //     const postData = {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         //   body:JSON.stringify({deviceName}),
-    //     };
-
-    //     const res = await fetch(
-    //         `${process.env.NEXT_PUBLIC_URL}/api/WaterInfo/${deviceName}`, postData
-    //     );
-
-    //     const response = await res.json();
-    //     setDeviceInfo(response.response);
-    //     // console.log(deviceInfo);
-    // }
-
-    // useEffect(() => {
-    //     getDeviceInfo();
-    // }, [deviceInfo, deviceName]);
 
     useEffect(() => {
-        setLoading(true)
         async function fetchData() {
             const fetchpath = `/api/dataPM/${deviceName}`;
             try {
@@ -50,8 +18,6 @@ export default function BlockWater({ deviceName }) {
                 const newData = await response.json();
                 // console.log("----->", newData);
                 setData(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setData(null);
@@ -63,7 +29,6 @@ export default function BlockWater({ deviceName }) {
 
 
     useEffect(() => {
-        setLoading(true)
         async function fetchDeviceInfo() {
             const fetchpath = `/api/WaterInfo/${deviceName}`;
             try {
@@ -74,8 +39,6 @@ export default function BlockWater({ deviceName }) {
                 const newData = await response.json();
                 // console.log("----->", newData);
                 setDeviceInfo(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setDeviceInfo(null);

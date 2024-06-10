@@ -1,8 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import CardStats from "components/Cards/CardStats.js";
-
-// components
 
 export default function CardNotiWater({ notifications }) {
     return (
@@ -16,7 +12,6 @@ export default function CardNotiWater({ notifications }) {
                 <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     {notifications.length > 0 ? (
                         notifications.map((noti, index) => (
-                            // <div key={index} role="alert" className={`mt-4 alert alert-${noti.noti_case_level === 1 ? 'warning' : 'error'}`}>
                             <div key={index} role="alert" className={`mt-4 alert bg-kmutt_${noti.noti_case_level === 1 ? 'yellow-100' : 'red-200'}`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                     {noti.noti_case_level === 1 ? (

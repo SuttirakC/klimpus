@@ -5,16 +5,15 @@ export default async function sendNoti(status) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ status }), // Simplified because the variable name matches the property name
+            body: JSON.stringify({ status }), 
         });
 
         if (!response.ok) {
             throw new Error('Failed to send status to Node-RED');
         }
 
-        const responseData = await response.json(); // Parse response body as JSON
+        const responseData = await response.json(); 
 
-        // Do something with the response data if needed
         console.log('Status sent successfully to Node-RED:', responseData);
     } catch (error) {
         console.error('Error sending status to Node-RED:', error);

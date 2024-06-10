@@ -11,7 +11,6 @@ const ModalDeleteConfirm = ({deleteModalRef, closeDropdownPopover, confirmDelete
                 <p className="py-2 text-lg text-center">Are you sure, you would like to delete this account?</p>
                 <div className="modal-action justify-center">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <button className="btn mr-10" onClick={closeDropdownPopover}>Close</button>
                         <button className="btn ml-10 bg-kmutt_orange-200 text-white" onClick={confirmDelete}>Delete</button>
                     </form>

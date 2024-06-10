@@ -1,8 +1,5 @@
 import React from "react";
-import Link from "next/link";
 import CardStats from "components/Cards/CardStats.js";
-
-// components
 
 export default function CardDeviceElec() {
     return (

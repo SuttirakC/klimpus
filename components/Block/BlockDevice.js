@@ -1,17 +1,9 @@
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import CardStats from "components/Cards/CardStats.js";
 
-
-
-// components
-
 export default function BlockDevice() {
     const [state, setState] = useState({ data: null, error: false, loading: true })
-
-    // Function to get role name based on role_id
     const getIcon = (type) => {
-        // console.log(type);
         if (type == "Electrical") return "fas fa-bolt";
         else if (type == "Tap Water") return "fas fa-droplet"
         else if (type == "Air Handling Unit") return "fas fa-wind";
@@ -33,34 +25,26 @@ export default function BlockDevice() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log(newData);
                 setState({ data: newData, error: false, loading: false })
             } catch (error) {
                 setState({ data: state.data, error: error.message, loading: false })
             }
         }
-        const intervalId = setInterval(() => {  //assign interval to a variable to clear it. 
+        const intervalId = setInterval(() => {
 
             setState(state => ({ data: state.data, error: false, loading: true }))
             fetchData()
-                //  .then(newData => setState({ data: newData, error: false, loading: false }))
                 .catch(function (error) {
                     console.log(error)
                     setState({ data: null, error: true, loading: false })
                 })
         }, 2000)
 
-        return () => clearInterval(intervalId); //This is important
+        return () => clearInterval(intervalId); 
 
     }, [state]);
-
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
-    // if (isLoading) return <p>Loading...</p>
-    // if (!(state.data)) return <p>No data</p>
+    
     var obj = state.data;
-    // console.log(state.data);
     return (
         <>
             {obj ? (

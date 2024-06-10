@@ -2,21 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import Link from "next/link";
-
-// components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardElecInfo from "components/Cards/CardElecInfo";
-import CardBarChart from "components/Cards/CardBarChart.js";
 import BlockWater from "components/Block/BlockWater.js";
-
-// layout for page
-
-
-
 import Admin from "layouts/Admin.js";
-import CardFlowRate from "components/Cards/CardFlowRate";
-import CardVelo from "components/Cards/CardVelo";
 
 export default function WaterSub() {
     const router = useRouter();
@@ -32,7 +19,6 @@ export default function WaterSub() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log("----->", newData);
                 setDeviceInfo(newData);
             } catch (error) {
                 setDeviceInfo(null);
@@ -61,7 +47,6 @@ export default function WaterSub() {
                 <div className="box-border h-12 w-full lg:w-2/12 xl:w-2/12 px-4 rounded-3xl text-bold">
 
                     <form className="max-w-sm mx-auto">
-                        {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
                         <select id="devices" className="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4"
                             onChange={(e) => {
                                 router.push(e.target.value);
@@ -69,8 +54,6 @@ export default function WaterSub() {
                             }
                         >
                             <option value="" hidden>Choose the device</option>
-                            {/* <option selected={deviceName === "FlowMeter_1FL"} value="FlowMeter_1FL">Device - Outside</option> */}
-                            {/* <option selected={deviceName === "FlowMeter_6FL"} value="FlowMeter_6FL">Device - LIB608</option> */}
                             {deviceInfo && deviceInfo.map((device, index) => (
                                 <option key={index} selected={deviceName === device.deviceName} value={device.deviceName}>
                                     Device - {device.deviceLocation}

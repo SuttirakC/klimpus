@@ -1,28 +1,16 @@
 import React from "react";
-import Link from "next/link";
 import { useState, useEffect } from "react";
-
-
-
-// components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
 import CardChillerSchedule from "components/Cards/CardChillerSchedule";
 import CardLineChartAHU from "components/Cards/CardLineChartAHU";
 import CardStats from "components/Cards/CardStats.js";
 import CardChillerStatus from "components/Cards/CardChillerStatus.js";
-// layout for page
-
 import Admin from "layouts/Admin.js";
 
 export default function Chiller() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [iframeKey, setIframeKey] = useState(0);
-    const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true)
         async function fetchData() {
             const fetchpath = `/api/chiller`;
             try {
@@ -31,10 +19,7 @@ export default function Chiller() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log("----->", newData);
                 setData(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setData(null);
@@ -44,23 +29,15 @@ export default function Chiller() {
         fetchData();
     }, [data]);
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
-    // if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No data</p>
     var obj = JSON.parse(data);
 
     return (
         <>
-            {/* {data ? ( */}
-
                 <div>
                     <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                         <a
                             className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
-                        // href="#pablo"
-                        // onClick={(e) => e.preventDefault()}
                         >
                             Chiller
                         </a>
@@ -129,7 +106,7 @@ export default function Chiller() {
 
                         </div>
 
-                        <div className="relative flex flex-col w-full break-words w-full mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0 mt-4">
+                        <div className="relative flex flex-col w-full break-words mb-6 shadow-lg rounded-3xl bg-slate-100/80 border-0 mt-4">
                             <div className="rounded-3xl bg-white mb-0 px-6 py-6">
                                 <div className="text-center flex justify-between">
                                     <h6 className="text-slate-700 text-xl font-bold">Chiller No.1</h6>
@@ -355,8 +332,6 @@ export default function Chiller() {
                         </div>
                     </div >
                 </div>
-
-            {/* ) : (<div>Loading...</div>)} */}
         </>
 
     );

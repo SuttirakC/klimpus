@@ -1,10 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-// components
-
-import TableDropdown from "components/Dropdowns/TableDropdown.js";
-
 export default function CardChillerStatus({ color, dataStatus }) {
 
     return (
@@ -30,7 +25,6 @@ export default function CardChillerStatus({ color, dataStatus }) {
                     </div>
                 </div>
                 <div className="block w-full overflow-x-auto">
-                    {/* Projects table */}
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>

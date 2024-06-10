@@ -11,7 +11,6 @@ const ModalUpdateFail = () => {
                 <p className="py-2 text-lg">This account has been not updated!</p>
                 <div className="modal-action">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <button className="btn">Try again</button>
                     </form>
                 </div>

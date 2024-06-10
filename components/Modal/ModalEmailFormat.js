@@ -11,7 +11,6 @@ const ModalEmailFormat = () => {
                 <p className="py-2 text-lg">Please enter a valid email address.</p>
                 <div className="modal-action">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <button className="btn">Try again</button>
                     </form>
                 </div>

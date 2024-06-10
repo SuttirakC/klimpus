@@ -13,7 +13,6 @@ export default async function handler(req, res) {
                 return;
             }
 
-            // Check if username exists
             const user = await query({
                 query: 'SELECT * FROM users WHERE username = ?',
                 values: [username],

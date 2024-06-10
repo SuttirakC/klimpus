@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-
-// components
-
 import CardLineChart from "components/Cards/CardLineChart.js";
 import CardBarChart from "components/Cards/CardBarChart.js";
 import CardLineChartAHU from "components/Cards/CardLineChartAHU.js";
 import CardDashboard from "components/Cards/CardDashboard";
-
-// layout for page
-
 import Admin from "layouts/Admin.js";
 
 export default function Dashboard() {
@@ -30,7 +23,6 @@ export default function Dashboard() {
         const data = await response.json();
         const unread = data.filter(noti => noti.noti_case_status === 1);
         setUnreadCount(unread.length);
-        // console.log("Data",response);
         const categorized = {
           elec: data.filter(noti => noti.type === 'elec'),
           water: data.filter(noti => noti.type === 'water'),
@@ -38,7 +30,6 @@ export default function Dashboard() {
           chiller: data.filter(noti => noti.type === 'chiller'),
           other: data.filter(noti => noti.type === 'other'),
         };
-        // console.log("Categorized", categorized);
         if (data.length === 0) {
           setNotifications({
             elec: [],
@@ -51,12 +42,10 @@ export default function Dashboard() {
         }
 
         if (data.length > 0) {
-          // alert('New notifications available!');
           setNotifications(categorized);
         }
       } catch (error) {
         console.error('Error fetching notifications:', error);
-        // Reset notifications to empty if there's an error
         setNotifications({
           elec: [],
           water: [],
@@ -69,9 +58,7 @@ export default function Dashboard() {
     
     const interval = setInterval(() => {
       fetchNotifications();
-    }, 100); // Check every 10 seconds
-
-    // Clean up the interval on component unmount
+    }, 100); 
     return () => clearInterval(interval);
   }, []);
 
@@ -88,7 +75,6 @@ export default function Dashboard() {
   };
 
   const getStatTitle = (noti_case_level) => {
-    // console.log("Status:", noti_case_level); 
     return noti_case_level === 1 ? 'Warning' : (noti_case_level === 2 ? 'Error' : 'Normal');
   };
 

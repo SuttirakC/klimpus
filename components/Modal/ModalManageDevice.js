@@ -1,4 +1,3 @@
-// components/Modal/ModalManageDevice.js
 import React from "react";
 
 const ModalManageDevice = () => {
