@@ -1,16 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import BlockInverter from "../../components/Block/BlockInverter";
-import CardInverterControl from "../../components/Cards/CardInverterControl";
-
+import BlockInverter from "../../../components/Block/BlockInverter";
 // components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
 
 // layout for page
 
 import Admin from "layouts/Admin.js";
-import sendNoti from "functions/sendNoti";
 
 export default function Inverter() {
     // sendNoti(1);

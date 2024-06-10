@@ -66,7 +66,7 @@ export default function Dashboard() {
         });
       }
     };
-
+    
     const interval = setInterval(() => {
       fetchNotifications();
     }, 100); // Check every 10 seconds
@@ -104,7 +104,7 @@ export default function Dashboard() {
 
       <div className="flex flex-wrap mt-8 justify-center ">
 
-        <div className="w-full xl:w-2/12 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.elec[0]?.noti_case_level)}
             statSubtitle="Electric"
@@ -112,12 +112,12 @@ export default function Dashboard() {
             statIconName="fas fa-bolt"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.elec[0]?.noti_case_level)}
-            notificationCount={notifications.elec.length}
-            notifications={notifications.elec}
+            staCount={notifications.elec.length}
+            linktrack="elec"
           />
         </div>
 
-        <div className="w-full xl:w-2/12 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.water[0]?.noti_case_level)}
             statSubtitle="Tap Water"
@@ -125,12 +125,12 @@ export default function Dashboard() {
             statIconName="fas fa-droplet"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.water[0]?.noti_case_level)}
-            notificationCount={notifications.water.length}
-            notifications={notifications.water}
+            staCount={notifications.water.length}
+            linktrack="water"
           />
         </div>
 
-        <div className="w-full xl:w-2/12 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.chiller[0]?.noti_case_level)}
             statSubtitle="Chiller"
@@ -138,12 +138,12 @@ export default function Dashboard() {
             statIconName="fas fa-snowflake"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.chiller[0]?.noti_case_level)}
-            notificationCount={notifications.chiller.length}
-            notifications={notifications.chiller}
+            staCount={notifications.chiller.length}
+            linktrack="chiller"
           />
         </div>
 
-        <div className="w-full xl:w-2/12 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.ahu[0]?.noti_case_level)}
             statSubtitle="AHU"
@@ -151,12 +151,12 @@ export default function Dashboard() {
             statIconName="fas fa-wind"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.ahu[0]?.noti_case_level)}
-            notificationCount={notifications.ahu.length}
-            notifications={notifications.ahu}
+            staCount={notifications.ahu.length}
+            linktrack="ahu"
           />
         </div>
 
-        <div className="w-full xl:w-2/12 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.other[0]?.noti_case_level)}
             statSubtitle="Other"
@@ -164,60 +164,13 @@ export default function Dashboard() {
             statIconName="fas fa-gear"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.other[0]?.noti_case_level)}
-            notificationCount={notifications.other.length}
-            notifications={notifications.other}
+            staCount={notifications.other.length}
+            linktrack="other"
           />
           
         </div>
       
 
-
-        {/* Alert Notification */}
-        {/* <div className=" w-95 px-4 mt-4">
-          <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
-            <div className="flex-auto p-4">
-              <div className="flex flex-wrap">
-                <div className="relative w-full pr-4 py-1 max-w-full flex-grow flex-1">
-                  <h5 className="text-slate-400 uppercase font-bold text-md">
-                    Hot Notification
-                  </h5>
-                </div>
-                <div className="relative w-auto pl-4 flex-initial">
-                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-kmutt_blue-100">
-                    <i className="fas fa-bell"></i>
-                  </div>
-                </div>
-              </div>
-
-              {unreadCount > 0 ? (
-                <div role="alert" className="alert shadow-lg mt-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <div>
-                    <h3 className="font-bold">New message!</h3>
-                    <div className="text-xs">You have {unreadCount} unread message(s)</div>
-                  </div>
-                  <Link href="/admin/notification">
-                    <button className="btn btn-sm">See</button>
-                  </Link>
-                </div>
-              ) : (
-                <div role="alert" className="alert shadow-lg mt-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <div>
-                    <h3 className="font-bold">No message</h3>
-                    <div className="text-xs">You have {unreadCount} unread message(s)</div>
-                  </div>
-                </div>
-              )}
-
-
-            </div>
-          </div>
-        </div> */}
       </div>
 
       <div className="flex flex-wrap mt-4">

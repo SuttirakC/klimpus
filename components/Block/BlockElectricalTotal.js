@@ -1,13 +1,9 @@
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 // import 
 // components
 import CardInfoMain from "components/Cards/CardMainLineChartInfo.js";
 import numberFormat from "../../functions/number_format";
 
-// layout for page
-
-import Admin from "layouts/Admin.js";
 
 export default function BlockElectricalMain() {
     const [data_total, setData_total] = useState(null);
@@ -91,15 +87,15 @@ export default function BlockElectricalMain() {
                 <div className="flex flex-wrap mt-8">
                 <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                     <CardInfoMain
-                        waterinfo="This Day Energy Usage (kWh)"
+                        waterinfo="Today Total Energy Usage (kWh)"
                         statTitle={numberFormat(data_total.energy_today)}
                         statSubtitle="kWh"
                     />
                 </div>
                 <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                     <CardInfoMain
-                        waterinfo="Cumulative Energy Usage (kWh)"
-                        statTitle={numberFormat(data_total.energy_total)}
+                        waterinfo="This Month Total Energy Usage (kWh)"
+                        statTitle={numberFormat(data_total.energy_thisMonth)}
                         statSubtitle="kWh"
                     />
                 </div>

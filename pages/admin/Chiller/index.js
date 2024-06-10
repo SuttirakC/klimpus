@@ -80,35 +80,35 @@ export default function Chiller() {
                             <div className="w-full">
                                 <CardChillerSchedule
                                     chillerinfo="Monday"
-                                    statTitle={obj.timeOn_HH_Monday + ":" + (obj.timeOn_MM_Monday-24) + "-" + (obj.timeOff_HH_Monday-6) + ":" + (obj.timeOff_MM_Monday-24)}
+                                    statTitle={obj.timeOn_HH_Monday + ":" + (obj.timeOn_MM_Monday-16) + "-" + (obj.timeOff_HH_Monday-6) + ":" + (obj.timeOff_MM_Monday-24)}
                                     statSubtitle="On-Off"
                                 />
                             </div>
                             <div className="w-full mt-6">
                                 <CardChillerSchedule
                                     chillerinfo="Tuesday"
-                                    statTitle={obj.timeOn_HH_Tuesday + ":" + (obj.timeOn_MM_Tuesday-24) + "-" + (obj.timeOff_HH_Tuesday-6) + ":" + (obj.timeOff_MM_Tuesday-24)}
+                                    statTitle={obj.timeOn_HH_Tuesday + ":" + (obj.timeOn_MM_Tuesday-16) + "-" + (obj.timeOff_HH_Tuesday-6) + ":" + (obj.timeOff_MM_Tuesday-24)}
                                     statSubtitle="On-Off"
                                 />
                             </div>
                             <div className="w-full mt-6">
                                 <CardChillerSchedule
                                     chillerinfo="Wednesday"
-                                    statTitle={obj.timeOn_HH_Wednesday + ":" + (obj.timeOn_MM_Wednesday-24) + "-" + (obj.timeOff_HH_Wednesday-6) + ":" + (obj.timeOff_MM_Wednesday-24)}
+                                    statTitle={obj.timeOn_HH_Wednesday + ":" + (obj.timeOn_MM_Wednesday-16) + "-" + (obj.timeOff_HH_Wednesday-6) + ":" + (obj.timeOff_MM_Wednesday-24)}
                                     statSubtitle="On-Off"
                                 />
                             </div>
                             <div className="w-full mt-6">
                                 <CardChillerSchedule
                                     chillerinfo="Thursday"
-                                    statTitle={obj.timeOn_HH_Thursday + ":" + (obj.timeOn_MM_Thursday-24) + "-" +( obj.timeOff_HH_Thursday-6) + ":" + (obj.timeOff_MM_Thursday-24)}
+                                    statTitle={obj.timeOn_HH_Thursday + ":" + (obj.timeOn_MM_Thursday-16) + "-" +( obj.timeOff_HH_Thursday-6) + ":" + (obj.timeOff_MM_Thursday-24)}
                                     statSubtitle="On-Off"
                                 />
                             </div>
                             <div className="w-full mt-6">
                                 <CardChillerSchedule
                                     chillerinfo="Friday"
-                                    statTitle={obj.timeOn_HH_Friday + ":" + (obj.timeOn_MM_Friday-24) + "-" + (obj.timeOff_HH_Friday-6) + ":" + (obj.timeOff_MM_Friday-24)}
+                                    statTitle={obj.timeOn_HH_Friday + ":" + (obj.timeOn_MM_Friday-16) + "-" + (obj.timeOff_HH_Friday-6) + ":" + (obj.timeOff_MM_Friday-24)}
                                     statSubtitle="On-Off"
                                 />
                             </div>
