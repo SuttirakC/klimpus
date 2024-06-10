@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import Link from "next/link";
 
@@ -20,6 +21,27 @@ import CardVelo from "components/Cards/CardVelo";
 export default function WaterSub() {
     const router = useRouter();
     const deviceName = router.query.deviceName;
+    const [deviceInfo, setDeviceInfo] = useState([]);
+
+    useEffect(() => {
+        async function fetchDeviceInfo() {
+            const fetchpath = `/api/WaterInfo/deviceInfo`;
+            try {
+                const response = await fetch(fetchpath);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const newData = await response.json();
+                // console.log("----->", newData);
+                setDeviceInfo(newData);
+            } catch (error) {
+                setDeviceInfo(null);
+            }
+        }
+
+        fetchDeviceInfo();
+    }, []);
+
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
@@ -47,8 +69,13 @@ export default function WaterSub() {
                             }
                         >
                             <option value="" hidden>Choose the device</option>
-                            <option selected={deviceName === "FlowMeter_1FL"} value="FlowMeter_1FL">Devic - Outside</option>
-                            <option selected={deviceName === "FlowMeter_6FL"} value="FlowMeter_6FL">Device - LIB608</option>
+                            {/* <option selected={deviceName === "FlowMeter_1FL"} value="FlowMeter_1FL">Device - Outside</option> */}
+                            {/* <option selected={deviceName === "FlowMeter_6FL"} value="FlowMeter_6FL">Device - LIB608</option> */}
+                            {deviceInfo && deviceInfo.map((device, index) => (
+                                <option key={index} selected={deviceName === device.deviceName} value={device.deviceName}>
+                                    Device - {device.deviceLocation}
+                                </option>
+                            ))}
                         </select>
                     </form>
 

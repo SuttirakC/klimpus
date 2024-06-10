@@ -99,14 +99,6 @@ export default function BlockWater({ deviceName }) {
         return <p>Error parsing JSON</p>;
     }
 
-    var deviceNo;
-    if (deviceName == "FlowMeter_1FL") {
-        deviceNo = "01";
-    }
-    else if (deviceName == "FlowMeter_6FL") {
-        deviceNo = "02";
-    }
-
     return (
         <>
             {(data&&deviceInfo) ? (
@@ -114,7 +106,7 @@ export default function BlockWater({ deviceName }) {
                 <div className="flex flex-wrap mt-8 mb-20">
 
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                        <h6 className="text-2xl font-semibold text-slate-200 mb-6"> # Device {deviceNo}</h6>
+                        <h6 className="text-2xl font-semibold text-slate-200 mb-6"> # Device {obj2.deviceLocation}</h6>
 
                         <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
                             <div className="flex-auto p-4">

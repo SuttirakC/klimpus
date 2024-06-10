@@ -43,6 +43,7 @@ export default function CardDashboard({
           </div>
 
         </div>
+
         <div className="relative flex items-center justify-center mt-4 mb-4">
           <div className={"text-5xl text-white indicator"}>
             {
