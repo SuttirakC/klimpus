@@ -1,27 +1,14 @@
 import React from "react";
-import Link from "next/link";
-
-
-
-// components
-
-import CardLineChart from "components/Cards/CardLineChart.js";
 import CardChillerSchedule from "components/Cards/CardChillerSchedule";
 import CardLineChartAHU from "components/Cards/CardLineChartAHU";
 import CardStats from "components/Cards/CardStats.js";
 import CardChillerStatus from "components/Cards/CardChillerStatus.js";
-// layout for page
-
 import Admin from "layouts/Admin.js";
 
 export default function BlockChiller() {
     const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [iframeKey, setIframeKey] = useState(0);
-    const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true)
         async function fetchData() {
             const fetchpath = `/api/chiller`;
             try {
@@ -30,12 +17,8 @@ export default function BlockChiller() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log("----->", newData);
                 setData(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
-                setError(error.message);
                 setData(null);
             }
         }
@@ -43,23 +26,16 @@ export default function BlockChiller() {
         fetchData();
     }, [data]);
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
-    // if (isLoading) return <p>Loading...</p>
     if (!data) return <p>No data</p>
     var obj = JSON.parse(data);
 
     return (
         <>
             {data ? (
-
                 <div>
                     <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                         <a
                             className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
-                        // href="#pablo"
-                        // onClick={(e) => e.preventDefault()}
                         >
                             Chiller
                         </a>
@@ -70,7 +46,6 @@ export default function BlockChiller() {
                             <div className="w-full lg:h-6/12 xl:h-6/12">
                                 <CardChillerStatus />
                                 <CardLineChartAHU />
-
                             </div>
                         </div>
 

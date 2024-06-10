@@ -1,28 +1,17 @@
 import React from "react";
 import { useRouter } from 'next/router';
 import Link from "next/link";
-
-// components
-
 import BlockElectrical from "components/Block/BlockElectrical.js";
-
-// layout for page
-
 import Admin from "layouts/Admin.js";
-
-
 
 export default function ElectricalSub() {
     const router = useRouter();
     const deviceName = router.query.deviceName;
-
     return (
         <>
             <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                 <a
                     className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
-                // href="#pablo"
-                // onClick={(e) => e.preventDefault()}
                 >
                     Electrical Usage
                 </a>
@@ -37,13 +26,9 @@ export default function ElectricalSub() {
                 <div className="box-border h-12 w-full lg:w-2/12 xl:w-2/12 px-4 rounded-3xl text-bold">
 
                     <form className="max-w-sm mx-auto">
-                        {/* <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
                         <select id="floor" className="bg-white border border-white text-kmutt_orange-400 font-bold text-md rounded-3xl block w-full p-2.5 px-4">
                             <option disabled defaultValue="" >Choose the floor</option>
                             <option selected defaultValue="ONE">1st Floor</option>
-                            {/* <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option> */}
                         </select>
                     </form>
 

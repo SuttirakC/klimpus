@@ -1,10 +1,16 @@
-// components/Modal/ModalManageDevice.js
 import React from "react";
 
 const ModalManageDevice = () => {
   const openLink = (url) => {
     window.open(url, "_blank");
   };
+
+  const chirpstackUrl = process.env.NEXT_PUBLIC_Chirpstack_URL;
+  const nodeRedUrl = process.env.NEXT_PUBLIC_NodeRed_URL;
+  const influxdbUrl = process.env.NEXT_PUBLIC_InfluxDB_URL;
+  const grafanaUrl = process.env.NEXT_PUBLIC_Grafana_URL;
+  const mariadbUrl = process.env.NEXT_PUBLIC_MariaDB_URL;
+  const portainerUrl = process.env.NEXT_PUBLIC_Portainer_URL;
 
   return (
     <dialog id="manage_device_modal" className="modal modal-bottom sm:modal-middle">
@@ -15,37 +21,37 @@ const ModalManageDevice = () => {
         </div>
         <div className="py-2 text-lg grid grid-cols-2 gap-4">
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8080/")}
+            onClick={() => openLink(chirpstackUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             ChirpStack
           </button>
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:1880/")}
+            onClick={() => openLink(nodeRedUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             Node-Red
           </button>
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8086/")}
+            onClick={() => openLink(influxdbUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             InfluxDB
           </button>
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:3000/")}
+            onClick={() => openLink(grafanaUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             Grafana
           </button>
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:8081/")}
+            onClick={() => openLink(mariadbUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             MariaDB
           </button>          
           <button
-            onClick={() => openLink("http://modld146.lib.kmutt.ac.th:9000/")}
+            onClick={() => openLink(portainerUrl)}
             className="bg-kmutt_blue-100 font-semibold text-white px-4 py-2 rounded-xl shadow hover:bg-kmutt_blue-300"
           >
             Portainer

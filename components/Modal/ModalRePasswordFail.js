@@ -11,7 +11,6 @@ const ModalRePasswordFail = () => {
                 <p className="py-2 text-lg">Password has been not set!</p>
                 <div className="modal-action">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <button className="btn">Try again</button>
                     </form>
                 </div>

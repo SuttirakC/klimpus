@@ -1,14 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-
-// components
 import ModalFillInAll from "components/Modal/ModalFillInAll";
 import ModalUpdateSuccess from "components/Modal/ModalUpdateSuccess";
 import ModalUpdateFail from "components/Modal/ModalUpdateFail";
 import ModalUsernameExist from "components/Modal/ModalUsernameExist";
 import ModalEmailExist from "components/Modal/ModalEmailExist";
 import ModalEmailFormat from "components/Modal/ModalEmailFormat";
-
 
 export default function CardUpdate({ userId }) {
 
@@ -18,28 +14,8 @@ export default function CardUpdate({ userId }) {
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const [userData, setUserData] = useState([]);
-  const [updated, setUpdated] = useState(false);
-
-  // async function getUser() {
-  //   const postData = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   const res = await fetch(
-  //     `${process.env.NEXT_PUBLIC_URL}/api/userUpdate?id=${userId}`, postData
-  //   );
-
-  //   const response = await res.json();
-  //   setUserData(response.response.data[0]);
-  //   // console.log(response.response.data[0]);
-  // }
 
   async function updateUser() {
-
-    // Check if any required input is blank
     if (
       !usernameRef.current.value ||
       !emailRef.current.value ||
@@ -47,15 +23,12 @@ export default function CardUpdate({ userId }) {
       !firstnameRef.current.value ||
       !lastnameRef.current.value
     ) {
-      // alert("Please fill in all fields.");
       document.getElementById('fillinall').showModal();
       return;
     }
 
-    // Check email format
     const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailFormat.test(emailRef.current.value)) {
-      // alert('Please enter a valid email address.');
       document.getElementById('email_format').showModal();
       return;
     }
@@ -81,9 +54,7 @@ export default function CardUpdate({ userId }) {
 
     const response = await res.json();
     if (response.response && response.response.message === 'Updated Successfully') {
-      // alert(response.response.message);
       document.getElementById('update_success').showModal();
-      setUpdated(true);
     } else if (response.response && response.response.message === 'Update failed') {
       document.getElementById('update_fail').showModal();
     } else if (response.response && response.response.message === 'Username already exists') {
@@ -115,7 +86,6 @@ export default function CardUpdate({ userId }) {
 
       const response = await res.json();
       setUserData(response.response.data[0]);
-      // console.log(response.response.data[0]);
     }
 
     getUser();
@@ -127,7 +97,6 @@ export default function CardUpdate({ userId }) {
         <div className="rounded-3xl bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
 
-            {/* Modal components */}
             <ModalFillInAll />
             <ModalUpdateSuccess />
             <ModalUpdateFail />
@@ -135,15 +104,7 @@ export default function CardUpdate({ userId }) {
             <ModalEmailExist />
             <ModalEmailFormat />
 
-
             <h6 className="text-slate-700 text-xl font-bold">User ID #{userData.user_id}</h6>
-            {/* <button
-              className="bg-kmutt_orange-200 hover:bg-kmutt_orange-400 active:bg-kmutt_orange-200 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="button"
-              onClick={updateUser}
-            >
-              Update Account
-            </button> */}
 
           </div>
         </div>
@@ -232,17 +193,15 @@ export default function CardUpdate({ userId }) {
             Type
           </h6>
           <form className="w-full lg:w-6/12 px-4">
-            {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
             <select id="type"
               ref={roleRef}
               className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              value={userData.role_id} // Use value prop instead of defaultValue
+              value={userData.role_id}
               onChange={(e) => {
                 setUserData({
                   ...userData,
                   role_id: e.target.value,
                 });
-                // console.log("Selected role:", e.target.value);
               }}
             >
               <option value="1" >Admin</option>

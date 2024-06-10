@@ -1,9 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-
-// components
-
+import Link from "next/link";
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
 
 export default function CardTable({ color, updateUserCount }) {
@@ -24,7 +22,6 @@ export default function CardTable({ color, updateUserCount }) {
 
     const response = await res.json();
     setUserData(response.response.data);
-    // console.log(response.response.data);
   }
 
   async function deleteUser(userId) {
@@ -33,31 +30,26 @@ export default function CardTable({ color, updateUserCount }) {
         method: "DELETE",
       });
       if (response.ok) {
-        // If delete successful, fetch users again to update the table
         getUsers();
-        // Update user count
         updateUserCount();
       } else {
-        // Handle delete error
         console.error("Failed to delete user");
       }
     } catch (error) {
       console.error("Error deleting user:", error);
     }
   }
-  
+
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  // Function to format date strings
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // Function to get role name based on role_id
   const getRoleName = (roleId) => {
     switch (roleId) {
       case 1:
@@ -82,7 +74,7 @@ export default function CardTable({ color, updateUserCount }) {
         }
       >
         <div className="rounded-t mb-0 px-4 py-3 border-0">
-          <div className="flex flex-wrap items-center">
+          <div className="flex flex-row items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3
                 className={
@@ -92,11 +84,20 @@ export default function CardTable({ color, updateUserCount }) {
               >
                 User List
               </h3>
+
             </div>
+            <Link href="/admin/CreateAccount">
+              <button
+                className="bg-kmutt_blue-100 hover:bg-kmutt_blue-300 active:bg-kmutt_blue-100 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                type="button"
+              >
+                Create New Account
+              </button>
+            </Link>
           </div>
+
         </div>
         <div className="block w-full overflow-x-auto">
-          {/* Projects table */}
           <table className="items-center w-full bg-transparent border-collapse">
             <thead>
               <tr>
@@ -229,5 +230,5 @@ CardTable.defaultProps = {
 
 CardTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
-  updateUserCount: PropTypes.func.isRequired, // Add prop type for updateUserCount callback
+  updateUserCount: PropTypes.func.isRequired,
 };

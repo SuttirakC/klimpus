@@ -2,23 +2,17 @@ import { React, useEffect, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-
-// components
-
-// layout for page
-
 import Admin from "layouts/Admin.js";
 import CardUpdate from "components/Cards/CardUpdate";
 import CardResetPass from "components/Cards/CardResetPass";
 
 export default function UpdateAccount() {
     const router = useRouter();
-    const { id } = router.query; // Extract the id from query parameters
+    const { id } = router.query;
     const [role, setRole] = useState(1);
     const { data: session, status } = useSession()
 
     useEffect(() => {
-        // Redirect if user role is not admin
         if (session) {
             setRole(session.user.role_id);
         }
@@ -38,8 +32,6 @@ export default function UpdateAccount() {
                 </Link>
                 <div
                     className="text-white text-2xl uppercase hidden text-left ml-3 lg:inline-block font-semibold"
-                // href="#pablo"
-                // onClick={(e) => e.preventDefault()}
                 >
                     Update Account
                 </div>

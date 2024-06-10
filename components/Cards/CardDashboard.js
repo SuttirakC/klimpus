@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import Link from "next/link";
 
 export default function CardDashboard({
   statSubtitle,
@@ -7,19 +6,24 @@ export default function CardDashboard({
   statIconName,
   statIconColor,
   statStatus,
-  bgcolor
+  bgcolor,
+  staCount,
+  linktrack
 }) {
+
   return (
     <>
+    <Link href={linktrack ? "/admin/notification"+"#"+linktrack : "/admin/notification"}>
       <div className={"relative flex flex-col min-w-0 break-words rounded-3xl mb-6 xl:mb-0 shadow-lg " + bgcolor}>
         <div className="flex-auto p-4">
           <div className="flex flex-wrap">
-            <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-              <h5 className="text-slate-400 uppercase font-bold text-md">
+            <div className="relative w-full pr-4 max-w-full flex-grow flex-1 ">
+              <h5 className="text-slate-400 uppercase font-bold text-md  ">
                 {statSubtitle}
               </h5>
               <span className={"font-semibold text-xl text-slate-500"}>
                 {statTitle}
+                
               </span>
             </div>
             <div className="relative w-auto pl-4 flex-initial">
@@ -30,49 +34,30 @@ export default function CardDashboard({
                 }
               >
                 <i className={statIconName}></i>
+                
               </div>
             </div>
-            {/* <hr className="mt-4 md:min-w-full" /> */}
-
           </div>
 
         </div>
+
         <div className="relative flex items-center justify-center mt-4 mb-4">
-          <div className={"text-5xl text-white"}>
-
-            <i className={statStatus}></i>
+          <div className={"text-5xl text-white indicator"}>
+            {
+              staCount > 0? (
+                <>
+                <div className="indicator-item badge badge-primary text-xl">{staCount}</div>
+                <i className={statStatus}></i>
+                </>
+              ) : (
+                <i className={statStatus}></i>
+              )
+            }
+            
           </div>
         </div>
-        {/* <div className={"text-5xl text-center mb-4"}>
-          <i className={statStatus}></i>
-        </div> */}
       </div>
+      </Link>
     </>
   );
 }
-
-// CardDashboard.defaultProps = {
-//   statSubtitle: "Traffic",
-//   statTitle: "350,897",
-//   // statArrow: "up",
-//   // statPercent: "3.48",
-//   // statPercentColor: "text-emerald-500",
-//   // statDescripiron: "Since last month",
-//   statIconName: "far fa-chart-bar",
-//   statIconColor: "bg-red-500",
-// };
-
-// CardDashboard.propTypes = {
-//   statSubtitle: PropTypes.string,
-//   statTitle: PropTypes.string,
-//   statArrow: PropTypes.oneOf(["up", "down"]),
-//   statPercent: PropTypes.string,
-//   // can be any of the text color utilities
-//   // from tailwindcss
-//   statPercentColor: PropTypes.string,
-//   statDescripiron: PropTypes.string,
-//   statIconName: PropTypes.string,
-//   // can be any of the background color utilities
-//   // from tailwindcss
-//   statIconColor: PropTypes.string,
-// };

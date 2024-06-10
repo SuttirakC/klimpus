@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import CardInverterControl from "../../components/Cards/CardInverterControl";
 
 function inv_power(data){
-    // สร้างตัวแปรสำหรับเก็บจำนวนที่ inverter_power เป็น 0 และ 1
     let countZero = 0;
     let countOne = 0;
 
@@ -13,7 +12,6 @@ function inv_power(data){
             countOne++;
         }
     });
-    // นับจำนวนทั้งหมด
     const totalCount = data.length;
     return {ONLINES: countOne, OFFLINES: countZero, ALLS:totalCount};
 }
@@ -21,12 +19,9 @@ function inv_power(data){
 export default function BlockInverter() {
     const enableControl = 0;
     const [data_online, setData_online] = useState(null);
-    const [isLoading, setLoading] = useState(false)
     const [error_online, setError_online] = useState(null);
 
     useEffect(() => {
-        setLoading(true);
-
         async function fetchOnline() {
             const fetchpath = `/api/inverter/device`;
             try {
@@ -34,14 +29,11 @@ export default function BlockInverter() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                // console.log(newData);
                 const newData = await response.json();
                 setData_online(newData);
                 setError_online(null);
-                setLoading(false);
             } catch (error) {
                 setError_online(error.message);
-                // setData_online(null);
             }
         }
 
@@ -61,7 +53,6 @@ export default function BlockInverter() {
         on = inv_set.ONLINES;
         off = inv_set.OFFLINES;
         all = inv_set.ALLS;
-        // console.log(inv_set);
         p_on = (Number(on) / Number(all)) * 100;
         p_off = (Number(off) / Number(all)) * 100;
     }
@@ -85,12 +76,6 @@ export default function BlockInverter() {
                     <div className="w-full lg:w-10/12 xl:w-10/12">
                         <h6 className="text-md font-semibold text-slate-600 mb-1">Active Air Handling Unit</h6>
                         <div className="relative w-full">
-                            {/* <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_green-300">
-                                <div
-                                    style={{ width: p_on }}
-                                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-kmutt_green-200"
-                                ></div>
-                            </div> */}
                             <progress className="progress progress-info" value={p_on} max="100"></progress>
                         </div>
                     </div>
@@ -104,13 +89,6 @@ export default function BlockInverter() {
                     <div className="w-full lg:w-10/12 xl:w-10/12">
                         <h6 className="text-md font-semibold text-slate-600 mt-4 mb-1">Inactive Air Handling Unit</h6>
                         <div className="relative w-full">
-                            
-                            {/* <div className="overflow-hidden h-2 text-xs flex rounded bg-kmutt_red-300">
-                                <div
-                                    style={{ width: 600 }}
-                                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-kmutt_red-200"
-                                ></div>
-                            </div> */}
                             <progress className="progress progress-error" value={p_off} max="100"></progress>
                           
                         </div>
@@ -251,47 +229,13 @@ export default function BlockInverter() {
                                 </button>
                                 </>
                                 }
-                       </div>
-                       {/* <div className="w-full px-4 mt-6">
-                           <h6 className="text-md font-semibold text-slate-400 ">Inverter status details: -</h6>
-                       </div>
-                       <div className="w-full flex flex-row mt-4">
-
-                           <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start justify-start px-4">
-                               <h6 className="text-md font-semibold text-slate-500 ">run time:</h6>
-                           </div>
-                           <div className="w-full lg:w-3/12 xl:w-3/12 flex items-start">
-                               <span id="timer"
-                                   className="text-md font-semibold text-slate-500 ">00:00:00</span>
-                           </div>
-                           <div className="w-full lg:w-6/12 xl:w-6/12 flex items-start justify-start">
-                               <h6 className="text-md font-semibold text-slate-500 ">Hr</h6>
-                           </div>
-                       </div> */}
+                       </div>                
                    </div>
                </div>
 
            </div>
        </div>
            ))}
-
-            
-            {/* <div className="w-full">
-                <h6 className="text-2xl font-semibold text-slate-200 mt-8 mb-4"> 2nd - 5th Floor</h6>
-            </div>
-            <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
-                <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
-                    <div className="flex-auto p-4">
-                        <div className="flex flex-wrap">
-                            <div className="relative w-full flex justify-center">
-                                <h6 className="text-slate-500 font-bold text-xl">
-                                    No data
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
         </div >
             
@@ -300,16 +244,4 @@ export default function BlockInverter() {
         </>
     );
 }
-// This function gets called at build time
-// export async function getStaticProps() {
-//     // Call an external API endpoint to get data
-//     const res = await fetch('https://www.mecallapi.com/api/attractions')
-//     const data = await res.json()
-  
-//     // By returning { props: { data } }, the HomePage component
-//     // will receive `data` as a prop at build time
-//     return {
-//       props: { data },
-//     }
-//   }
   

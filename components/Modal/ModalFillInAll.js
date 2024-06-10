@@ -11,7 +11,6 @@ const ModalFillInAll = () => {
                 <p className="py-2 text-lg">Please fill in all required fields.</p>
                 <div className="modal-action">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <button className="btn">Try again</button>
                     </form>
                 </div>

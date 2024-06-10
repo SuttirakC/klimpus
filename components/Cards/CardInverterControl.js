@@ -91,22 +91,19 @@ export default function CardInverterControl({ enableControl, status, frequency, 
                                 </h6>
                             </div>
                             <div className="w-full lg:w-5/12 xl:w-5/12 flex items-start justify-end">
-                                {/* <Link href="/admin/account"> */}
                                 <button disabled id="lowfreq"
                                     className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mr-4 "
                                     type="button"
                                 >
                                     30.00
                                 </button>
-                                {/* </Link> */}
-                                {/* <Link href="/admin/account"> */}
                                 <button disabled id="highfreq"
                                     className="bg-slate-200 active:bg-slate-200 text-slate-400 font-bold uppercase text-lg w-5/12 py-1 rounded-3xl shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                     type="button"
                                 >
                                     50.00
                                 </button>
-                                {/* </Link> */}
+                               
                             </div>
                         </div>
                     </div>

@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-
-// components
-
 import CardLineChart from "components/Cards/CardLineChart.js";
 import CardBarChart from "components/Cards/CardBarChart.js";
 import CardLineChartAHU from "components/Cards/CardLineChartAHU.js";
 import CardDashboard from "components/Cards/CardDashboard";
-
-// layout for page
-
 import Admin from "layouts/Admin.js";
 
 export default function Dashboard() {
@@ -30,7 +23,6 @@ export default function Dashboard() {
         const data = await response.json();
         const unread = data.filter(noti => noti.noti_case_status === 1);
         setUnreadCount(unread.length);
-        // console.log("Data",response);
         const categorized = {
           elec: data.filter(noti => noti.type === 'elec'),
           water: data.filter(noti => noti.type === 'water'),
@@ -38,7 +30,6 @@ export default function Dashboard() {
           chiller: data.filter(noti => noti.type === 'chiller'),
           other: data.filter(noti => noti.type === 'other'),
         };
-        // console.log("Categorized", categorized);
         if (data.length === 0) {
           setNotifications({
             elec: [],
@@ -51,12 +42,10 @@ export default function Dashboard() {
         }
 
         if (data.length > 0) {
-          // alert('New notifications available!');
           setNotifications(categorized);
         }
       } catch (error) {
         console.error('Error fetching notifications:', error);
-        // Reset notifications to empty if there's an error
         setNotifications({
           elec: [],
           water: [],
@@ -66,12 +55,10 @@ export default function Dashboard() {
         });
       }
     };
-
+    
     const interval = setInterval(() => {
       fetchNotifications();
-    }, 100); // Check every 10 seconds
-
-    // Clean up the interval on component unmount
+    }, 100); 
     return () => clearInterval(interval);
   }, []);
 
@@ -88,7 +75,6 @@ export default function Dashboard() {
   };
 
   const getStatTitle = (noti_case_level) => {
-    // console.log("Status:", noti_case_level); 
     return noti_case_level === 1 ? 'Warning' : (noti_case_level === 2 ? 'Error' : 'Normal');
   };
 
@@ -104,7 +90,7 @@ export default function Dashboard() {
 
       <div className="flex flex-wrap mt-8 justify-center ">
 
-        <div className="w-full max-w-60 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.elec[0]?.noti_case_level)}
             statSubtitle="Electric"
@@ -112,10 +98,12 @@ export default function Dashboard() {
             statIconName="fas fa-bolt"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.elec[0]?.noti_case_level)}
+            staCount={notifications.elec.length}
+            linktrack="elec"
           />
         </div>
 
-        <div className="w-full max-w-60 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.water[0]?.noti_case_level)}
             statSubtitle="Tap Water"
@@ -123,10 +111,12 @@ export default function Dashboard() {
             statIconName="fas fa-droplet"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.water[0]?.noti_case_level)}
+            staCount={notifications.water.length}
+            linktrack="water"
           />
         </div>
 
-        <div className="w-full max-w-60 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.chiller[0]?.noti_case_level)}
             statSubtitle="Chiller"
@@ -134,10 +124,12 @@ export default function Dashboard() {
             statIconName="fas fa-snowflake"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.chiller[0]?.noti_case_level)}
+            staCount={notifications.chiller.length}
+            linktrack="chiller"
           />
         </div>
 
-        <div className="w-full max-w-60 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.ahu[0]?.noti_case_level)}
             statSubtitle="AHU"
@@ -145,10 +137,12 @@ export default function Dashboard() {
             statIconName="fas fa-wind"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.ahu[0]?.noti_case_level)}
+            staCount={notifications.ahu.length}
+            linktrack="ahu"
           />
         </div>
 
-        <div className="w-full max-w-60 px-4 mt-4">
+        <div className="w-full xl:w-1/5 lg:w-1/3 md:w-1/2 px-4 mt-4">
           <CardDashboard
             bgcolor={getBgColor(notifications.other[0]?.noti_case_level)}
             statSubtitle="Other"
@@ -156,56 +150,13 @@ export default function Dashboard() {
             statIconName="fas fa-gear"
             statIconColor="bg-gray-300"
             statStatus={getIconName(notifications.other[0]?.noti_case_level)}
+            staCount={notifications.other.length}
+            linktrack="other"
           />
+          
         </div>
+      
 
-
-        {/* Alert Notification */}
-        <div className=" w-95 px-4 mt-4">
-          <div className="relative flex flex-col min-w-0 break-words bg-white rounded-3xl mb-6 xl:mb-0 shadow-lg">
-            <div className="flex-auto p-4">
-              <div className="flex flex-wrap">
-                <div className="relative w-full pr-4 py-1 max-w-full flex-grow flex-1">
-                  <h5 className="text-slate-400 uppercase font-bold text-md">
-                    Hot Notification
-                  </h5>
-                </div>
-                <div className="relative w-auto pl-4 flex-initial">
-                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-kmutt_blue-100">
-                    <i className="fas fa-bell"></i>
-                  </div>
-                </div>
-              </div>
-
-              {unreadCount > 0 ? (
-                <div role="alert" className="alert shadow-lg mt-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <div>
-                    <h3 className="font-bold">New message!</h3>
-                    <div className="text-xs">You have {unreadCount} unread message(s)</div>
-                  </div>
-                  <Link href="/admin/notification">
-                    <button className="btn btn-sm">See</button>
-                  </Link>
-                </div>
-              ) : (
-                <div role="alert" className="alert shadow-lg mt-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <div>
-                    <h3 className="font-bold">No message</h3>
-                    <div className="text-xs">You have {unreadCount} unread message(s)</div>
-                  </div>
-                </div>
-              )}
-
-
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="flex flex-wrap mt-4">

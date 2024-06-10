@@ -4,9 +4,6 @@ import { getCsrfToken } from "next-auth/react"
 import { useEffect } from "react";
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router";
-
-// layout for page
-
 import Auth from "layouts/Auth.js";
 
 export default function Login({ csrfToken }) {

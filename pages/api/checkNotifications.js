@@ -7,7 +7,6 @@ export default async function handler(req, res) {
         name_db: 'klimpus',
         query: 'SELECT * FROM noti_case WHERE noti_case_status = 1 ORDER BY noti_case_level DESC'
       });
-    //   console.log(notifications);
       res.status(200).json(notifications);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch notifications' });

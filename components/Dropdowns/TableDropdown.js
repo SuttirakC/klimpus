@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createPopper } from "@popperjs/core";
-import Link from "next/link";
-
 import ModalDeleteConfirm from "components/Modal/ModalDeleteConfirm";
 
 const TableDropdown = ({ onEdit, onDelete }) => {
@@ -27,21 +25,19 @@ const TableDropdown = ({ onEdit, onDelete }) => {
   };
 
   const handleEdit = () => {
-    onEdit(); // Call the onEdit callback when the Edit option is clicked
-    closeDropdownPopover(); // Close the dropdown after clicking Edit
+    onEdit(); 
+    closeDropdownPopover(); 
   };
 
   const handleDelete = () => {
-    // Open the delete confirmation modal
     if (deleteModalRef.current) {
       deleteModalRef.current.showModal();
     }
   };
 
   const confirmDelete = () => {
-    // Call the onDelete callback to delete the user
     onDelete();
-    closeDropdownPopover(); // Close the dropdown after deleting the user
+    closeDropdownPopover();
   };
 
   return (

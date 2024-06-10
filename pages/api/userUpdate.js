@@ -3,7 +3,7 @@ import { query } from '../../lib/db';
 export default async function handler(req, res) {
     try {
         if (req.method === 'GET') {
-            const { id } = req.query; // Access the user_id from query parameters
+            const { id } = req.query;
             const usersList = await query({
                 query: 'SELECT * FROM users WHERE user_id = ?',
                 values: [id],
@@ -17,13 +17,11 @@ export default async function handler(req, res) {
         if (req.method === 'PUT' && !req.body.password) {
             const { user_id, username, email, role_id, firstname, lastname } = req.body;
 
-            // Check if username exists for other users
             const existingUsername = await query({
                 query: 'SELECT * FROM users WHERE username = ? AND user_id != ?',
                 values: [username, user_id],
             });
 
-            // Check if email exists for other users
             const existingEmail = await query({
                 query: 'SELECT * FROM users WHERE email = ? AND user_id != ?',
                 values: [email, user_id],

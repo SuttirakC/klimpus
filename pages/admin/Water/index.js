@@ -1,26 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-
-
-// components
 import CardWaterInfo from "components/Cards/CardWaterInfo";
 import CardBarChart from "components/Cards/CardBarChart.js";
 import numberFormat from "functions/number_format";
-
-// layout for page
-
 import Admin from "layouts/Admin.js";
 
 export default function Water() {
     const [data, setData] = useState(null);
     const [status, setStatus] = useState(null);
     const [error, setError] = useState(null);
-    const [iframeKey, setIframeKey] = useState(0);
-    const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true)
         async function fetchData() {
             const fetchpath = `/api/waterUsage`;
             try {
@@ -29,10 +20,7 @@ export default function Water() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log("----->", newData);
                 setData(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setData(null);
@@ -43,7 +31,6 @@ export default function Water() {
     }, [data]);
 
     useEffect(() => {
-        setLoading(true)
         async function fetchStatus() {
             const fetchpath = `/api/Status/FlowMeter`;
             try {
@@ -52,10 +39,7 @@ export default function Water() {
                     throw new Error('Network response was not ok');
                 }
                 const newData = await response.json();
-                // console.log("----->", newData);
                 setStatus(newData);
-                setLoading(false);
-                setIframeKey(prevKey => prevKey + 1);
             } catch (error) {
                 setError(error.message);
                 setStatus(null);
@@ -65,10 +49,6 @@ export default function Water() {
         fetchStatus()
     }, [status]);
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
-    // if (isLoading) return <p>Loading...</p>
     if (!data || !status) return;
     const obj = (data);
     const obj2 = (status);
@@ -78,8 +58,6 @@ export default function Water() {
                 <div className="w-full mx-auto items-start flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                     <a
                         className="text-white text-2xl uppercase hidden lg:inline-block font-semibold"
-                    // href="#pablo"
-                    // onClick={(e) => e.preventDefault()}
                     >
                         Tap Water
                     </a>
@@ -102,14 +80,14 @@ export default function Water() {
                 <div className="flex flex-wrap mt-8">
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
-                            waterinfo="Day Usage"
+                            waterinfo="Today Usage"
                             statTitle={numberFormat(obj.flow_day * 1000)}
                             statSubtitle="Liters"
                         />
                     </div>
                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                         <CardWaterInfo
-                            waterinfo="Month Usage"
+                            waterinfo="This Month Usage"
                             statTitle={numberFormat(obj.flow_month * 1000)}
                             statSubtitle="Liters"
                         />
@@ -125,7 +103,7 @@ export default function Water() {
                     </div>
                 </div>
 
-               
+
                 <div className="flex flex-wrap mt-6">
                     <div className="w-full px-4 mt-4 mb-4">
                         <CardBarChart />

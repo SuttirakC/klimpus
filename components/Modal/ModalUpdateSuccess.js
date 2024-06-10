@@ -12,7 +12,6 @@ const ModalUpdateSuccess = () => {
                 <p className="py-2 text-lg">This account has been updated successfully.</p>
                 <div className="modal-action">
                     <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
                         <Link href="/admin/account">
                             <button className="btn">Close</button>
                         </Link>

@@ -1,10 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-// components
-
-import TableDropdown from "components/Dropdowns/TableDropdown.js";
-
 export default function CardChillerStatus({ color, dataStatus }) {
 
     return (
@@ -24,13 +19,12 @@ export default function CardChillerStatus({ color, dataStatus }) {
                                     (color === "light" ? "text-slate-700" : "text-white")
                                 }
                             >
-                                Chiller Performance
+                                System Status
                             </h3>
                         </div>
                     </div>
                 </div>
                 <div className="block w-full overflow-x-auto">
-                    {/* Projects table */}
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
@@ -42,7 +36,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                                             : "bg-slate-600 text-slate-200 border-slate-500")
                                     }
                                 >
-                                    Device Status
+                                    Device
                                 </th>
                                 <th
                                     className={
@@ -99,7 +93,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                         <tbody>
                             <tr>
                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left flex items-center">
-                                    Fan Status
+                                    Fan
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                     <i className={dataStatus.showFan_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.showFan_1 ? "Online" : "Offline"}
@@ -119,7 +113,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                             </tr>
                             <tr>
                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left flex items-center">
-                                    Chiller Status
+                                    Chiller
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                     <i className={dataStatus.statusChiller_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusChiller_1 ? "Online" : "Offline"}
@@ -139,7 +133,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                             </tr>
                             <tr>
                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left flex items-center">
-                                    Pump Status
+                                    Pump
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                     <i className={dataStatus.statusPump_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusPump_1 ? "Online" : "Offline"}
@@ -159,7 +153,7 @@ export default function CardChillerStatus({ color, dataStatus }) {
                             </tr>
                             <tr>
                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left flex items-center">
-                                    Valve Status
+                                    Valve
                                 </th>
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                     <i className={dataStatus.statusValve_1 ? "fas fa-circle text-kmutt_green-100 mr-2" : "fas fa-circle text-kmutt_red-100 mr-2"}></i> {dataStatus.statusValve_1 ? "Online" : "Offline"}

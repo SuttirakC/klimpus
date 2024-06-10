@@ -9,6 +9,7 @@ import CardNotiOther from 'components/Cards/CardNotiOther';
 
 export default function Notification() {
     const router = useRouter();
+    const { type } = router.query;
     const [notifications, setNotifications] = useState({
         elec: [],
         water: [],
@@ -22,7 +23,6 @@ export default function Notification() {
             try {
                 const response = await fetch('/api/checkNotifications');
                 const data = await response.json();
-                // console.log("Data",response);
                 const categorized = {
                     elec: data.filter(noti => noti.type === 'elec'),
                     water: data.filter(noti => noti.type === 'water'),
@@ -30,7 +30,6 @@ export default function Notification() {
                     chiller: data.filter(noti => noti.type === 'chiller'),
                     other: data.filter(noti => noti.type === 'other'),
                 };
-                // console.log("Categorized",categorized);
                 if (data.length === 0) {
                     setNotifications({
                         elec: [],
@@ -43,12 +42,10 @@ export default function Notification() {
                 }
                 
                 if (data.length > 0) {
-                    // alert('New notifications available!');
                     setNotifications(categorized);
                 }
             } catch (error) {
                 console.error('Error fetching notifications:', error);
-                // Reset notifications to empty if there's an error
                 setNotifications({
                     elec: [],
                     water: [],
@@ -61,11 +58,15 @@ export default function Notification() {
 
         const interval = setInterval(() => {
             fetchNotifications();
-        }, 100); // Check every 10 seconds
-
-        // Clean up the interval on component unmount
+        }, 100);
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        if (type) {
+            document.getElementById(type)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [type]);
 
     return (
         <>

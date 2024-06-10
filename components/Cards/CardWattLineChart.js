@@ -1,26 +1,25 @@
-import React, { useEffect } from "react";
-import Chart from 'chart.js/auto';
+import React from "react";
 
-export default function CardWattLineChart({deviceName,iframeKey}) {
-    var src="";
-    if(deviceName == "PowerMeter_LP11"){
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=4";
-    }
-    else if(deviceName == "PowerMeter_LP12"){
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=6";
-    }
-    else if(deviceName == "PowerMeter_LP13"){
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=5";
-    }
-    else if(deviceName == "PowerMeter_LP14"){
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=7";
-    }
-    else if(deviceName == "PowerMeter_LP15"){
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=8";
-    }
-    else{
-        src="http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=11";
-    }
+export default function CardWattLineChart({ deviceName, iframeKey }) {
+  var src = "";
+  if (deviceName == "PowerMeter_LP11") {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=4";
+  }
+  else if (deviceName == "PowerMeter_LP12") {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=6";
+  }
+  else if (deviceName == "PowerMeter_LP13") {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=5";
+  }
+  else if (deviceName == "PowerMeter_LP14") {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=7";
+  }
+  else if (deviceName == "PowerMeter_LP15") {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=8";
+  }
+  else {
+    src = "http://modld146.lib.kmutt.ac.th:3000/d-solo/bdk6tg5ev905cb/powermeter?orgId=1&theme=light&panelId=11";
+  }
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-3xl bg-white">
@@ -35,13 +34,9 @@ export default function CardWattLineChart({deviceName,iframeKey}) {
           </div>
         </div>
         <div className="p-4 flex-auto">
-        <div className="relative h-350-px">
-        <iframe key={iframeKey} src={src} width="100%" height="100%"></iframe>
-        </div>
-          {/* Chart */}
-          {/* <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
-          </div> */}
+          <div className="relative h-350-px">
+            <iframe key={iframeKey} src={src} width="100%" height="100%"></iframe>
+          </div>
         </div>
       </div>
     </>
